@@ -1,0 +1,26 @@
+<form action="<%= action %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+  <% if value == "Sign Up" %>
+    <p>
+      <label>Username
+        <input type="text" name="user[username]">
+      </label>
+    </p>
+  <% end  %>
+
+  <p>
+    <label>Email
+      <input type="text" name="user[email]">
+    </label>
+  </p>
+
+  <p>
+    <label>Password
+      <input type="password" name="user[password]">
+    </label>
+  </p>
+
+  <input type="submit" value="<%= value %>">
+</form>
