@@ -5,6 +5,8 @@ gem 'rails_12factor', group: :production
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'pg'
 gem 'figaro'
+gem "paperclip"
+gem "aws-sdk"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

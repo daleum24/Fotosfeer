@@ -39,4 +39,15 @@ ImgurClone::Application.configure do
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.default_url_options = { host: "localhost:3000" }
 
+  #Paperclip settings
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['IMGUR_CLONE_DEVELOPMENT'],
+      :access_key_id => ENV['AWSAccessKeyId'],
+      :secret_access_key => ENV['AWSSecretKey'],
+      :s3_host_name => 's3.amazonaws.com' # or whatever your region host name is
+    }
+  }
+
 end

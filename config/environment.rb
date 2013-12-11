@@ -21,3 +21,4 @@ elsif Rails.env.development?
   # just opens them in another tab.
   ActionMailer::Base.delivery_method = :letter_opener
 end
+
