@@ -1,8 +1,9 @@
 class PhotosController < ApplicationController
   before_filter :logged_in?
 
+  #User Home Page
   def index
-
+    @photos = Photo.order("created_at DESC")
   end
 
   def new

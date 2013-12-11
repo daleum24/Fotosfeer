@@ -1,1 +1,8 @@
 <h1>Photos Index Page</h1>
+
+<% @photos.each do |photo| %>
+  <img src="<%= photo.image.url %>"><br>
+  <p><%= photo.description %></p>
+  <p>Latitude: <%= photo.latitude.to_f %></p>
+  <p>Longitude: <%= photo.longitude.to_f %></p>
+<% end %>
