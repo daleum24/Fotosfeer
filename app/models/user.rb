@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
 
   before_validation :reset_session_token!, on: :create
 
-  has_many{
+  has_many(
     :submitted_photos,
     class_name: "Photo",
     foreign_key: :submitter_id,
     primary_key: :id
-  }
+  )
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
