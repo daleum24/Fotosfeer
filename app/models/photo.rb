@@ -4,7 +4,7 @@
 # xif date
 
 class Photo < ActiveRecord::Base
-  attr_accessible :submitter_id, :title, :description, :latitude, :longitude
+  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
 

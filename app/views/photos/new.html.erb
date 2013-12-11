@@ -1,6 +1,6 @@
 <h1>Upload a Photo!</h1>
 
-<%= form_for @photo do |f| %>
+<%= form_for @photo, url: user_photos_url do |f| %>
 
   <%= f.label :Title %>:
   <%= f.text_field :title %><br />
@@ -14,7 +14,9 @@
   <%= f.label :Longitude %>:
   <%= f.text_field :longitude %><br />
 
-  <%= f.file_field :image %>
+  <%= f.file_field :image %><br />
+
+  <%= f.submit %>
 
 <% end %>
 
