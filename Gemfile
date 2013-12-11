@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'pg'
+gem 'figaro'
 gem 'rails_12factor', group: :production
 
 group :assets do
