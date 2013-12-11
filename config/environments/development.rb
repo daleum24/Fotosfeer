@@ -37,5 +37,6 @@ ImgurClone::Application.configure do
 
   # letter_opener: Delivery method
   config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+
 end

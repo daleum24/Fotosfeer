@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       login(user)
     else
       flash[:errors] = ["Invalid email/password combination"]
-      redirect_to new_sessions_url
+      redirect_to new_session_url
     end
 
   end

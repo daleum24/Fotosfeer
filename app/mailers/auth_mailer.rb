@@ -9,4 +9,13 @@ class AuthMailer < ActionMailer::Base
       :subject => 'Thanks for signing up'
     )
   end
+
+  def password_reset_email(user)
+    @user = user
+    @url = edit_password_reset_url
+    mail(
+      :to => user.email,
+      :subject => 'Password Reset'
+    )
+  end
 end

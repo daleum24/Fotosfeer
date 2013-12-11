@@ -11,6 +11,7 @@ module SessionsHelper
 
   def logout
     self.current_user.reset_session_token!
+    self.current_user.save
     @current_user = nil
     session[:session_token] = nil
     redirect_to root_url
