@@ -15,6 +15,13 @@ class Photo < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :comments,
+    class_name: "Comment",
+    foreign_key: :photo_id,
+    primary_key: :id
+  )
+
   has_attached_file :image
 
 end
