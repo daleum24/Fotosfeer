@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20131211204759) do
     t.integer  "submitter_id",       :null => false
     t.string   "title",              :null => false
     t.string   "description"
-    t.integer  "latitude",           :null => false
-    t.integer  "longitude",          :null => false
+    t.float    "latitude",           :null => false
+    t.float    "longitude",          :null => false
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
