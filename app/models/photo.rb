@@ -12,4 +12,6 @@ class Photo < ActiveRecord::Base
     primary_key: :id
   }
 
+  has_attached_file :image
+
 end
