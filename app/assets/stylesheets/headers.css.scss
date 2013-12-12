@@ -46,7 +46,7 @@ nav{
   background: lightgreen;
   padding: 0px 20px;
   position: relative;
-  border: 1px solid black;
+
 }
 
 #username_dropdown{
@@ -59,6 +59,20 @@ nav{
   background-color: white;
   position: absolute;
 };
+
+#username:hover #username_dropdown{
+  margin-top: 20px;
+}
+
+#username:hover #username_dropdown li{
+  background: pink;
+  padding: 5px 10px;
+  width: 100px;
+}
+
+#username_dropdown > li:hover{
+  background-color: blue;
+}
 
 #portal_buttons{
   float: right;

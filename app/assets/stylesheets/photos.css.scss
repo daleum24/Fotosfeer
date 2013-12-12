@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, section, div, img, ul, li, a{
+body, section, div, img,  a{
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -47,6 +47,7 @@ ul, li{
   margin-top: 30px;
 }
 
+
 //SHOW
 
 .photo_object{
@@ -80,7 +81,7 @@ ul, li{
 
 .image_show img {
     width: 100%;
-    height: absoluteuto;
+    height: auto;
 }
 
 .browse_buttons{
