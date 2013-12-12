@@ -67,6 +67,22 @@ ul, li{
     height: auto;
 }
 
+.browse_buttons{
+  border: 1px solid red;
+  width: 300px;
+  height: 50px;
+  float: right;
+}
+
+.browse_buttons p{
+  background: lightgreen;
+  border: 1px solid black;
+  width: 100px;
+  height: 40px;
+  display: block;
+  float: left;
+}
+
 .standard_map{
   width: 300px;
   height: 300px;

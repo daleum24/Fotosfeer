@@ -25,6 +25,11 @@
 
   </section>
 
+  <div class="browse_buttons">
+    <a href="<%= photo_url(@photo.id-1) %>"><p>Prev</p></a>
+    <a href="<%= photo_url(@photo.id+1) %>"><p>Next</p></a>
+  </div>
+
   <div class="standard_map">
     <img src="<%= @photo.static_page %>">
   </div>
