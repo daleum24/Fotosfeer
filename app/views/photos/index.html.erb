@@ -1,8 +1,11 @@
-<h1>Photos Index Page</h1>
+<section class="photo_index">
 
-<% @photos.each do |photo| %>
-  <a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url %>"></a><br>
-  <p><%= photo.description %></p>
-  <p>Latitude: <%= photo.latitude.to_f %></p>
-  <p>Longitude: <%= photo.longitude.to_f %></p>
-<% end %>
+  <h1>Photos Index Page</h1>
+
+  <% @photos.each do |photo| %>
+    <div class="images_index">
+      <a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url %>"></a>
+    </div>
+  <% end %>
+
+</section>

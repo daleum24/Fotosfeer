@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, section, div, img, ul, li{
+body, section, div, img, ul, li, a{
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -15,7 +15,29 @@ ul, li{
   list-style: none;
 }
 
-.photo_show{
+.images_index{
+  border: 1px solid red;
+  width: 200px;
+  margin: auto;
+  height: 200px;
+  float:left;
+  margin: 10px;
+}
+
+.images_index img {
+    width: 100%;
+    height: auto;
+}
+.images_index a {
+  width: 100%;
+  height: auto;
+}
+
+.photo_index h1{
+  text-align: center;
+}
+
+.photo_show, .photo_index{
   border: 1px solid red;
   height: 1500px;
   width: 1000px;
@@ -33,14 +55,14 @@ ul, li{
   padding: 10px;
 }
 
-.standard_image{
+.image_show{
   width: 500px;
   margin: auto;
   height: 400px;
   border: 1px solid black;
 }
 
-.standard_image img {
+.image_show img {
     width: 100%;
     height: auto;
 }
