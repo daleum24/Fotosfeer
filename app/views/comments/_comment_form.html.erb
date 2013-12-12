@@ -1,0 +1,18 @@
+<form action="<%= photo_comments_url(params[:photo_id])%>" method="post">
+
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+  <% if params[:parent_comment_id] %>
+    <p> <%= params[:parent_comment_id] %></p>
+     <input type="hidden"
+            name="comment[parent_comment_id]"
+           value="<%= params[:parent_comment_id] %>">
+  <% end %>
+
+  <input type="text" name="comment[body]" placeholder="Submit a Comment">
+
+  <input type="submit", value="Save">
+
+</form>

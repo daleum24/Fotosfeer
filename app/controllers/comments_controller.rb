@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
 
+  def new
+    @photo = Photo.find(params[:photo_id])
+  end
+
   def create
     @comment = Comment.new(params[:comment])
     @comment.update_attributes(commenter_id: self.current_user.id, photo_id: params[:photo_id])

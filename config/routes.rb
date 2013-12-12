@@ -8,7 +8,7 @@ ImgurClone::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   resources :photos, only: [:index, :show] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:new, :create]
   end
 
   resources :comments, only: [:destroy]

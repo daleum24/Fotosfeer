@@ -2,10 +2,11 @@
   User: <%= User.find(top_level_comment.commenter_id).username %>
   <br>
   <%= top_level_comment.body %>
+  <%= link_to "Reply", new_photo_comment_url(photo.id, {parent_comment_id: top_level_comment.id}) %>
 </p>
 
 <ul>
   <% comments_by_parent[top_level_comment.id].each do |child_comment| %>
-    <li><%= render "comment", top_level_comment: child_comment, comments_by_parent: comments_by_parent %></li>
+    <li><%= render "comment", photo: @photo, top_level_comment: child_comment, comments_by_parent: comments_by_parent %></li>
   <% end %>
 </ul>

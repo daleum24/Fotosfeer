@@ -6,7 +6,7 @@
 <br>
 
 <h4>Post a Comment</h4>
-<%= render "comments/new", comment: Comment.new , photo: @photo%>
+<%= link_to "Post a new comment", new_photo_comment_url(@photo.id) %>
 
 <br>
 
@@ -16,7 +16,7 @@
     <% comments_by_parent = @photo.comments_by_parent_id %>
     <% comments_by_parent[nil].each do |top_level_comment| %>
       <li>
-        <%= render "comment", top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
+        <%= render "comment", photo: @photo, top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
       </li>
     <% end %>
   </ul>
