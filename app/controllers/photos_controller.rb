@@ -26,4 +26,24 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  def upvote
+    @uservote = UserVote.find_by_user_id_and_photo_id(self.current_user.id, params[:id])
+    if @uservote
+      @uservote.update_attributes(value: 2)
+    else
+      UserVote.create(value: 2, user_id: self.current_user.id, photo_id: params[:id])
+    end
+    redirect_to Photo.find(params[:id])
+  end
+
+  def downvote
+    @uservote = UserVote.find_by_user_id_and_photo_id(self.current_user.id, params[:id])
+    if @uservote
+      @uservote.update_attributes(value: -1)
+    else
+      UserVote.create(value: -1, user_id: self.current_user.id, photo_id: params[:id])
+    end
+    redirect_to Photo.find(params[:id])
+  end
+
 end

@@ -51,20 +51,32 @@ ul, li{
   float: left;
 }
 
-.photo_object h1, p, .comments, a{
+.photo_object h1, p, .image_show_votes, .comments{
   padding: 10px;
+}
+
+.image_show, .image_show_votes, .comments{
+    border: 1px solid black;
+}
+
+.image_show_votes{
+  height: 50px;
+}
+
+.image_show_votes div{
+  height: 40px;
+  float: left;
 }
 
 .image_show{
   width: 500px;
   margin: auto;
   height: 400px;
-  border: 1px solid black;
 }
 
 .image_show img {
     width: 100%;
-    height: auto;
+    height: absoluteuto;
 }
 
 .browse_buttons{

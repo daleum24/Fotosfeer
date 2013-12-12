@@ -9,9 +9,13 @@
 
     <p>Description: <%= @photo.description %></p>
 
-    <%= link_to "Post a new comment", new_photo_comment_url(@photo.id) %>
+    <div class="image_show_votes">
+      <%= button_to "Upvote", upvote_photo_url, method: :post, class: "vote_button" %>
+      <%= button_to "Downvote", downvote_photo_url, method: :post, class: "vote_button" %>
+    </div>
 
     <div class="comments">
+      <%= link_to "Post a new comment", new_photo_comment_url(@photo.id) %>
       <h4>Comments:</h4>
       <ul>
         <% comments_by_parent = @photo.comments_by_parent_id %>

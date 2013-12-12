@@ -9,6 +9,11 @@ ImgurClone::Application.routes.draw do
 
   resources :photos, only: [:index, :show] do
     resources :comments, only: [:new, :create]
+
+    member do
+      post "upvote"
+      post "downvote"
+    end
   end
 
   resources :comments, only: [:destroy]
