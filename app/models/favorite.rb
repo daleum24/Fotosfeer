@@ -1,4 +1,4 @@
-class Favorites < ActiveRecord::Base
+class Favorite < ActiveRecord::Base
   attr_accessible :user_id, :photo_id
 
   validates :user_id, :photo_id, presence: true
@@ -16,5 +16,4 @@ class Favorites < ActiveRecord::Base
     foreign_key: :photo_id,
     primary_key: :id
   )
-
 end

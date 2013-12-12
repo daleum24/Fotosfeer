@@ -36,16 +36,12 @@
   </div>
 
   <div class="favorite_buttons">
-
-    <!-- <% params[:photo] = {} %>
-    <% params[:photo][:is_favorite] = {} %>
-
-    <% if @photo.is_favorite == false %>
-      <%= button_to "Favorite", photo_url({id: @photo.id, photo: {is_favorite: true}}), method: :put %>
+    <% favorite = @photo.favorites.where(user_id: self.current_user.id) %>
+    <% if favorite && !favorite.empty? %>
+      <%= button_to "Unfavorite", favorite_url(favorite.first.id), method: :delete %>
     <% else %>
-      <%= button_to "Unfavorite", photo_url({id: @photo.id, photo: {is_favorite: false}}), method: :put %>
-    <% end  %> -->
-
+      <%= button_to "Favorite", photo_favorites_url(@photo.id), method: :post %>
+    <% end %>
   </div>
 
   <div class="standard_map">

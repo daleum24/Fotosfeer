@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :favorited_photos, through: :favorites, source: :photo
+    :favorite_photos, through: :favorites, source: :photo
   )
 
   def self.find_by_credentials(email, password)
