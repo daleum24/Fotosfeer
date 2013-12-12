@@ -1,0 +1,24 @@
+<header>
+  <nav class="signed_in">
+    <div id="home_link">
+      <p><a href="<%= photos_url %>">imgUm</a></p>
+    </div>
+
+    <div id="nav_buttons">
+      <div id="image_upload">
+        <a href="<%= new_user_photo_url(self.current_user.id) %>">Upload Image</a>
+      </div>
+
+      <div id="username">
+        <%= self.current_user.username %>
+        <ul id="username_dropdown">
+          <li>Favorites</li>
+          <li><%= button_to "Logout", session_url, method: :delete %></li>
+        </ul>
+      </div>
+
+
+    </div>
+
+  </nav>
+</header>

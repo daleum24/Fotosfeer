@@ -3,6 +3,8 @@
 # static images api
 # xif date
 
+require 'addressable/uri'
+
 class Photo < ActiveRecord::Base
   attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
 
@@ -34,4 +36,49 @@ class Photo < ActiveRecord::Base
     comments_by_parent
   end
 
+  def static_page
+    url = Addressable::URI.new(
+        :scheme => "https",
+        :host => "maps.googleapis.com",
+        :path => "/maps/api/staticmap",
+        :query_values => {
+          # :key => ENV['GOOGLE_API_KEY'],
+          :center => "#{self.latitude},#{self.longitude}",
+          :zoom => 15,
+          :markers => "markerStyles|#{self.latitude},#{self.longitude}|",
+          :size => "500x400",
+          :sensor => "false"
+        }).to_s
+  end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

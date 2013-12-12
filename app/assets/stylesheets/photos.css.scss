@@ -1,3 +1,58 @@
 // Place all the styles related to the Photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body, section, div, img, ul, li{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul, li{
+  list-style: none;
+}
+
+.photo_show{
+  border: 1px solid red;
+  height: 1500px;
+  width: 1000px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.photo_object{
+  border: 1px solid blue;
+  width: 600px;
+  float: left;
+}
+
+.photo_object h1, p, .comments, a{
+  padding: 10px;
+}
+
+.standard_image{
+  width: 500px;
+  margin: auto;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.standard_image img {
+    width: 100%;
+    height: auto;
+}
+
+.standard_map{
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  float: right;
+}
+
+.standard_map img {
+    width: 100%;
+    height: auto;
+}

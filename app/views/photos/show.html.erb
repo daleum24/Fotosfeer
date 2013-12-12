@@ -1,23 +1,32 @@
-<h1>Title: <%= @photo.title %></h1>
-<img src="<%= @photo.image.url %>"><br>
-<p>Description: <%= @photo.description %></p>
-<p>Latitude: <%= @photo.latitude.to_f %> Longitude: <%= @photo.longitude.to_f %></p>
+<section class="photo_show">
 
-<br>
+  <section class="photo_object">
+    <h1>Title: <%= @photo.title %></h1>
 
-<h4>Post a Comment</h4>
-<%= link_to "Post a new comment", new_photo_comment_url(@photo.id) %>
+    <div class="standard_image" >
+      <%= image_tag @photo.image.url %>
+    </div>
 
-<br>
+    <p>Description: <%= @photo.description %></p>
 
-<section class="photo_comments">
-  <h4>Comments:</h4>
-  <ul>
-    <% comments_by_parent = @photo.comments_by_parent_id %>
-    <% comments_by_parent[nil].each do |top_level_comment| %>
-      <li>
-        <%= render "comment", photo: @photo, top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
-      </li>
-    <% end %>
-  </ul>
+    <%= link_to "Post a new comment", new_photo_comment_url(@photo.id) %>
+
+    <div class="comments">
+      <h4>Comments:</h4>
+      <ul>
+        <% comments_by_parent = @photo.comments_by_parent_id %>
+        <% comments_by_parent[nil].each do |top_level_comment| %>
+          <li>
+            <%= render "comment", photo: @photo, top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </section>
+
+  <div class="standard_map">
+    <img src="<%= @photo.static_page %>">
+  </div>
+
 </section>
