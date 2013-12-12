@@ -17,12 +17,13 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @photos = Photo.where({user_id: self.current_user.id, is_favorite: true})
-    fail
+    @photos = self.current_user.favorite_photos
+    render :favorites
   end
 
   def uploaded_images
-    fail
+    @photos = Photo.where(submitter_id: self.current_user.id)
+    render :uploaded_images
   end
 
 end

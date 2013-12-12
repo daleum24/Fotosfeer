@@ -12,7 +12,8 @@
       <div id="username">
         <%= self.current_user.username %>
         <ul id="username_dropdown">
-          <li><%= link_to "Favorites", favorites_user_url %></li>
+          <li><%= link_to "My Favorites", favorites_user_url(self.current_user.id) %></li>
+          <li><%= link_to "My Images", uploaded_images_user_url(self.current_user.id) %></li>
           <li><%= button_to "Logout", session_url, method: :delete %></li>
         </ul>
       </div>
