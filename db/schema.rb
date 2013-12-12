@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212202527) do
+ActiveRecord::Schema.define(:version => 20131212211137) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commenter_id",      :null => false
@@ -26,19 +26,29 @@ ActiveRecord::Schema.define(:version => 20131212202527) do
   add_index "comments", ["parent_comment_id"], :name => "index_comments_on_parent_comment_id"
   add_index "comments", ["photo_id"], :name => "index_comments_on_photo_id"
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.integer  "photo_id",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "favorites", ["photo_id"], :name => "index_favorites_on_photo_id"
+  add_index "favorites", ["user_id", "photo_id"], :name => "index_favorites_on_user_id_and_photo_id", :unique => true
+  add_index "favorites", ["user_id"], :name => "index_favorites_on_user_id"
+
   create_table "photos", :force => true do |t|
-    t.integer  "submitter_id",                          :null => false
-    t.string   "title",                                 :null => false
+    t.integer  "submitter_id",       :null => false
+    t.string   "title",              :null => false
     t.string   "description"
-    t.float    "latitude",                              :null => false
-    t.float    "longitude",                             :null => false
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.float    "latitude",           :null => false
+    t.float    "longitude",          :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "is_favorite",        :default => false
   end
 
   add_index "photos", ["latitude"], :name => "index_photos_on_latitude"

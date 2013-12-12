@@ -31,6 +31,17 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :favorites,
+    class_name: "Favorite",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :favorited_photos, through: :favorites, source: :photo
+  )
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     return nil if user.nil?

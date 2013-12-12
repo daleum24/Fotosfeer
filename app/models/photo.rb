@@ -6,7 +6,7 @@
 require 'addressable/uri'
 
 class Photo < ActiveRecord::Base
-  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image, :is_favorite
+  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
 
@@ -29,6 +29,17 @@ class Photo < ActiveRecord::Base
     class_name: "UserVote",
     foreign_key: :photo_id,
     primary_key: :id
+  )
+
+  has_many(
+    :favorites,
+    class_name: "Favorite",
+    foreign_key: :photo_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :favoring_users, through: :favorites, source: :user
   )
 
   has_attached_file :image

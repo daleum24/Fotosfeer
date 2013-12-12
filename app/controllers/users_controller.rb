@@ -16,4 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorites
+    @photos = Photo.where({user_id: self.current_user.id, is_favorite: true})
+    fail
+  end
+
+  def uploaded_images
+    fail
+  end
+
 end

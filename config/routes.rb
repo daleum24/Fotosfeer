@@ -3,6 +3,11 @@ ImgurClone::Application.routes.draw do
 
   resources :users, only: [:new, :create] do
     resources :photos, only: [:new, :create]
+
+    member do
+      get "favorites"
+      get "uploaded_images"
+    end
   end
 
   resource :session, only: [:new, :create, :destroy]

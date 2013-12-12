@@ -12,7 +12,7 @@
       <div id="username">
         <%= self.current_user.username %>
         <ul id="username_dropdown">
-          <li>Favorites</li>
+          <li><%= link_to "Favorites", favorites_user_url %></li>
           <li><%= button_to "Logout", session_url, method: :delete %></li>
         </ul>
       </div>

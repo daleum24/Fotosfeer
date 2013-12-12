@@ -37,14 +37,14 @@
 
   <div class="favorite_buttons">
 
-    <% params[:photo] = {} %>
+    <!-- <% params[:photo] = {} %>
     <% params[:photo][:is_favorite] = {} %>
 
     <% if @photo.is_favorite == false %>
       <%= button_to "Favorite", photo_url({id: @photo.id, photo: {is_favorite: true}}), method: :put %>
     <% else %>
       <%= button_to "Unfavorite", photo_url({id: @photo.id, photo: {is_favorite: false}}), method: :put %>
-    <% end  %>
+    <% end  %> -->
 
   </div>
 
