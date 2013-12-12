@@ -24,6 +24,13 @@ class Photo < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many(
+    :uservotes,
+    class_name: "UserVote",
+    foreign_key: :photo_id,
+    primary_key: :id
+  )
+
   has_attached_file :image
 
   def comments_by_parent_id
