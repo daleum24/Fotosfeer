@@ -1,4 +1,6 @@
 <p>
+  User: <%= User.find(top_level_comment.commenter_id).username %>
+  <br>
   <%= top_level_comment.body %>
 </p>
 

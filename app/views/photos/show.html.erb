@@ -1,14 +1,23 @@
-<h1><%= @photo.title %></h1>
+<h1>Title: <%= @photo.title %></h1>
 <img src="<%= @photo.image.url %>"><br>
-<p><%= @photo.description %></p>
-<p>Latitude: <%= @photo.latitude.to_f %></p>
-<p>Longitude: <%= @photo.longitude.to_f %></p>
+<p>Description: <%= @photo.description %></p>
+<p>Latitude: <%= @photo.latitude.to_f %> Longitude: <%= @photo.longitude.to_f %></p>
 
-<ul>
-  <% comments_by_parent = @photo.comments_by_parent_id %>
-  <% comments_by_parent[nil].each do |top_level_comment| %>
-    <li>
-      <%= render "comment", top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
-    </li>
-  <% end %>
-</ul>
+<br>
+
+<h4>Post a Comment</h4>
+<%= render "comments/new", comment: Comment.new , photo: @photo%>
+
+<br>
+
+<section class="photo_comments">
+  <h4>Comments:</h4>
+  <ul>
+    <% comments_by_parent = @photo.comments_by_parent_id %>
+    <% comments_by_parent[nil].each do |top_level_comment| %>
+      <li>
+        <%= render "comment", top_level_comment: top_level_comment, comments_by_parent: comments_by_parent %>
+      </li>
+    <% end %>
+  </ul>
+</section>
