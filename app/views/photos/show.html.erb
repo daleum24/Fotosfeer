@@ -12,6 +12,7 @@
     <div class="image_show_votes">
       <%= button_to "Upvote", upvote_photo_url, method: :post, class: "vote_button" %>
       <%= button_to "Downvote", downvote_photo_url, method: :post, class: "vote_button" %>
+      <p>Vote Count: <%= @photo.uservotes.sum("value") %></p>
     </div>
 
     <div class="comments">
@@ -32,6 +33,19 @@
   <div class="browse_buttons">
     <a href="<%= photo_url(@photo.id-1) %>"><p>Prev</p></a>
     <a href="<%= photo_url(@photo.id+1) %>"><p>Next</p></a>
+  </div>
+
+  <div class="favorite_buttons">
+
+    <% params[:photo] = {} %>
+    <% params[:photo][:is_favorite] = {} %>
+
+    <% if @photo.is_favorite == false %>
+      <%= button_to "Favorite", photo_url({id: @photo.id, photo: {is_favorite: true}}), method: :put %>
+    <% else %>
+      <%= button_to "Unfavorite", photo_url({id: @photo.id, photo: {is_favorite: false}}), method: :put %>
+    <% end  %>
+
   </div>
 
   <div class="standard_map">

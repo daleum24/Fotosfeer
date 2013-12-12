@@ -26,6 +26,12 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
+  def update
+    @photo = Photo.find(params[:id])
+    @photo.update_attributes(params[:photo])
+    redirect_to @photo
+  end
+
   def upvote
     @uservote = UserVote.find_by_user_id_and_photo_id(self.current_user.id, params[:id])
     if @uservote

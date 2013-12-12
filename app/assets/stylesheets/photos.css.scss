@@ -15,6 +15,8 @@ ul, li{
   list-style: none;
 }
 
+//INDEX
+
 .images_index{
   border: 1px solid red;
   width: 200px;
@@ -36,7 +38,7 @@ ul, li{
 .photo_index h1{
   text-align: center;
 }
-
+//INDEX && SHOW
 .photo_show, .photo_index{
   border: 1px solid red;
   height: 1500px;
@@ -44,6 +46,8 @@ ul, li{
   margin: auto;
   margin-top: 30px;
 }
+
+//SHOW
 
 .photo_object{
   border: 1px solid blue;
@@ -80,17 +84,27 @@ ul, li{
 }
 
 .browse_buttons{
-  border: 1px solid red;
   width: 300px;
   height: 50px;
   float: right;
 }
 
 .browse_buttons p{
-  background: lightgreen;
-  border: 1px solid black;
   width: 100px;
-  height: 40px;
+  height: 30px;
+  display: block;
+  float: left;
+}
+
+.favorite_buttons{
+  width: 300px;
+  height: 50px;
+  float: right;
+}
+
+.favorite_buttons input{
+  width: 100px;
+  height: 30px;
   display: block;
   float: left;
 }

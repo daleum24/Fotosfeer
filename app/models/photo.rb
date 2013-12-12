@@ -6,7 +6,7 @@
 require 'addressable/uri'
 
 class Photo < ActiveRecord::Base
-  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
+  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image, :is_favorite
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
 
@@ -51,7 +51,7 @@ class Photo < ActiveRecord::Base
         :query_values => {
           # :key => ENV['GOOGLE_API_KEY'],
           :center => "#{self.latitude},#{self.longitude}",
-          :zoom => 15,
+          :zoom => 17,
           :markers => "markerStyles|#{self.latitude},#{self.longitude}|",
           :size => "500x400",
           :sensor => "false"
