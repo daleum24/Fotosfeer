@@ -31,8 +31,13 @@
   </section>
 
   <div class="browse_buttons">
-    <a href="<%= photo_url(@photo.id-1) %>"><p>Prev</p></a>
-    <a href="<%= photo_url(@photo.id+1) %>"><p>Next</p></a>
+    <% if !Photo.where(id: @photo.id-1).empty? %>
+      <a href="<%= photo_url(@photo.id-1) %>"><p>Prev</p></a>
+    <% end %>
+
+    <% if !Photo.where(id: @photo.id+1).empty? %>
+      <a href="<%= photo_url(@photo.id+1) %>"><p>Next</p></a>
+    <% end %>
   </div>
 
   <div class="favorite_buttons">
