@@ -1,0 +1,9 @@
+<p>
+  <%= top_level_comment.body %>
+</p>
+
+<ul>
+  <% comments_by_parent[top_level_comment.id].each do |child_comment| %>
+    <li><%= render "comment", top_level_comment: child_comment, comments_by_parent: comments_by_parent %></li>
+  <% end %>
+</ul>

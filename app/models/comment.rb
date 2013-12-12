@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   attr_accessible :commenter_id, :parent_comment_id, :photo_id, :body
 
-  validates :commenter_id, :parent_comment_id, :photo_id, presence: true
+  validates :commenter_id, :body, :photo_id, presence: true
 
   belongs_to(
     :commenter,
@@ -30,5 +30,7 @@ class Comment < ActiveRecord::Base
     foreign_key: :parent_comment_id,
     primary_key: :id
   )
+
+
 
 end
