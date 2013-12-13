@@ -31,12 +31,12 @@
   </section>
 
   <div class="browse_buttons">
-    <% if !Photo.where(id: @photo.id-1).empty? %>
-      <a href="<%= photo_url(@photo.id-1) %>"><p>Prev</p></a>
+    <% if !Photo.find(:first, conditions:["id < ?", @photo.id]).nil? %>
+      <a href="<%= photo_url(Photo.find(:first, conditions:["id < ?", @photo.id]).id) %>"><p>Prev</p></a>
     <% end %>
 
-    <% if !Photo.where(id: @photo.id+1).empty? %>
-      <a href="<%= photo_url(@photo.id+1) %>"><p>Next</p></a>
+    <% if !Photo.find(:first, conditions:["id > ?", @photo.id]).nil? %>
+      <a href="<%= photo_url(Photo.find(:first, conditions:["id > ?", @photo.id]).id) %>"><p>Next</p></a>
     <% end %>
   </div>
 
