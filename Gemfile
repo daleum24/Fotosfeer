@@ -9,6 +9,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'rest-client'
 gem 'addressable'
+gem 'geocoder'
 
 
 group :assets do
