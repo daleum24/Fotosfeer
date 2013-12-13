@@ -19,7 +19,7 @@ ul, li{
 }
 
 header{
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightblue;
   height: 40px;
 }
 
@@ -78,20 +78,28 @@ nav{
 	display: block;
   width: 100px;
   position: absolute;
+  margin-top: 12px;
 };
 
-#username:hover #username_dropdown{
-  margin-top: 1px;
-}
-
-#username:hover #username_dropdown li{
-  background: pink;
+#username_dropdown li{
+  background: white;
   padding: 5px 10px;
   width: 100px;
+	border-bottom: 1px solid orange;
 }
 
-#username_dropdown > li:hover{
-  background-color: blue;
+#username_dropdown a{
+	display: block;
+  width: 100%;
+	height: 100%;
+}
+
+#username_dropdown li:first-of-type{
+	border-top: 1px solid lightblue;
+};
+
+#username_dropdown input{
+	background-color: white;
 }
 
 #portal_buttons{
@@ -109,6 +117,10 @@ nav{
 	height: 100%;
 	width: 100%;
 	position: relative;
+}
+
+#portal_buttons p{
+	margin-top: 10px;
 }
 
 
