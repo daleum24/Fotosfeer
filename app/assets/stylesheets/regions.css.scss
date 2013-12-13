@@ -31,9 +31,19 @@ section h1{
 	width: 224px;
 }
 
+.region_images_index{
+	margin: 10px;
+	width: 200px;
+	height: 200px;
+}
+
+.region_images_index img{
+	width: 100%;
+	height: 100%;
+}
+
 .my_regions .region_map{
 	margin-top: 10px;
-	border: 1px solid red;
 	float: right;
 }
 

@@ -5,7 +5,7 @@
 	
 	<div class="region_images">	
 		<% @region.find_in_region_photos.each do |photo| %>
-			<div class="images_index">
+			<div class="region_images_index">
 				<a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url %>"></a>
 			</div>
 		<% end %>
