@@ -75,5 +75,8 @@ ImgurClone::Application.configure do
       :s3_host_name => 's3.amazonaws.com' # or whatever your region host name is
     }
   }
+  
+  #Mailer settings
+  config.action_mailer.default_url_options = { :host => 'http://imgur-clone.herokuapp.com/' }
 end
 
