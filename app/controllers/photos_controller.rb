@@ -25,8 +25,13 @@ class PhotosController < ApplicationController
   def show
     @photo = Photo.find(params[:id])
   end
+  
+  def edit
+    @photo = Photo.find(params[:id])
+  end
 
   def update
+    fail
     @photo = Photo.find(params[:id])
     @photo.update_attributes(params[:photo])
     redirect_to @photo
