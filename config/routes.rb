@@ -12,7 +12,7 @@ ImgurClone::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resources :photos, only: [:index, :show, :edit, :update] do
+  resources :photos, only: [:index, :show, :edit, :update, :destroy] do
     resources :comments,  only: [:new, :create]
     resources :favorites, only: [:create]
 

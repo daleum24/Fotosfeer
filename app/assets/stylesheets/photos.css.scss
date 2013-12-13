@@ -24,11 +24,12 @@ ul, li{
   height: 200px;
   float:left;
   margin: 10px;
+  overflow: hidden;
 }
 
 .images_index img {
+	display: block;
     width: 100%;
-    height: auto;
 }
 .images_index a {
   width: 100%;
@@ -77,11 +78,12 @@ ul, li{
   width: 500px;
   margin: auto;
   height: 400px;
+  overflow: hidden;
 }
 
 .image_show img {
+	display: block;
     width: 100%;
-    height: auto;
 }
 
 .browse_buttons{

@@ -31,10 +31,15 @@ class PhotosController < ApplicationController
   end
 
   def update
-    fail
     @photo = Photo.find(params[:id])
     @photo.update_attributes(params[:photo])
     redirect_to @photo
+  end
+  
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to uploaded_images_user_url(self.current_user.id)
   end
 
   def upvote
