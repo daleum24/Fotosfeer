@@ -55,7 +55,9 @@
 	
 	<div class="directions">
 		<% direction_steps = @photo.get_directions(self.current_user.latitude, self.current_user.longitude) %>
-		<%= render "shared/directions", directions: direction_steps %>
+		<% unless direction_steps.nil? %>
+			<%= render "shared/directions", directions: direction_steps %>
+		<% end %>
 	</div>
 
 </section>

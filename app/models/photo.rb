@@ -82,11 +82,15 @@ class Photo < ActiveRecord::Base
         }).to_s
     url
     response = JSON.parse(RestClient.get(url))
-    instructions = response["routes"][0]["legs"][0]["steps"].map do |step|
-      html = step["html_instructions"].gsub("Destination", ". Destination")
-      Nokogiri::HTML(html).text + "."
+    if response["routes"] != []
+      instructions = response["routes"][0]["legs"][0]["steps"].map do |step|
+        html = step["html_instructions"].gsub("Destination", ". Destination")
+        Nokogiri::HTML(html).text + "."
+      end
+      return instructions
+    else
+      return nil
     end
-    instructions
   end
 
 end
