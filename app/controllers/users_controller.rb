@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
-  def new
+  before_filter :current_user_redirect, only: [:new]
 
+  def new
+    @photo = Photo.last ? Photo.last : Photo.new
   end
 
   def create

@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-header, nav, div, ul, li, p{
+header, nav, div, ul, li, p, a{
   margin: 0px;
   border: 0px;
   padding: 0px;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
+}
+
+a{
+	text-decoration: none;
 }
 
 ul, li{
@@ -28,12 +31,13 @@ nav{
 
 #home_link{
   height: 40px;
-  background: lightgreen;
   float: left;
 }
 
-#home_link > p{
-  padding: 0px 20px;
+#home_link > a{
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
 #nav_buttons{
@@ -43,10 +47,14 @@ nav{
 #image_upload, #username{
   float: left;
   height: 40px;
-  background: lightgreen;
   padding: 0px 20px;
   position: relative;
+}
 
+#image_upload a{
+	display: block;
+	height: 100%;
+	width: 100%;
 }
 
 #username_dropdown{
@@ -61,7 +69,7 @@ nav{
 };
 
 #username:hover #username_dropdown{
-  margin-top: 20px;
+  margin-top: 1px;
 }
 
 #username:hover #username_dropdown li{
@@ -78,6 +86,20 @@ nav{
   float: right;
 }
 
-#portal_buttons li{
+#portal_buttons div{
+	padding: 0px 10px;
   float: left;
+	height: 40px;
 }
+
+#portal_buttons a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+
+
+
+

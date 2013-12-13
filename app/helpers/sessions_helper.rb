@@ -23,5 +23,11 @@ module SessionsHelper
       redirect_to root_url
     end
   end
+  
+  def current_user_redirect
+    if self.current_user
+      redirect_to photos_url
+    end
+  end
 
 end

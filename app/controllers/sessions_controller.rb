@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
   before_filter :logged_in?, only: [:destroy]
+  before_filter :current_user_redirect, only: [:new]
 
   def new
-
+    @photo = Photo.last ? Photo.last : Photo.new
   end
 
   def create

@@ -2,9 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1, form, input, label{
+h1, form, input, label, p{
 	margin: 0px;
 	padding: 0px;
+}
+
+html, body{
+	height: 100%;
+}
+
+.errors{
+	text-align: center;
+	height: auto;
+	background-color: lightblue;
+}
+
+.portal_background{
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background-size: cover;
 }
 
 .portal_form{
@@ -13,14 +30,17 @@ h1, form, input, label{
 	width: 230px;
 	margin: auto;
 	margin-top: 200px;
-	border: 1px solid black;
+	border: 1px solid lightgreen;
 	border-radius: 5px;
+}
+
+.portal_form *{
+	margin: 12px 0px;
 }
 
 .portal_form > h1{
 	color: green;
 	text-align: center;
-	margin: 10px 0px;
 }
 
 .portal_form input{
@@ -35,6 +55,7 @@ h1, form, input, label{
 	display: block;
 	width: 150px;
 	margin: auto;
+	margin-bottom: 10px;
 }
 
 

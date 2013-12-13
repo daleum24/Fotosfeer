@@ -1,16 +1,16 @@
 <header>
   <nav class="signed_in">
     <div id="home_link">
-      <p><a href="<%= photos_url %>">imgUm</a></p>
+      <a href="<%= photos_url %>"><p>imgUm</p></a>
     </div>
 
     <div id="nav_buttons">
       <div id="image_upload">
-        <a href="<%= new_user_photo_url(self.current_user.id) %>">Upload Image</a>
+        <a href="<%= new_user_photo_url(self.current_user.id) %>"><p>Upload Image</p></a>
       </div>
 
       <div id="username">
-        <%= self.current_user.username %>
+        <p><%= self.current_user.username %></p>
         <ul id="username_dropdown">
           <li><%= link_to "My Favorites", favorites_user_url(self.current_user.id) %></li>
           <li><%= link_to "My Images", uploaded_images_user_url(self.current_user.id) %></li>
