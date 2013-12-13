@@ -4,6 +4,7 @@
 # xif date
 
 require 'addressable/uri'
+require 'nokogiri'
 
 class Photo < ActiveRecord::Base
   attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
@@ -66,6 +67,26 @@ class Photo < ActiveRecord::Base
           :size => "500x400",
           :sensor => "false"
         }).to_s
+  end
+  
+  def get_directions(lat_origin, long_origin)
+    url = Addressable::URI.new(
+        :scheme => "https",
+        :host => "maps.googleapis.com",
+        :path => "/maps/api/directions/json",
+        :query_values => {
+          :origin => "#{lat_origin},#{long_origin}",
+          :destination => "#{self.latitude},#{self.longitude}",
+          :sensor => "false",
+          :mode => "walking"
+        }).to_s
+    url
+    response = JSON.parse(RestClient.get(url))
+    instructions = response["routes"][0]["legs"][0]["steps"].map do |step|
+      html = step["html_instructions"].gsub("Destination", ". Destination")
+      Nokogiri::HTML(html).text + "."
+    end
+    instructions
   end
 
 end

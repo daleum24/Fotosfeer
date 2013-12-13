@@ -10,6 +10,7 @@ gem 'aws-sdk'
 gem 'rest-client'
 gem 'addressable'
 gem 'geocoder'
+gem 'nokogiri'
 
 
 group :assets do

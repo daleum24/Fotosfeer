@@ -1,14 +1,18 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :username, :email, :password
+  attr_accessible :username, :email, :password, :ip_address, :latitude, :longitude
   attr_reader :password
 
   validates :username, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, :password_digest, presence: true
-
+  
   before_validation :reset_session_token!, on: :create
+  
+  geocoded_by :ip_address
+    
+  before_save :geocode
 
   has_many(
     :submitted_photos,

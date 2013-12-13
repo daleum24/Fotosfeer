@@ -52,5 +52,10 @@
   <div class="standard_map">
     <img src="<%= @photo.static_page %>">
   </div>
+	
+	<div class="directions">
+		<% direction_steps = @photo.get_directions(self.current_user.latitude, self.current_user.longitude) %>
+		<%= render "shared/directions", directions: direction_steps %>
+	</div>
 
 </section>

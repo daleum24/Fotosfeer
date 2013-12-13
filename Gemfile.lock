@@ -230,6 +230,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   letter_opener
+  nokogiri
   paperclip
   pg
   rails (= 3.2.13)
