@@ -20,16 +20,15 @@ class RegionsController < ApplicationController
     
   end
   
-  def edit
-    
-  end
-  
-  def update
-    
+  def show
+    @region = Region.find(params[:id])
   end
   
   def destroy
+    @region = Region.find(params[:id])
+    @region.destroy
     
+    redirect_to user_regions_url(self.current_user)
   end
   
 end

@@ -60,7 +60,6 @@ class Photo < ActiveRecord::Base
         :host => "maps.googleapis.com",
         :path => "/maps/api/staticmap",
         :query_values => {
-          # :key => ENV['GOOGLE_API_KEY'],
           :center => "#{self.latitude},#{self.longitude}",
           :zoom => 17,
           :markers => "markerStyles|#{self.latitude},#{self.longitude}|",

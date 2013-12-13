@@ -1,0 +1,19 @@
+<section class="my_regions">
+	<%= button_to "Delete Region", region_url(@region.id), method: :delete %>
+	
+	<h1><%= @region.name %></h1>
+	
+	<div class="region_images">	
+		<% @region.find_in_region_photos.each do |photo| %>
+			<div class="images_index">
+				<a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url %>"></a>
+			</div>
+		<% end %>
+	</div>
+	
+	<div class="region_map">
+		<img src="<%= @region.static_page %>"></a>
+	<div>
+	
+	
+</section>
