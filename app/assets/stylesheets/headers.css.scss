@@ -19,7 +19,7 @@ ul, li{
 }
 
 header{
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   height: 40px;
 }
 
@@ -40,6 +40,10 @@ nav{
   width: 100%;
 }
 
+#home_link p{
+	margin-top: 10px;
+}
+
 #nav_buttons{
   float: right;
 }
@@ -57,14 +61,22 @@ nav{
 	width: 100%;
 }
 
+#image_upload p{
+	margin-top: 10px;
+}
+
 #username_dropdown{
   display: none;
 }
 
+#username p{
+  margin-top: 10px;
+}
+
 #username:hover #username_dropdown{
-  display: block;
+  margin-top: 15px;
+	display: block;
   width: 100px;
-  background-color: white;
   position: absolute;
 };
 

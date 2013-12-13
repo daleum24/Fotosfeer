@@ -1,11 +1,23 @@
-<% photos.each do |photo| %>
-  <div class="images_index">
-	<% if title != "My Images" %>  
-	    <a href="/photos/<%= photo.id %>"><img src="<%= photo.image.url %>"></a>
+
+
+<div class="images_index">
+	<% photos.each_with_index do |photo, index| %>
+		<% if (index == 0) %> 
+			<div class="photo_row">
+				<figure>
+					<a href="/photos/<%= photo.id.to_s + edit %>"><img src="<%= photo.image.url %>"></a>
+				</figure>
+		<% elsif (index % 4 ==0)  %>
+			</div>
+			<div class="photo_row">
+				<figure>
+					<a href="/photos/<%= photo.id.to_s + edit %>"><img src="<%= photo.image.url %>"></a>
+				</figure>
+		<% else %>
+			<figure>
+				<a href="/photos/<%= photo.id.to_s + edit %>"><img src="<%= photo.image.url %>"></a>
+			</figure>
+		<% end %>
 	<% end %>
-	
-	<% if title == "My Images" %>
-		<a href="/photos/<%= photo.id %>/edit"><img src="<%= photo.image.url %>"></a>
-	<% end %>
-  </div>
-<% end %>
+</div>
+

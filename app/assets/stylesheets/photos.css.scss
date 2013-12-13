@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, section, div, img,  a{
+body, section, div, img,  a, figure, input{
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -18,30 +18,50 @@ ul, li{
 //INDEX
 
 .images_index{
-  border: 1px solid red;
-  width: 200px;
+  width: 900px;
   margin: auto;
-  height: 200px;
-  float:left;
-  margin: 10px;
-  overflow: hidden;
+	margin-top: 10px;
+}
+
+.photo_row{
+	border-bottom: 1px solid lightblue;
+	height: 220px;
+}
+
+.photo_row:first-of-type{
+		border-top: 1px solid lightblue;
+}
+
+figure{
+	display: inline-block;
+	height: 200px;
+	margin: 4px;
+	margin-top: 9px;
+	width: 200px;
+	float: left;
+	text-align:center;
+}
+
+figure:first-of-type{
+	margin-left: 40px;
+}
+
+.images_index a{
+	display: block;
+	height: 100%;
 }
 
 .images_index img {
-	display: block;
     width: 100%;
-}
-.images_index a {
-  width: 100%;
-  height: auto;
+		height: 100%;
 }
 
 .photo_index h1{
   text-align: center;
+	text: red;
 }
 //INDEX && SHOW
 .photo_show, .photo_index{
-  border: 1px solid red;
   height: 1500px;
   width: 1000px;
   margin: auto;
@@ -62,7 +82,7 @@ ul, li{
 }
 
 .image_show, .image_show_votes, .comments{
-    border: 1px solid black;
+    border-bottom: 1px solid blue;
 }
 
 .image_show_votes{
@@ -93,9 +113,10 @@ ul, li{
 }
 
 .browse_buttons p{
+	background: lightgrey;
   width: 100px;
   height: 30px;
-  display: block;
+  display: inline-block;
   float: left;
 }
 
@@ -103,6 +124,7 @@ ul, li{
   width: 300px;
   height: 50px;
   float: right;
+	color: lightgrey;
 }
 
 .favorite_buttons input{
@@ -110,12 +132,14 @@ ul, li{
   height: 30px;
   display: block;
   float: left;
+	color: black;
+	background-color: lightgrey;
 }
 
 .standard_map{
   width: 300px;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid blue;
   float: right;
 }
 
@@ -126,7 +150,8 @@ ul, li{
 
 .directions{
   width: 300px;
-  height: automatically;
-  border: 1px solid black;
+  height: auto;
+  border: 1px solid blue;
+	border-top: 0px;
   float: right;
 }
