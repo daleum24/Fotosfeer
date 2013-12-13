@@ -1,0 +1,8 @@
+<h1>My Regions</h1>
+
+<%= link_to "Add a Region", new_user_region_url %>
+
+<% @regions.each do |region| %>
+	<p><%= link_to region.name, region_url(region.id) %></p>
+<% end %>
+

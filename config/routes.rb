@@ -3,6 +3,7 @@ ImgurClone::Application.routes.draw do
 
   resources :users, only: [:new, :create] do
     resources :photos, only: [:new, :create]
+    resources :regions, only: [:index, :new, :create]
 
     member do
       get "favorites"
@@ -22,6 +23,7 @@ ImgurClone::Application.routes.draw do
     end
   end
 
+  resources :regions, only: [:show, :edit, :update, :destroy]
   resources :comments,  only: [:destroy]
   resources :favorites, only: [:destroy]
 

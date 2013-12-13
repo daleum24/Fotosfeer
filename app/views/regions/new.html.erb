@@ -1,0 +1,16 @@
+<h1>Add a Region</h1>
+
+<form action="<%= user_regions_url(self.current_user.id) %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+				
+	<input type="text" name="region[name]" placeholder="Region Name">
+	
+	<input type="text" name="region[latitude]" placeholder="Latitude">
+	
+	<input type="text" name="region[longitude]" placeholder="Longitude">
+
+	<input type="submit" value="Add Region">
+	
+</form>

@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   
   has_many(
     :regions,
-    class_name: "Regin",
+    class_name: "Region",
     foreign_key: :user_id,
     primary_key: :id
   )
