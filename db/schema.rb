@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212213248) do
+ActiveRecord::Schema.define(:version => 20131213055110) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commenter_id",      :null => false
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(:version => 20131212213248) do
   add_index "photos", ["latitude"], :name => "index_photos_on_latitude"
   add_index "photos", ["longitude"], :name => "index_photos_on_longitude"
   add_index "photos", ["submitter_id"], :name => "index_photos_on_submitter_id"
+
+  create_table "regions", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "user_id",    :null => false
+    t.float    "latitude",   :null => false
+    t.float    "longitude",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "regions", ["latitude"], :name => "index_regions_on_latitude"
+  add_index "regions", ["longitude"], :name => "index_regions_on_longitude"
+  add_index "regions", ["user_id"], :name => "index_regions_on_user_id"
 
   create_table "user_votes", :force => true do |t|
     t.integer  "user_id",    :null => false

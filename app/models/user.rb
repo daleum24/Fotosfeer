@@ -41,6 +41,13 @@ class User < ActiveRecord::Base
   has_many(
     :favorite_photos, through: :favorites, source: :photo
   )
+  
+  has_many(
+    :regions,
+    class_name: "Regin",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
