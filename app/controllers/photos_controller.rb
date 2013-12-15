@@ -23,7 +23,6 @@ class PhotosController < ApplicationController
   end
 
   def show
-    fail
     @photo = Photo.find(params[:id])
   end
   
