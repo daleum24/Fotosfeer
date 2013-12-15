@@ -11,6 +11,10 @@ gem 'rest-client'
 gem 'addressable'
 gem 'geocoder'
 gem 'nokogiri'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 
 group :assets do
