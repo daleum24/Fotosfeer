@@ -1,2 +1,29 @@
 <h1>Photos Index Page</h1>
 
+
+<div class="images_index">
+	<% _.each(photos.models, function(obj, index){ %>
+		<% if (index === 0) { %> 
+			
+			<div class="photo_row">
+				<figure>
+					<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
+				
+		<% } else if (index % 4 === 0) { %>
+			
+				</div>
+				<div class="photo_row">
+					<figure>
+						<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+					</figure>
+					
+		<% } else { %>
+			
+				<figure>
+					<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
+				
+		<% }  %>
+	<% }); %>
+</div>

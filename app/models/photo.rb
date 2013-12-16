@@ -92,6 +92,10 @@ class Photo < ActiveRecord::Base
       return nil
     end
   end
+  
+  def as_json(options)
+    super(options).merge!({image_url: self.image.url})
+  end
 
 end
 

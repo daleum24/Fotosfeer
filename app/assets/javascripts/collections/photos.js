@@ -1,3 +1,6 @@
 ImgurClone.Collections.Photos = Backbone.Collection.extend({
-	url: ""
+	
+	url: "/photos",
+	model: ImgurClone.Models.Photo
+	
 });
