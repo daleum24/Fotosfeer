@@ -3,9 +3,9 @@ class RegionsController < ApplicationController
     @regions = self.current_user.regions
   end
   
-  def new
-    
-  end
+  # def new
+  #   
+  # end
   
   def create
     @region = Region.new(params[:region])
@@ -20,9 +20,9 @@ class RegionsController < ApplicationController
     
   end
   
-  def show
-    @region = Region.find(params[:id])
-  end
+  # def show
+  #   @region = Region.find(params[:id])
+  # end
   
   def destroy
     @region = Region.find(params[:id])

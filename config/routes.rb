@@ -2,6 +2,8 @@ ImgurClone::Application.routes.draw do
   root :to => 'sessions#new'
   
   get "auth/facebook/callback" => "sessions#create"
+  
+  resources :home, only: [:index]
 
   resources :users, only: [:new, :create] do
     resources :photos, only: [:new, :create]

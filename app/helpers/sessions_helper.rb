@@ -7,7 +7,7 @@ module SessionsHelper
     @current_user = user
     user.update_attributes!(ip_address: request.remote_ip)
     session[:session_token] = user.session_token
-    redirect_to photos_url
+    redirect_to home_index_url
   end
 
   def logout
@@ -27,7 +27,7 @@ module SessionsHelper
   
   def current_user_redirect
     if self.current_user
-      redirect_to photos_url
+      redirect_to home_index_url
     end
   end
 

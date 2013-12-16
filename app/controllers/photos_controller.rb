@@ -5,12 +5,12 @@ class PhotosController < ApplicationController
   
   def index
     @photos = Photo.order("created_at DESC")
-    render json: @photos
+    respond json: @photos
   end
 
-  def new
-    @photo = Photo.new
-  end
+  # def new
+  #   @photo = Photo.new
+  # end
 
   def create
     @photo = Photo.new(params[:photo])
@@ -28,9 +28,9 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
   
-  def edit
-    @photo = Photo.find(params[:id])
-  end
+  # def edit
+  #   @photo = Photo.find(params[:id])
+  # end
 
   def update
     @photo = Photo.find(params[:id])
