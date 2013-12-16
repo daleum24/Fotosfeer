@@ -1,0 +1,37 @@
+.upload-form{
+	display: none;
+
+	padding: none;
+	width: 1000px;
+	height: 300px;
+	margin: auto;
+}
+
+.display-form{
+	display: block;
+	position: absolute;
+}
+
+.image_selection{
+	border: 1px solid black;
+	width: 200px;
+	height: 300px;
+	float: right;
+	background: lightgreen;
+}
+
+.image_selection div{
+	height: 150px;
+}
+
+.image_selection div:first-of-type{
+	border-bottom: 1px solid black;
+}
+
+.image_selection label{
+}
+
+.image_selection input{
+	display: block;
+	width: 90px;
+}

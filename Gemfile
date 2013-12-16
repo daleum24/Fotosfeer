@@ -15,6 +15,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+gem 'exifr'
 
 
 group :assets do

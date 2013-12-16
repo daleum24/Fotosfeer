@@ -7,7 +7,6 @@ ImgurClone.Views.PhotoIndexView = Backbone.View.extend({
 	template: JST["photo_index_view"],
 	
 	render: function(){
-		console.log(this.collection.models)
 		this.$el.append(this.template({photos: this.collection}));
 		return this
 	}

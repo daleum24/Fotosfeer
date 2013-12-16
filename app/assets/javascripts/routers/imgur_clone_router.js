@@ -6,11 +6,10 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	},
 	
 	routes: {
-		"": "index"
+		"": "home"
 	},
 	
-	index: function(){
-		console.log("in index!")
+	home: function(){
 		var photosIndexView = new ImgurClone.Views.PhotoIndexView();
 		this.$rootEl.append(photosIndexView.render().$el)
 	},
