@@ -13,10 +13,10 @@ class PhotosController < ApplicationController
   # end
 
   def create
+    fail
     @photo = Photo.new(params[:photo])
     @photo.update_attributes(submitter_id: params[:user_id])
     
-    fail
     
     if @photo.save
       redirect_to @photo
