@@ -4,7 +4,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 	},
 	
 	events:{
-		"click #paperclip_button_submit" : "next_action_rename"
+		// "click #paperclip_button_submit" : "next_action_rename"
 	},
 	
 	next_action_rename: function(event){

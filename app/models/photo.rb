@@ -10,6 +10,7 @@ class Photo < ActiveRecord::Base
   attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
+  validates :image, attachment_presence: true
 
   belongs_to(
     :submitter,
@@ -44,6 +45,8 @@ class Photo < ActiveRecord::Base
   )
 
   has_attached_file :image
+  
+  before_post_process :check_for_geotag
 
   def comments_by_parent_id
     comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
@@ -91,6 +94,13 @@ class Photo < ActiveRecord::Base
     else
       return nil
     end
+  end
+  
+  def check_for_geotag
+    imgfile = EXIFR::JPEG.new(image.queued_for_write[:original])
+    return if exif.nil?
+    self.latitude = imgfile.gps_lat
+    self.longitude = imgfile.gps_lng
   end
   
   def as_json(options)

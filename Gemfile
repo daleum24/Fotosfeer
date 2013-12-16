@@ -16,6 +16,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'exifr'
+gem "jquery-fileupload-rails"
 
 
 group :assets do

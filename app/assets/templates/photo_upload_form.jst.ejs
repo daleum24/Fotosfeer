@@ -1,16 +1,26 @@
 <div class="image_selection">
 	<div>
-		<label>Browse Your Computer
-			<input type="file" name="photo[image]"  id="paperclip_button"></input>
-		</label>
-		<input type="submit" value="submit" id="paperclip_button_submit"></input>
+		<form action="/users/<%= ImgurClone.user_id %>/photos" method="post">
+			<input type="hidden"
+						 name="authenticity_token"
+						value="<%= ImgurClone.csrf_token %>"></input>
+						
+			<label>Browse Your Computer
+				<input type="file" name="photo[image]"  id="paperclip_button"></input>
+			</label>
+			
+			<input type="submit" value="submit" id="paperclip_button_submit"></input>
+			
+		</form>
 	</div>
 	
 	<div>
-		<label>Drag and Drop!
-			<input type="text" name="photo[image]" id="drag_and_drop"></input>
-		</label>
-		<input type="submit" value="submit" id="drag_and_drop_submit"></input>
+		<form action="#">
+			<label>Drag and Drop!
+				<input type="text" name="photo[image]" id="drag_and_drop"></input>
+			</label>
+			<input type="submit" value="submit" id="drag_and_drop_submit"></input>
+		</form>
 	</div>
 </div>
 
