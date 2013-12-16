@@ -15,6 +15,13 @@ class User < ActiveRecord::Base
   before_save :geocode
 
   has_many(
+    :authorizations,
+    class_name: "Authorization",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
     :submitted_photos,
     class_name: "Photo",
     foreign_key: :submitter_id,
