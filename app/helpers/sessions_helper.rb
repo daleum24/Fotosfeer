@@ -5,7 +5,7 @@ module SessionsHelper
 
   def login(user)
     @current_user = user
-    user.update_attributes(ip_address: request.remote_ip)
+    user.update_attributes!(ip_address: request.remote_ip)
     session[:session_token] = user.session_token
     redirect_to photos_url
   end

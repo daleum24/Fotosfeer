@@ -1,7 +1,11 @@
-<section class="photo_index">
+<section class="home_page">
 
-  <h1>Photos Index Page</h1>
-
-  <%= render "shared/multiple_photos", photos: @photos, edit: "" %>
+ 
 
 </section>
+
+<script>
+	$(document).ready(function(){
+	  ImgurClone.initialize();
+	});
+</script>

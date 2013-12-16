@@ -8,9 +8,7 @@
 </head>
 <body>
 
-  <% if current_user %>
-    <%= render "headers/signed_in" %>
-  <% else %>
+  <% unless current_user %>
     <%= render "headers/portal" %>
   <% end %>
 

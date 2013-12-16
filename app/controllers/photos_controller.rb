@@ -1,9 +1,11 @@
 class PhotosController < ApplicationController
   before_filter :logged_in?
 
-  #User Home Page
+  respond_to :json
+  
   def index
     @photos = Photo.order("created_at DESC")
+    render json: @photos
   end
 
   def new
