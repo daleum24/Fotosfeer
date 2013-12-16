@@ -13,16 +13,19 @@ class PhotosController < ApplicationController
   # end
 
   def create
-    fail
-    @photo = Photo.new(params[:photo])
+    tempfile = params[:photo][:image].tempfile
+    
+    @photo = Photo.new(tempfile, params[:photo])
     @photo.update_attributes(submitter_id: params[:user_id])
     
     
+    fail
+    
     if @photo.save
-      redirect_to @photo
+      respond json: @photo
     else
       flash[:errors] = @photo.errors.full_messages
-      redirect_to photo
+      respond json: @photo
     end
   end
 

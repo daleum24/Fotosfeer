@@ -7,7 +7,7 @@ require 'addressable/uri'
 require 'nokogiri'
 
 class Photo < ActiveRecord::Base
-  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image
+  attr_accessible :submitter_id, :title, :description, :latitude, :longitude, :image 
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
   validates :image, attachment_presence: true
@@ -46,7 +46,12 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image
   
-  before_post_process :check_for_geotag
+  # after_post_process :check_for_geotag
+  
+  def initialize(tempfile, attribute={})
+    super(attribute)
+    check_for_geotag(tempfile)
+  end
 
   def comments_by_parent_id
     comments_by_parent = Hash.new { |hash, key| hash[key] = [] }
@@ -96,11 +101,11 @@ class Photo < ActiveRecord::Base
     end
   end
   
-  def check_for_geotag
-    imgfile = EXIFR::JPEG.new(image.queued_for_write[:original])
-    return if exif.nil?
-    self.latitude = imgfile.gps_lat
-    self.longitude = imgfile.gps_lng
+  def check_for_geotag(tempfile)
+    imgfile = EXIFR::JPEG.new(tempfile)
+    return if imgfile.nil?
+    self.latitude = imgfile.gps.latitude
+    self.longitude = imgfile.gps.longitude
   end
   
   def as_json(options)
