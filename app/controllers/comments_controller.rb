@@ -10,13 +10,14 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(params[:comment])
-    @comment.update_attributes(commenter_id: self.current_user.id, photo_id: params[:photo_id])
+    @comment.commenter_id = self.current_user.id
+    # @comment.update_attributes(commenter_id: self.current_user.id)
 
     if @comment.save
-      redirect_to Photo.find(@comment.photo_id)
+      respond_with @comment
     else
       flash[:errors] = @comment.errors.full_messages
-      redirect_to Photo.find(@comment.photo_id)
+      respond_with @comment
     end
 
   end

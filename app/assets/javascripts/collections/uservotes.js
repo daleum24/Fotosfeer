@@ -1,6 +1,9 @@
-ImgurClone.Collections.Comments = Backbone.Collection.extend({
+ImgurClone.Collections.Uservotes = Backbone.Collection.extend({
 	
-	url: " /photos/" + this.photo_id + "/comments",
+	url: function(){ 
+			return "/photos/" + this.get("photo_id") + "/user_votes"
+		},
+		
 	model: ImgurClone.Models.Uservote
 	
 });

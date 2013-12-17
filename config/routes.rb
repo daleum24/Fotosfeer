@@ -20,10 +20,10 @@ ImgurClone::Application.routes.draw do
 
   resources :photos, only: [:index, :show, :update, :destroy] do
     resources :comments,  only: [:create, :index] 
+    resources :user_votes, only: [:index]
     resources :favorites, only: [:create]
 
     member do
-      get  "allvotes"
       post "upvote"
       post "downvote"
     end
