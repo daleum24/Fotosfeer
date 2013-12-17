@@ -8,16 +8,15 @@ class PhotosController < ApplicationController
     respond json: @photos
   end
 
-  # def new
-  #   @photo = Photo.new
-  # end
-
-  def create
+  def geolocate
     tempfile = params[:photo][:image].tempfile
     
-    @photo = Photo.new(tempfile, params[:photo])
-    @photo.update_attributes(submitter_id: params[:user_id])
+    @photo = Photo.new(tempfile, {submitter_id: params[:user_id]})
     
+    respond_with @photo
+  end
+  
+  def create  
     if @photo.save
       respond_with @photo
     else
@@ -30,9 +29,6 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
   
-  # def edit
-  #   @photo = Photo.find(params[:id])
-  # end
 
   def update
     @photo = Photo.find(params[:id])

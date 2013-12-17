@@ -6,7 +6,12 @@ ImgurClone::Application.routes.draw do
   resources :home, only: [:index]
 
   resources :users, only: [:new, :create] do
-    resources :photos, only: [:new, :create]
+    resources :photos, only: [:create] do
+      collection do
+        post "geolocate"
+      end
+    end
+    
     resources :regions, only: [:index, :new, :create]
 
     member do
@@ -17,7 +22,7 @@ ImgurClone::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resources :photos, only: [:index, :show, :edit, :update, :destroy] do
+  resources :photos, only: [:index, :show, :update, :destroy] do
     resources :comments,  only: [:new, :create]
     resources :favorites, only: [:create]
 
