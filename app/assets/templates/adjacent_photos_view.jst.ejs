@@ -1,0 +1,12 @@
+
+<% for (var i = 0; i < 5; i++) { %>
+	
+	<% var index = ImgurClone.PhotosCollection.indexOf(photo) %>
+	<% var nextModel = ImgurClone.PhotosCollection.at( index - i )  %>
+	
+	<figure class='adjacent_photo_container'>
+		<img src="<%= nextModel.escape('image_url') %>"></img>
+	</figure>
+	
+<% }; %>
+

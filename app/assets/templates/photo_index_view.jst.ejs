@@ -7,7 +7,7 @@
 			
 			<div class="photo_row">
 				<figure>
-					<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 				</figure>
 				
 		<% } else if (index % 4 === 0) { %>
@@ -15,13 +15,13 @@
 				</div>
 				<div class="photo_row">
 					<figure>
-						<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+						<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 					</figure>
 					
 		<% } else { %>
 			
 				<figure>
-					<a href="#"><img src="<%= obj.escape('image_url') %>"></a>
+					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 				</figure>
 				
 		<% }  %>

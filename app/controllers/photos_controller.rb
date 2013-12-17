@@ -23,11 +23,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  def show
-    @photo = Photo.find(params[:id])
-  end
-  
-
   def update
     @photo = Photo.find(params[:id])
     @photo.update_attributes(params[:photo])
