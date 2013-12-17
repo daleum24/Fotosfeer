@@ -1,7 +1,11 @@
 class CommentsController < ApplicationController
-
-  def new
+  respond_to :json
+  
+  def index
     @photo = Photo.find(params[:photo_id])
+    @comments = @photo.comments
+    
+    respond_with @comments
   end
 
   def create

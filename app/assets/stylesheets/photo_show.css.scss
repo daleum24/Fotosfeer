@@ -37,7 +37,7 @@ div, section, img, p, h2{
 }
 
 // MAIN CONTENT VIEW
-
+// //MAIN PHOTO
 .main-photo-content{
 	border: 1px solid blue;
 	width: 623px;
@@ -50,10 +50,10 @@ div, section, img, p, h2{
 }
 
 .main-photo{
-	background: red;
+	border: 1px solid purple;
 	height: auto;
 	display: block;
-	width: 550px;
+	width: 580px;
 	margin: auto;
 	margin-top: 20px;
 }
@@ -75,6 +75,54 @@ div, section, img, p, h2{
 	display: block;
 	min-height: 50px;
 }
+
+// //votes
+.votes-container{
+	width: 580px;
+	height: 50px;
+	margin: auto;
+	margin-top: 10px;
+	border: 1px solid purple;
+}
+
+.votes-container input{
+	font-size: 14px;
+	margin: 5px 2px;
+	width: 50px;
+	height: 40px;
+	float: left;
+}
+
+.votes-container input:first-of-type{
+	margin-left: 5px;
+}
+
+#favorite-button, #region-button{
+	font-size: 14px;
+	width: 80px;
+}
+
+#upvotes-bar-container{
+	margin: 5px 20px 5px 20px;
+	background: yellow;
+	width: 250px;
+	height: 40px;
+	float: left;
+}
+// //comments
+.comments-container{
+	width: 580px;
+	height: auto;
+	margin: auto;
+	margin-top: 10px;
+	border: 1px solid purple;
+}
+
+#existing-posts-container{
+	min-height: 20px;
+}
+
+
 
 //SHOW SIDEBAR VIEW
 
