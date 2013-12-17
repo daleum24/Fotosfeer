@@ -1,14 +1,19 @@
 ImgurClone.Views.CommentsView = Backbone.View.extend({
 	initialize: function(){
 		var that = this;
-		this.$el.addClass("comments-container")
-		console.log(this.model.get("comments"))
+		this.$el.addClass("comments-container");
 	},
 	
-	// template: JST['comments_view'],
+	template: JST['comments_view'],
 	
 	render: function(){
-		// this.$el.html(this.template({ comments: that.allComments }))
+		var comments_by_parent = this.model.get("comments_by_parent_id")
+		var comments = this.model.get("comments")
+		
+		console.log(comments_by_parent)
+		console.log(comments)
+
+		this.$el.html(this.template({ photo: this.model, comments: comments, comments_by_parent: comments_by_parent }))
 		return this
 	}
 	

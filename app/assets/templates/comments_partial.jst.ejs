@@ -1,0 +1,13 @@
+<p>
+  <%= top_level_comment.body %>
+</p>
+
+<ul>
+	<% if (comments_by_parent[(+top_level_comment.id)]){ %>
+		<% comments_by_parent[(+top_level_comment.id)].forEach(function(child_comment){ %>
+	    <li>
+				<%= JST['comments_partial']({photo: photo, top_level_comment: child_comment, comments_by_parent: comments_by_parent }) %>
+			</li>
+		<% }) %>
+	<% } %> 
+</ul>
