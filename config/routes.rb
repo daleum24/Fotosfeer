@@ -23,6 +23,7 @@ ImgurClone::Application.routes.draw do
     resources :favorites, only: [:create]
 
     member do
+      get  "allvotes"
       post "upvote"
       post "downvote"
     end

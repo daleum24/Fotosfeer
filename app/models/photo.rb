@@ -115,10 +115,12 @@ class Photo < ActiveRecord::Base
   def as_json(options)
     comments = self.comments
     comments_by_parent_id = self.comments_by_parent_id
+    uservotes = self.uservotes
     
     additional_options = {image_url: self.image.url}
     additional_options.merge!({comments: comments}) if comments
     additional_options.merge!({comments_by_parent_id: comments_by_parent_id}) if comments_by_parent_id
+    additional_options.merge!({uservotes: uservotes}) if uservotes
     
     super(options).merge!(additional_options)
   end
