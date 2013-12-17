@@ -29,8 +29,6 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	},
 	
 	_swapView: function (newView) {
-	  // this._currentView && this._currentView.remove();
-	  // this._currentView = newView;
 		$('.body').empty();
 	  $('.body').html(newView.render().$el);
 	}
