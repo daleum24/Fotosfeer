@@ -1,37 +1,71 @@
-.upload-form{
-	display: none;
-
+.form-container{
 	padding: none;
-	width: 1000px;
-	height: 300px;
+	width: 600px;
+	height: 100px;
 	margin: auto;
+	position: relative;
 }
 
-.display-form{
-	display: block;
+.upload-form{
+	height: 600px;
+	width: 600px;
+	margin: auto;
 	position: absolute;
 }
 
 .image_selection{
-	border: 1px solid black;
-	width: 200px;
-	height: 300px;
-	float: right;
-	background: white;
+	width: 500px;
+	height: 200px;
+	margin: auto;
+	background: lightblue;
 }
 
 .image_selection div{
-	height: 150px;
+	width: 250px;
+	height: 200px;
+	float: left;
 }
 
 .image_selection div:first-of-type{
-	border-bottom: 1px solid black;
+//	border-right: 1px solid black;
 }
 
-.image_selection label{
+#fileupload{
+	width: 100%;
+	height: 100%;
+	float: right;
+	background: lightgreen;
 }
 
-.image_selection input{
+#dropzone p{
 	display: block;
-	width: 90px;
+	width: 100%;
+	height: 100%;
 }
+
+.initial_update_form{
+	display: block;
+	height: 400px;
+	width: 500px;
+	margin: auto;
+	background: red;
+}
+
+.upload_error{
+	display: block;
+	height: 400px;
+	width: 500px;
+	margin: auto;
+	background: yellow;
+}
+
+.display-form{
+	display: block;
+}
+//
+//.hide-form{
+//	display: none;
+//}
+
+
+

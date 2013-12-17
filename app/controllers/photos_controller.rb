@@ -7,20 +7,18 @@ class PhotosController < ApplicationController
     @photos = Photo.order("created_at DESC")
     respond json: @photos
   end
-
-  def geolocate
-    tempfile = params[:photo][:image].tempfile
-    
-    @photo = Photo.new(tempfile, {submitter_id: params[:user_id]})
-    
-    respond_with @photo
-  end
   
   def create  
+    tempfile = params[:photo][:image].tempfile
+    params[:photo][:submitter_id] = params[:user_id]
+    
+    @photo = Photo.new(tempfile, params[:photo])
+    
     if @photo.save
+      flash[:errors] = ["Upload Successful!"]
       respond_with @photo
     else
-      flash[:photo_errors] = @photo.errors.full_messages
+      flash[:errors] = @photo.errors.full_messages
       respond_with @photo
     end
   end

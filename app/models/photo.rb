@@ -11,6 +11,8 @@ class Photo < ActiveRecord::Base
 
   validates :submitter_id, :title, :latitude, :longitude, presence: true
   validates :image, attachment_presence: true
+  
+  before_validation :check_title, on: :create
 
   belongs_to(
     :submitter,
@@ -46,11 +48,20 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image
   
-  # after_post_process :check_for_geotag
-  
   def initialize(tempfile, attribute={})
     super(attribute)
     check_for_geotag(tempfile)
+  end
+
+  def check_for_geotag(tempfile)
+    imgfile = EXIFR::JPEG.new(tempfile)
+    return if imgfile.nil?
+    self.latitude = imgfile.gps.latitude
+    self.longitude = imgfile.gps.longitude
+  end
+  
+  def check_title
+    self.title = "Untitled" if self.title.nil?
   end
 
   def comments_by_parent_id
@@ -99,13 +110,6 @@ class Photo < ActiveRecord::Base
     else
       return nil
     end
-  end
-  
-  def check_for_geotag(tempfile)
-    imgfile = EXIFR::JPEG.new(tempfile)
-    return if imgfile.nil?
-    self.latitude = imgfile.gps.latitude
-    self.longitude = imgfile.gps.longitude
   end
   
   def as_json(options)

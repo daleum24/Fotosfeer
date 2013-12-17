@@ -6,11 +6,7 @@ ImgurClone::Application.routes.draw do
   resources :home, only: [:index]
 
   resources :users, only: [:new, :create] do
-    resources :photos, only: [:create] do
-      collection do
-        post "geolocate"
-      end
-    end
+    resources :photos, only: [:create]
     
     resources :regions, only: [:index, :new, :create]
 

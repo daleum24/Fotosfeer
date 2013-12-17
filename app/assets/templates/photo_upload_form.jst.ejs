@@ -1,21 +1,35 @@
-<div class="image_selection">
-	<div>
-		<form action="#" id="fileupload">
-			<input type="hidden"
-						 name="authenticity_token"
-						value="<%= ImgurClone.csrf_token %>"></input>
-						
-			<label>Browse Your Computer
-				<input type="file" name="photo[image]"></input>
-			</label>
-		</form>
+<section class="upload-form">
+
+	<div class="image_selection">
+		<div>				
+			<input type="file" name="photo[image]" id="fileupload" value="Browse Your Computer"></input>
+		</div>
+
+		<div id="dropzone">
+			<p>DropZone</p>
+		</div>
 	</div>
 	
-	<div>
+	<div class="initial_update_form">
+		<input type="text" name="photo[title]" placeholder="Title"></input>
 		
+		<figure>
+			
+		</figure>
 		
+		<textarea name="photo[description]" placeholder="Description"></textarea>
+		
+		<input type="submit" value="Add Photo" id="upload_image"></input>
+		<input type="submit" value="Cancel" id="cancel_upload"></input>
+
 	</div>
+
+	<div class="upload_error">
 	
-</div>
+	</div>
+
+	
+</section>
+	
 
 
