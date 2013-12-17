@@ -1,20 +1,28 @@
 ImgurClone.Views.UploadFormView = Backbone.View.extend({
 	initialize: function(){
 		this.$el.addClass("upload-form");
+		$(function() { $('#fileupload').fileupload({
+			url: "/users/" + ImgurClone.user_id + "/photos",
+			type: "POST",
+			dataType: "json",
+			done: function(e,data){
+				console.log("in done")
+			},
+			fail: function(e,data){
+				console.log(e)
+				console.log(data.result)
+				console.log("in fail")
+			}
+			});
+		})
 	},
 	
 	events:{
-		// "click #paperclip_button_submit" : "next_action_rename"
+		"click #fileupload_submit" : "submit_image"
 	},
 	
-	next_action_rename: function(event){
+	submit_image: function(event){
 		event.preventDefault();
-		var upload_photo = $('#paperclip_button')
-		console.log(upload_photo.files)
-		console.log(upload_photo)
-		
-		var new_photo = new ImgurClone.Models.Photo({image: upload_photo})
-		
 	},
 	
 	template: JST["photo_upload_form"],

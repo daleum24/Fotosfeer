@@ -13,7 +13,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	home_link: function(event){
 		event.preventDefault();
-		alert("jiadsfj")
+		Backbone.history.navigate("", {trigger:true});
 	},
 	
 	show_upload_form: function(event){

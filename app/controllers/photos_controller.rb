@@ -18,14 +18,11 @@ class PhotosController < ApplicationController
     @photo = Photo.new(tempfile, params[:photo])
     @photo.update_attributes(submitter_id: params[:user_id])
     
-    
-    fail
-    
     if @photo.save
-      respond json: @photo
+      respond_with @photo
     else
-      flash[:errors] = @photo.errors.full_messages
-      respond json: @photo
+      flash[:photo_errors] = @photo.errors.full_messages
+      respond_with @photo
     end
   end
 

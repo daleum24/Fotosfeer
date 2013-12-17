@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializeJSON.min
+//=require jquery-fileupload/basic
 //= require underscore
 //= require backbone
 //= require imgur_clone
