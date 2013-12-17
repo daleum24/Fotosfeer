@@ -7,6 +7,7 @@
 }
 
 .upload-form{
+	display: none;
 	height: 600px;
 	width: 600px;
 	margin: auto;
@@ -17,7 +18,6 @@
 	width: 500px;
 	height: 200px;
 	margin: auto;
-	background: lightblue;
 }
 
 .image_selection div{
@@ -38,13 +38,18 @@
 }
 
 #dropzone p{
+	background: green;
 	display: block;
 	width: 100%;
 	height: 100%;
 }
 
+#progress{
+	display: none;
+}
+
 .initial_update_form{
-	display: block;
+	display: none;
 	height: 400px;
 	width: 500px;
 	margin: auto;
@@ -52,20 +57,35 @@
 }
 
 .upload_error{
-	display: block;
+	display: none;
 	height: 400px;
 	width: 500px;
 	margin: auto;
 	background: yellow;
 }
 
+.initial_update_form input{
+	display: block;
+}
+
+.new_upload_preview{
+	height: 300px;
+	width: 300px;
+	background: white;
+}
+
+.upload_img{
+	height: 100%;
+	width: 100%;
+}
+
 .display-form{
 	display: block;
 }
-//
-//.hide-form{
-//	display: none;
-//}
+
+.hide-form{
+	display: none;
+}
 
 
 
