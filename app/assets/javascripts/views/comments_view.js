@@ -8,18 +8,25 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 			url: "/photos/" + this.model_id + "/comments",
 			dataType: "json",
 			success: function(response){
-				that.collection = new ImgurClone.Collections.Photos(response, {id: that.model_id});
-			},
-			error: function(response){
-				console.log("in error")
+				that.allComments = new ImgurClone.Collections.Photos(response, {id: that.model_id});
 			}
-		})
+		});
+		
+		$.ajax({
+			url: "/photos/" + this.model_id + "/comments",
+			dataType: "json",
+			success: function(response){
+				that.commentsByParentId = new ImgurClone.Collections.Photos(response, {id: that.model_id});
+			}
+		});
+		
 	},
 	
 	template: JST['comments_view'],
 	
 	render: function(){
-		this.$el.html(this.template())
+		this.$el.html(this.template({ comments: that.allComments }))
 		return this
 	}
+	
 });
