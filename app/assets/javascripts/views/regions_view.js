@@ -5,7 +5,7 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	
 	render: function(){
 		this.$el.append($("<div id='region-header'></div>"))
-		this.$el.append($("<div id='region-map'></div>"))
+		this.$el.append($("<div id='region-map' class='dark' ></div>"))
 		return this
 	}
 })

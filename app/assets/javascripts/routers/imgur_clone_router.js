@@ -26,9 +26,9 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		var photoShowView = new ImgurClone.Views.PhotoShowView({model: photo});
 		
 		this._swapView(photoShowView)
-		var map = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
+		var map = ImgurClone.PhotoMap = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
 		    .setView([latitude, longitude], 17);
-
+		
 		L.mapbox.markerLayer({
 		    type: 'Feature',
 		    geometry: {
@@ -42,6 +42,8 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		        description: 'This is a single marker.'
 		    }
 		}).addTo(map);
+		
+		
 	},
 	
 	favorites: function(){
@@ -52,7 +54,7 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		var regionsView = new ImgurClone.Views.RegionsView();
 		this._swapView(regionsView)
 		var map = L.mapbox.map('region-map', 'examples.map-9ijuk24y')
-		    .setView([latitude, longitude], 17);
+		    .setView([0, 0], 17);
 	},
 	
 	_swapView: function (newView) {

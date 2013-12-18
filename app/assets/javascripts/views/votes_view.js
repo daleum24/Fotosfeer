@@ -20,7 +20,14 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	events: {
 		"click #upvote-button": "upvote",
 		"click #downvote-button": "downvote",
-		"click #favorite-button": "favorite"
+		"click #favorite-button": "favorite",
+		"click #region-button" : "region"
+	},
+	
+	region: function(event){
+		event.preventDefault()
+
+		console.log(ImgurClone.PhotoMap.getBounds())
 	},
 	
 	favorite: function(event){
