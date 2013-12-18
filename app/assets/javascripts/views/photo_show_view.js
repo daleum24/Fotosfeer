@@ -5,12 +5,13 @@ ImgurClone.Views.PhotoShowView = Backbone.View.extend({
 		this.$el.append(this.detailsContainer)
 		
 		// this.adjacentPhotos = new ImgurClone.Views.AdjacentPhotosView({model: this.model});
+		
 		this.mainPhotoContent = new ImgurClone.Views.MainContentView({model: this.model});
 		this.showSideBar = new ImgurClone.Views.ShowSideBarView({model: this.model});
 	},
 	
 	render: function(){
-		// console.log(this.adjacentPhotos.$el)
+
 		// this.$el.prepend(this.adjacentPhotos.render().$el);
 		
 		this.detailsContainer.append(this.mainPhotoContent.render().$el);
