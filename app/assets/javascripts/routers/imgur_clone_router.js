@@ -19,11 +19,28 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	
 	show: function(id){
 		var photo = ImgurClone.PhotosCollection.get(id)
+		var latitude = +photo.get("latitude")
+		var longitude = +photo.get("longitude")
+		
 		var photoShowView = new ImgurClone.Views.PhotoShowView({model: photo});
 		
 		this._swapView(photoShowView)
 		var map = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
-		    .setView([40, -74.50], 9);
+		    .setView([latitude, longitude], 17);
+
+		L.mapbox.markerLayer({
+		    type: 'Feature',
+		    geometry: {
+		        type: 'Point',
+		        coordinates: [longitude, latitude]
+		    },
+		    properties: {
+		        'marker-color': '#0fa',
+		        'marker-symbol': 'star-stroked',
+		        title: 'Example Marker',
+		        description: 'This is a single marker.'
+		    }
+		}).addTo(map);
 	},
 	
 	favorites: function(){
