@@ -123,8 +123,8 @@ div, section, img, p, h2{
 }
 
 .comment-li{
-	border: 1px solid red;
 	min-height: 70px;
+	margin-left: 30px;
 }
 
 .nest-collapse{
@@ -133,12 +133,19 @@ div, section, img, p, h2{
 
 .comment-buttons{
 	background: pink;
-//	height: 20px;
 }
 
 .article-content{
 	background: lightblue;
 //	float: left;
+}
+
+.reply-post-form{
+	display: none;
+}
+
+.display-reply{
+	display: block;
 }
 
 

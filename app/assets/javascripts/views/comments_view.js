@@ -13,8 +13,8 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 	events:{
 		"click #comment-submit" : "post_new_comment",
 		"click .nest-collapse"  : "collapse_children",
-		"click .reply-link"     : "reply_to_comment"
-		
+		"click .reply-link"     : "show_reply_form",
+		"click #comment-submit" : "reply_to_comment"
 	},
 	
 	childrenTemplate: JST['children_template'],
@@ -46,14 +46,34 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		
 	},
 	
+	show_reply_form: function(event){
+		event.preventDefault();
+		var data_id = $(event.currentTarget).attr("data-id")
+		var form_id = "#reply-" + data_id
+		
+		$(form_id).toggleClass("display-reply")
+	},
+	
 	reply_to_comment: function(event){
 		event.preventDefault();
+		var data_id = $(event.currentTarget).attr("data-id")
+		var input_id = "#comment-input-" + data_id
+		var body = $(input_id).val()
+		var that = this;
+		
+		this.comments.create({comment: {parent_comment_id: data_id, body: body, photo_id: this.model.get("id")}}, {
+			wait: true,
+			success: function(response) {
+				that.render();
+				var button = $("#nest-collapse-" + data_id).click()
+			}
+		})
+		
 	},
 	
 	post_new_comment: function(event){
 		event.preventDefault();
 		var body = $("#comment-input").val()
-		var comment = new ImgurClone.Models.Comment()
 		var that = this;
 		
 		this.comments.create({comment: {body: body, photo_id: this.model.get("id")}}, {
@@ -75,3 +95,13 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 	}
 	
 });
+
+
+
+
+
+
+
+
+
+

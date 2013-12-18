@@ -14,7 +14,7 @@
 		
     <ul>
       <% top_level_comments.forEach(function(top_level_comment){  %>
-        <%= JST['children_template']({top_level_comment: top_level_comment, comments: comments}) %>
+        <%= JST['parent_template']({top_level_comment: top_level_comment, comments: comments}) %>
       <% }); %>	
     </ul>
 		
