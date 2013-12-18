@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   respond_to :json
   
   def index
-    @photos = Photo.order("created_at DESC").includes(:comments)
+    @photos = Photo.includes(:comments)
     
     respond json: @photos
   end

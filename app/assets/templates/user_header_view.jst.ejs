@@ -10,7 +10,7 @@
 	    </div>
 
 	    <div id="username">
-	      <p>Current User Name</p>
+	      <p><%= users.get(user_id).escape("username") %></p>
 	      <ul id="username_dropdown">
 					<li>
 						<a href="#" id="my-favorites">My Favorites</a></li>
@@ -22,7 +22,10 @@
 						<a href="#" id="my-regions">My Regions</a></li>
 					</li>
 					<li>
-						<a href="#" id="logout">Logout</a></li>
+						<form action="/session" method="post">
+							<input type="hidden" name="_method" value="DELETE"></input>
+							<input type="submit" value="Logout"></input>
+						</form>
 					</li>
 	      </ul>
 	    </div>
