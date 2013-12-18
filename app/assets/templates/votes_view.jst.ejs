@@ -1,13 +1,13 @@
 <% if (currentUserVote.length > 0){ %>
 <% 	var value = +currentUserVote[0].escape("value") %>
-
 <% 	if (value === 1){ %>
 <% 		var upvoted = true %>
 <% 	} else if (value === -1) { %>
 <% 		var downvoted = true %>
 <% 	} %>
-
 <% } %>
+
+
 
 <% if (upvoted === true) { %>
 	<input type="submit" value="Upvote" class="upvote-clicked" id="upvote-button"></input>

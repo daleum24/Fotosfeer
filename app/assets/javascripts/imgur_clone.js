@@ -10,14 +10,15 @@ window.ImgurClone = {
 
 		var PhotosCollection = ImgurClone.PhotosCollection = new ImgurClone.Collections.Photos(JSON.parse(photos), {parse: true})
 
+		console.log(PhotosCollection.models[0])
 		// var PhotosCollection = ImgurClone.PhotosCollection = photocollection.sortBy(function(photo){
 // 			return photo.escape("id")
 // 		});
 		
 		var UsersCollection = ImgurClone.UsersCollection = new ImgurClone.Collections.Users(JSON.parse(users), {parse: true});
 
-		var router = new ImgurClone.Routers.imgumRouter();
-		Backbone.history.start();
+		// var router = new ImgurClone.Routers.imgumRouter();
+		// Backbone.history.start();
   }
 };
 

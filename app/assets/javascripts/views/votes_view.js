@@ -21,7 +21,30 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	
 	events: {
 		"click #upvote-button": "upvote",
-		"click #downvote-button": "downvote"
+		"click #downvote-button": "downvote",
+		"click #favorite-button": "favorite"
+	},
+	
+	favorite: function(event){
+		event.preventDefault();
+		
+		// if ($(event.currentTarget).hasClass("favorite-clicked")){
+// 			$.ajax({
+// 				url: "/photos/" + this.model.escape("id") + "/cancelvote",
+// 				method: "POST",
+// 				success: function(){
+// 					
+// 				}
+// 			});				
+// 		} else {
+// 			$.ajax({
+// 				url: "/photos/" + this.model.escape("id") + "/favorites",
+// 				method: "POST",
+// 				success: function(){
+// 					console.log(function)
+// 				}
+// 			});
+// 		}
 	},
 	
 	upvote: function(event){
