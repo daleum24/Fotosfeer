@@ -6,7 +6,7 @@ ImgurClone.Views.PhotoShowView = Backbone.View.extend({
 		
 		// this.adjacentPhotos = new ImgurClone.Views.AdjacentPhotosView({model: this.model});
 		this.mainPhotoContent = new ImgurClone.Views.MainContentView({model: this.model});
-		// this.showSideBar = new ImgurClone.Views.ShowSideBarView({model: this.model});
+		this.showSideBar = new ImgurClone.Views.ShowSideBarView({model: this.model});
 	},
 	
 	render: function(){
@@ -14,7 +14,7 @@ ImgurClone.Views.PhotoShowView = Backbone.View.extend({
 		// this.$el.prepend(this.adjacentPhotos.render().$el);
 		
 		this.detailsContainer.append(this.mainPhotoContent.render().$el);
-		// this.detailsContainer.append(this.showSideBar.render().$el);
+		this.detailsContainer.append(this.showSideBar.render().$el);
 		return this
 	}
 });

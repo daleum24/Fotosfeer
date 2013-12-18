@@ -22,6 +22,8 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		var photoShowView = new ImgurClone.Views.PhotoShowView({model: photo});
 		
 		this._swapView(photoShowView)
+		var map = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
+		    .setView([40, -74.50], 9);
 	},
 	
 	favorites: function(){

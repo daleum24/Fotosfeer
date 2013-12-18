@@ -17,7 +17,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'exifr'
 gem "jquery-fileupload-rails"
-
+gem 'mapbox-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

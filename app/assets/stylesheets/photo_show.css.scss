@@ -167,7 +167,23 @@ div, section, img, p, h2{
 
 .show-sidebar{
 	background: pink;
-	width: 325px;
+	width: 350px;
 	height: 800px;
 	float: right;
+}
+
+// //map
+
+#photo-map{
+	width: 300px;
+	height: 300px;
+	margin: auto;
+	margin: 20px;
+}
+
+#map{ 
+	position:absolute; 
+	top:0; 
+	bottom:0; 
+	width:100%; 
 }
