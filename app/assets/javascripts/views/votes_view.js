@@ -26,7 +26,7 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	favorite: function(event){
 		event.preventDefault();
 		var that = this;
-		
+		this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
 		if ( $("#favorite-button").hasClass("favorite-clicked") ){
 			that.currentUserFavorite[0].destroy({
 				url: "/favorites/"+that.currentUserFavorite[0].get("id"),
