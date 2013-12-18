@@ -9,7 +9,8 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	routes: {
 		"": "home",
 		"photos/:id": "show",
-		"/favorites": "favorites"
+		"favorites": "favorites",
+		"regions" : "regions"
 	},
 	
 	home: function(){
@@ -45,6 +46,13 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	
 	favorites: function(){
 		alert("going to favorites!")
+	},
+	
+	regions: function(){
+		var regionsView = new ImgurClone.Views.RegionsView();
+		this._swapView(regionsView)
+		var map = L.mapbox.map('region-map', 'examples.map-9ijuk24y')
+		    .setView([latitude, longitude], 17);
 	},
 	
 	_swapView: function (newView) {

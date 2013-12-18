@@ -10,6 +10,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		"click #home_link" : "home_link",
 		"click #image_upload" : "show_upload_form",
 		"click #my-favorites" : "navigate_to_favorites",
+		"click #my-regions" : "navigate_to_regions",
 		"click #logout" : "logout"
 	},
 	
@@ -25,6 +26,11 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	navigate_to_favorites: function(event){
 		event.preventDefault();
+	},
+	
+	navigate_to_regions: function(event){
+		event.preventDefault();
+		Backbone.history.navigate("#regions", {trigger:true})
 	},
 	
 	logout: function(event){

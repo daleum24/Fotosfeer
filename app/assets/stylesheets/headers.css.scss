@@ -46,56 +46,50 @@ nav{
 
 #nav_buttons{
   float: right;
+	border-right: 1px solid orange;
+	height: 40px;
+	width: auto;
 }
 
-#image_upload, #username{
-  float: left;
-  height: 40px;
-  padding: 0px 20px;
-  position: relative;
+#image_upload{
+	display: block;
+	background: red;
+	padding: 10px;
+	float: left;
 }
 
-#image_upload a{
+#image_upload > a{
 	display: block;
 	height: 100%;
 	width: 100%;
 }
 
-#image_upload p{
-	margin-top: 10px;
+#username_dropdown{
+	display: block;
+	float: left;
 }
 
-#username_dropdown{
-  display: none;
+#username_dropdown li{
+	display: block;
+	padding: 10px;
+	float: left;
+}
+
+#username{
+	display: block;
+	background: orange;
+	padding: 10px;
+	float: left;
 }
 
 #username p{
-  margin-top: 10px;
-}
-
-#username:hover #username_dropdown{
-  margin-top: 15px;
 	display: block;
-  width: 100px;
-  position: absolute;
-  margin-top: 12px;
-};
-
-#username_dropdown li{
-  background: white;
-  padding: 5px 10px;
-  width: 100px;
-	border-bottom: 1px solid orange;
-}
-
-#username_dropdown a{
-	display: block;
-  width: 100%;
+	width: 100%;
 	height: 100%;
 }
 
-#username_dropdown li:first-of-type{
-	border-top: 1px solid lightblue;
+#username_dropdown #username:hover{
+	display: block;
 };
 
 #username_dropdown input{
