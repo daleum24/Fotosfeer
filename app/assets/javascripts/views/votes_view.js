@@ -1,22 +1,20 @@
 ImgurClone.Views.VotesView = Backbone.View.extend({
 	initialize: function(){
+		var that = this;
 		this.$el.addClass("votes-container")
 		this.photoUservotes = this.model.get("uservotes")
+		this.photoFavorites = this.model.get("favorites")
+		this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
+		this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
+
 		this.uservotesCount = 0
-		var that = this;
 		
 		if (this.photoUservotes.length > 0){
 			this.photoUservotes.forEach(function(uservote){
 				that.uservotesCount += +(uservote.escape("value"))
 			});
 		}
-		this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
-	
 		
-	  var events = ["add", "change"];
-	     _(events).each(function (event) {
-	       that.listenTo(that.photoUservotes, event, that.render);
-	     });	
 	},
 	
 	events: {
@@ -27,24 +25,26 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	
 	favorite: function(event){
 		event.preventDefault();
+		var that = this;
 		
-		// if ($(event.currentTarget).hasClass("favorite-clicked")){
-// 			$.ajax({
-// 				url: "/photos/" + this.model.escape("id") + "/cancelvote",
-// 				method: "POST",
-// 				success: function(){
-// 					
-// 				}
-// 			});				
-// 		} else {
-// 			$.ajax({
-// 				url: "/photos/" + this.model.escape("id") + "/favorites",
-// 				method: "POST",
-// 				success: function(){
-// 					console.log(function)
-// 				}
-// 			});
-// 		}
+		if ( $("#favorite-button").hasClass("favorite-clicked") ){
+			that.currentUserFavorite[0].destroy({
+				url: "/favorites/"+that.currentUserFavorite[0].get("id"),
+				success: function(){
+					$("#favorite-button").toggleClass("favorite-clicked")
+					$("#favorite-button").val("Favorite")
+				}
+			})
+		} else {
+			that.photoFavorites.create({ favorite: { user_id: ImgurClone.user_id, photo_id: that.model.get("id") } }, {
+				wait: true,
+				url: "/photos/" + that.model.get("id") + "/favorites",
+				success: function(){
+					$("#favorite-button").toggleClass("favorite-clicked")
+					$("#favorite-button").val("Unfavorite")
+				}
+			})
+		}
 	},
 	
 	upvote: function(event){
@@ -121,7 +121,7 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	template: JST['votes_view'],
 	
 	render: function(){
-		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote }))
+		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite }))
 		
 		return this
 	}

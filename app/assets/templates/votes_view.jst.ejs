@@ -7,7 +7,9 @@
 <% 	} %>
 <% } %>
 
-
+<% if (currentUserFavorite.length > 0){ %>
+	<% var favorited = true %>
+<% } %>
 
 <% if (upvoted === true) { %>
 	<input type="submit" value="Upvote" class="upvote-clicked" id="upvote-button"></input>
@@ -27,6 +29,28 @@
   <div id="upvotes-bar" style="width: 0%;"></div>
 </div>
 
-<input type="submit" value="Favorite" id="favorite-button"></input>
+<% if (favorited === true){ %>
+	<input type="submit" value="Unfavorite" class="favorite-clicked" id="favorite-button"></input>
+<% } else { %>
+	<input type="submit" value="Favorite" id="favorite-button"></input>
+<% } %>
+
+
+
 <input type="submit" value="Create Region" id="region-button"></input>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -104,12 +104,11 @@ div, section, img, p, h2{
 
 #upvotes-bar-container{
 	margin: 5px 20px 5px 20px;
-	background: yellow;
+	border: 1px solid purple;
 	width: 250px;
 	height: 40px;
 	float: left;
 }
-// //user votes
 
 .upvote-clicked{
 	background: green;
@@ -117,6 +116,11 @@ div, section, img, p, h2{
 
 .downvote-clicked{
 	background: red;
+}
+
+// //favorites
+.favorite-clicked{
+	background: yellow;
 }
 
 // //comments
