@@ -13,12 +13,12 @@
 	<% } else { %>	
 		
     <ul>
-      <% top_level_comments.forEach(function(top_level_comment){  %>
-        <li class="comment-li">
-					<input type="submit" value="+" class="nest-collapse" data-id="<%= top_level_comment.escape('id') %>">
-					<%= top_level_comment.escape("body") %>
+      <% comments_by_parent[""].forEach(function(top_level_comment){  %>
+        <li>
+			  	<%= JST['comments_partial']({ photo: photo, top_level_comment: top_level_comment, comments_by_parent: comments_by_parent }) %>
         </li> 
-      <% }); %>	
+      <% }); %>
+			
     </ul>
 		
 	<% } %>	

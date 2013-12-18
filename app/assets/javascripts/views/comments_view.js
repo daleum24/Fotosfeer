@@ -4,6 +4,10 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		this.$el.addClass("comments-container");
 		this.comments_by_parent = this.model.get("comments_by_parent_id")
 		this.comments = this.model.get("comments")
+		this.top_level_comments = this.comments.filter(function(comment){
+			return comment.get("parent_comment_id") === null
+		})
+
 	},
 	
 	events:{
@@ -14,24 +18,24 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		event.preventDefault();
 		var body = $("#comment-input").val()
 		var comment = new ImgurClone.Models.Comment()
+		var that = this;
 		
-		comment.save({comment: {body: body, photo_id: this.model.get("id")}}, {
-			success: function(response){
-				console.log("success")
-				console.log(response)
-				that.comments.add(response)
-			},
-			error: function(response){
-				console.log("error")
-				console.log(response)
-			}	
+		this.comments.create({comment: {body: body, photo_id: this.model.get("id")}}, {
+			wait: true,
+			success: function(response) {
+				that.top_level_comments.push(response)
+				that.render();
+			}
 		})
+		
 	},
 	
 	template: JST['comments_view'],
 	
 	render: function(){
-		this.$el.html(this.template({ photo: this.model, comments: this.comments, comments_by_parent: this.comments_by_parent }))
+		console.log("kashgiduashfi")
+		this.$el.html(this.template({ photo: this.model, comments: this.comments, top_level_comments: this.top_level_comments }))
+		
 		return this
 	}
 	
