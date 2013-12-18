@@ -64,8 +64,10 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		this.comments.create({comment: {parent_comment_id: data_id, body: body, photo_id: this.model.get("id")}}, {
 			wait: true,
 			success: function(response) {
-				that.render();
-				var button = $("#nest-collapse-" + data_id).click()
+				var ul = ".nested-comment-" + data_id
+				$(ul).append(that.childrenTemplate({top_level_comment: response, comments: that.comments}))
+				// that.render();
+// 				var button = $("#nest-collapse-" + data_id).click()
 			}
 		})
 		
