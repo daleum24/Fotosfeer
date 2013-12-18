@@ -25,17 +25,25 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		var $parent = $(event.currentTarget).parent()
 		var data_id = $(event.currentTarget).attr("data-id") 
 		
-		$(event.currentTarget).attr("value", "-") 
+		var ul = ".nested-comment-" + data_id
 		
 		var children_comments = this.comments.filter(function(comment){
 			return comment.get("parent_comment_id") === +data_id
 		})
 		
-		$parent.append("<ul class='nested-comment'></ul>")
+		if ($(event.currentTarget).attr("value") === "+" ){
+			
+			$(event.currentTarget).attr("value", "-") 
 	
-		children_comments.forEach(function(child_comment){
-			$('.nested-comment').append(that.childrenTemplate({comment: child_comment}))
-		})
+			children_comments.forEach(function(child_comment){
+				$(ul).append(that.childrenTemplate({top_level_comment: child_comment, comments: that.comments}))
+			})
+			
+		} else {
+			$(event.currentTarget).attr("value", "+") 
+			$(ul).empty()
+		}
+		
 	},
 	
 	reply_to_comment: function(event){

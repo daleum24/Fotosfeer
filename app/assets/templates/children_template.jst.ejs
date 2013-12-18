@@ -1,8 +1,22 @@
 <li class="comment-li">
-	<input type="submit" value="+" class="nest-collapse" data-id="<%= comment.escape('id') %>">
+
+	<% var children = comments.filter(function(comment){ %>
+		<% return comment.get("parent_comment_id") === top_level_comment.get("id") %>
+	<% }) %>
+
+	<% if (children.length > 0) { %>	
+		<input type="submit" value="+" class="nest-collapse" data-id="<%= top_level_comment.escape('id') %>">
+	<% } %>
+
+	
 	<article class="article-content">
-		<p><%= ImgurClone.UsersCollection.get(comment.escape("commenter_id")).escape("username") %></p>
-		<p><%= comment.escape("body") %></p>
-		<a href="#" class="reply-link">Reply<a>
+		<p><%= ImgurClone.UsersCollection.get(top_level_comment.escape("commenter_id")).escape("username") %></p>
+		<p><%= top_level_comment.escape("body") %></p>
+		<a href="#" class="reply-link">Reply</a>
 	</article>
+	
+	<ul class="nested-comment-<%= top_level_comment.escape('id') %>">
+	
+	</ul>
+	
 </li> 
