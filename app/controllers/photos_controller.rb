@@ -39,11 +39,11 @@ class PhotosController < ApplicationController
   def upvote
     @uservote = UserVote.find_by_user_id_and_photo_id(self.current_user.id, params[:id])
     if @uservote
-      @uservote.update_attributes(value: 2)
+      @uservote.update_attributes(value: 1)
     else
-      UserVote.create(value: 2, user_id: self.current_user.id, photo_id: params[:id])
+      UserVote.create(value: 1, user_id: self.current_user.id, photo_id: params[:id])
     end
-    redirect_to Photo.find(params[:id])
+    head :ok
   end
 
   def downvote
@@ -53,7 +53,17 @@ class PhotosController < ApplicationController
     else
       UserVote.create(value: -1, user_id: self.current_user.id, photo_id: params[:id])
     end
-    redirect_to Photo.find(params[:id])
+    head :ok
+  end
+  
+  def cancelvote
+    @uservote = UserVote.find_by_user_id_and_photo_id(self.current_user.id, params[:id])
+    if @uservote
+      @uservote.update_attributes(value: 0)
+    else
+      UserVote.create(value: 0, user_id: self.current_user.id, photo_id: params[:id])
+    end
+    head :ok
   end
 
 end

@@ -1,12 +1,32 @@
+<% if (currentUserVote.length > 0){ %>
+<% 	var value = +currentUserVote[0].escape("value") %>
 
+<% 	if (value === 1){ %>
+<% 		var upvoted = true %>
+<% 	} else if (value === -1) { %>
+<% 		var downvoted = true %>
+<% 	} %>
 
-<input type="submit" value="Upvote" id="upvote-button"></input>
-<input type="submit" value="Downvote" id="downvote-button"></input>
+<% } %>
+
+<% if (upvoted === true) { %>
+	<input type="submit" value="Upvote" class="upvote-clicked" id="upvote-button"></input>
+<% } else { %>
+	<input type="submit" value="Upvote" id="upvote-button"></input>
+<% } %>
+
+<% if (downvoted === true) { %>
+	<input type="submit" value="Downvote" class="downvote-clicked" id="downvote-button"></input>
+<% } else { %>
+	<input type="submit" value="Downvote" id="downvote-button"></input>
+<% } %>
 
 
 <div id="upvotes-bar-container">
-    <div id="upvotes-bar" style="width: 0%;"></div>
+	<p id="count"><%= count %></p>
+  <div id="upvotes-bar" style="width: 0%;"></div>
 </div>
 
 <input type="submit" value="Favorite" id="favorite-button"></input>
 <input type="submit" value="Create Region" id="region-button"></input>
+

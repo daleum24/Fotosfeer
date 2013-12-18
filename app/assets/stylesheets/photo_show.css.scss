@@ -109,6 +109,16 @@ div, section, img, p, h2{
 	height: 40px;
 	float: left;
 }
+// //user votes
+
+.upvote-clicked{
+	background: green;
+}
+
+.downvote-clicked{
+	background: red;
+}
+
 // //comments
 .comments-container{
 	width: 580px;

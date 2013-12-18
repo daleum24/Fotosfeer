@@ -26,6 +26,7 @@ ImgurClone::Application.routes.draw do
     member do
       post "upvote"
       post "downvote"
+      post "cancelvote"
     end
   end
 
