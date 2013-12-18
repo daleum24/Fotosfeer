@@ -1,0 +1,8 @@
+<li class="comment-li">
+	<input type="submit" value="+" class="nest-collapse" data-id="<%= comment.escape('id') %>">
+	<article class="article-content">
+		<p><%= ImgurClone.UsersCollection.get(comment.escape("commenter_id")).escape("username") %></p>
+		<p><%= comment.escape("body") %></p>
+		<a href="#" class="reply-link">Reply<a>
+	</article>
+</li> 

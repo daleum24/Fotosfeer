@@ -16,8 +16,11 @@
       <% top_level_comments.forEach(function(top_level_comment){  %>
         <li class="comment-li">
 					<input type="submit" value="+" class="nest-collapse" data-id="<%= top_level_comment.escape('id') %>">
-					<%= top_level_comment.escape("body") %>
-					
+					<article class="article-content">
+						<p><%= ImgurClone.UsersCollection.get(top_level_comment.escape("commenter_id")).escape("username") %></p>
+						<p><%= top_level_comment.escape("body") %></p>
+						<a href="#" class="reply-link">Reply<a>
+					</article>
         </li> 
       <% }); %>	
     </ul>

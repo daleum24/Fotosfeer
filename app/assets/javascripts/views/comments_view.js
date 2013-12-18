@@ -11,7 +11,35 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 	},
 	
 	events:{
-		"click #comment-submit" : "post_new_comment"
+		"click #comment-submit" : "post_new_comment",
+		"click .nest-collapse"  : "collapse_children",
+		"click .reply-link"     : "reply_to_comment"
+		
+	},
+	
+	childrenTemplate: JST['children_template'],
+	
+	collapse_children: function(event){
+		event.preventDefault();
+		var that = this;
+		var $parent = $(event.currentTarget).parent()
+		var data_id = $(event.currentTarget).attr("data-id") 
+		
+		$(event.currentTarget).attr("value", "-") 
+		
+		var children_comments = this.comments.filter(function(comment){
+			return comment.get("parent_comment_id") === +data_id
+		})
+		
+		$parent.append("<ul class='nested-comment'></ul>")
+	
+		children_comments.forEach(function(child_comment){
+			$('.nested-comment').append(that.childrenTemplate({comment: child_comment}))
+		})
+	},
+	
+	reply_to_comment: function(event){
+		event.preventDefault();
 	},
 	
 	post_new_comment: function(event){
@@ -33,7 +61,6 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 	template: JST['comments_view'],
 	
 	render: function(){
-		console.log("kashgiduashfi")
 		this.$el.html(this.template({ photo: this.model, comments: this.comments, top_level_comments: this.top_level_comments }))
 		
 		return this
