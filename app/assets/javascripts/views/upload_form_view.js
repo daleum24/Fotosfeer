@@ -35,12 +35,12 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 	},
 	
 	events:{
-		"click #upload_image": "upload_image"
+		"click #fileselect": "show_file_select"
 	},
 	
-	upload_image: function(event){
+	show_file_select: function(event){
 		event.preventDefault();
-		console.log(ImgurClone.newPhotoObj)
+		console.log("hello!!!")
 	},
 	
 	template: JST["photo_upload_form"],

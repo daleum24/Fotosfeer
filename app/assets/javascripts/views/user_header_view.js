@@ -20,9 +20,25 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		Backbone.history.navigate("", {trigger:true});
 	},
 	
+	
 	show_upload_form: function(event){
 		event.preventDefault();
-		$(".upload-form").toggleClass("display-form");
+		
+		$.fancybox("#image_selection_container", {
+			afterShow:function(){
+	      $('#fileselect').click(function(){
+					console.log($(this))
+					$.fancybox.close()
+					$('#fileupload').click()
+					return false
+				});
+      },
+			helpers: {
+				overlay: {
+					css: {'background' : 'rgba(28, 33, 87, 0.90)'}
+				}
+			}
+		})
 	},
 	
 	navigate_to_myImages: function(event){
