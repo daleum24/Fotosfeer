@@ -2,7 +2,7 @@
 	
 	<input type="file" name="photo[image]" id="fileupload" value="Browse Your Computer"></input>
 	
-	<div class="fancybox image_selection" id="image_selection_container" style="display:none">
+	<div class="image_selection" id="image_selection_container" style="display:none">
 		<div id="fileselect">
 			<p>Browse Your Computer!</p>
 		</div>
@@ -13,21 +13,22 @@
 
 	</div>
 	
-	<div class="initial_update_form">
-		<input type="text" name="photo[title]" placeholder="Title"></input>
+	<div id="initial_update_form" style="display:none">
+		<input type="text" id="initial_title" name="photo[title]" placeholder="Title"></input>
 		
-		<figure class="new_upload_preview">
+		<div class="new_upload_preview">
 			
-		</figure>
+		</div>
 		
 		<textarea name="photo[description]" placeholder="Description"></textarea>
 		
-		<input type="submit" value="Add Photo" id="upload_image"></input>
-		<input type="submit" value="Cancel" id="cancel_upload"></input>
-
+		<div id="initial_update_buttons_wrap">
+			<input type="submit" class="update_destroy_buttons" value="Add Photo" id="upload_image"></input>
+			<input type="submit" class="update_destroy_buttons" value="Cancel" id="cancel_upload"></input>
+		</div>
 	</div>
 
-	<div class="upload_error">
+	<div class="upload_error" style="display:none">
 	
 	</div>
 

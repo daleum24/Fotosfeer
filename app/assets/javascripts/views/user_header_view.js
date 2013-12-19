@@ -12,7 +12,27 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		"click #my-images" : "navigate_to_myImages",
 		"click #my-favorites" : "navigate_to_favorites",
 		"click #my-regions" : "navigate_to_regions",
-		"click #logout" : "logout"
+		"click #logout" : "logout",
+		"click #testing" : "test"
+	},
+	
+	test: function(event){
+		event.preventDefault();
+		$.fancybox("#initial_update_form", {
+			afterShow:function(){
+	      // $('#fileselect').click(function(){
+// 							console.log($(this))
+// 							$.fancybox.close()
+// 							$('#fileupload').click()
+// 							return false
+// 						});
+      },
+			helpers: {
+				overlay: {
+					css: {'background' : 'rgba(7, 0, 2, 0.90)'}
+				}
+			}
+		})
 	},
 	
 	home_link: function(event){
@@ -27,7 +47,6 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		$.fancybox("#image_selection_container", {
 			afterShow:function(){
 	      $('#fileselect').click(function(){
-					console.log($(this))
 					$.fancybox.close()
 					$('#fileupload').click()
 					return false
@@ -35,7 +54,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
       },
 			helpers: {
 				overlay: {
-					css: {'background' : 'rgba(28, 33, 87, 0.90)'}
+					css: {'background' : 'rgba(7, 0, 2, 0.90)'}
 				}
 			}
 		})
