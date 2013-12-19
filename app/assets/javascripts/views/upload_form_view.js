@@ -15,13 +15,19 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 
 				$.fancybox("#initial_update_form", {
 					afterShow:function(){
-			      // $('#fileselect').click(function(){
-// 							console.log($(this))
-// 							$.fancybox.close()
-// 							$('#fileupload').click()
-// 							return false
-// 						});
-		      },
+						$('#update_image').on("click", function(event){
+							upload.save({ 
+								title: $('#initial_title').val(), 
+								description: $('#initial_description').val()
+							})
+						})
+				
+						$('#destroy_image').on("click", function(event){
+							upload.destroy();
+							$.fancybox.close()
+						})
+						return false
+					},
 					helpers: {
 						overlay: {
 							css: {'background' : 'rgba(7, 0, 2, 0.90)'}
@@ -44,26 +50,19 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 	},
 	
 	events:{
-		"click #test" : "test"
+		"click #test" : "test",
+		"click #update_image" : "update_image",
+		"click #destroy_image" : "destroy_image",
 	},
 	
-	test: function(event){
+	update_image: function(){
 		event.preventDefault();
-		$.fancybox("#initial_update_form", {
-			afterShow:function(){
-	      // $('#fileselect').click(function(){
-// 							console.log($(this))
-// 							$.fancybox.close()
-// 							$('#fileupload').click()
-// 							return false
-// 						});
-      },
-			helpers: {
-				overlay: {
-					css: {'background' : 'rgba(7, 0, 2, 0.90)'}
-				}
-			}
-		})
+		alert("UPDATE")
+	},
+	
+	destroy_image: function(){
+		event.preventDefault();
+		alert("Destroy")
 	},
 	
 	template: JST["photo_upload_form"],

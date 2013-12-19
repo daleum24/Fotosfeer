@@ -18,7 +18,18 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	test: function(event){
 		event.preventDefault();
-		$.fancybox("#upload_error", {
+		$.fancybox("#initial_update_form", {
+			afterShow:function(){
+				$('#update_image').on("click", function(event){
+					console.log(event.currentTarget)
+					console.log($('#initial_title').val())
+				})
+				
+				$('#destroy_image').on("click", function(event){
+					console.log(event.currentTarget)
+				})
+				return false
+			},
 			helpers: {
 				overlay: {
 					css: {'background' : 'rgba(7, 0, 2, 0.90)'}

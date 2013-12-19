@@ -55,13 +55,11 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 	
 	show_previous: function(event){
 		event.preventDefault();
-		console.log(this.previous_url)
 		Backbone.history.navigate(this.previous_url, {trigger:true});
 	},
 	
 	show_next: function(event){
 		event.preventDefault();
-		console.log(this.next_url)
 		Backbone.history.navigate(this.next_url, {trigger:true});
 	},
 	
