@@ -2,6 +2,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	initialize: function(){
 		this.uploadForm = new ImgurClone.Views.UploadFormView();
 		this.$el.addClass("signed-in-header")
+		
 	},
 	
 	tagName: "section",
@@ -12,30 +13,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		"click #my-images" : "navigate_to_myImages",
 		"click #my-favorites" : "navigate_to_favorites",
 		"click #my-regions" : "navigate_to_regions",
-		"click #logout" : "logout",
-		"click #testing" : "test"
-	},
-	
-	test: function(event){
-		event.preventDefault();
-		$.fancybox("#initial_update_form", {
-			afterShow:function(){
-				$('#update_image').on("click", function(event){
-					console.log(event.currentTarget)
-					console.log($('#initial_title').val())
-				})
-				
-				$('#destroy_image').on("click", function(event){
-					console.log(event.currentTarget)
-				})
-				return false
-			},
-			helpers: {
-				overlay: {
-					css: {'background' : 'rgba(7, 0, 2, 0.90)'}
-				}
-			}
-		})
+		"click #logout" : "logout"
 	},
 	
 	home_link: function(event){
@@ -46,20 +24,19 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	show_upload_form: function(event){
 		event.preventDefault();
-		
 		$.fancybox("#image_selection_container", {
-			afterShow:function(){
-	      $('#fileselect').click(function(){
-					$.fancybox.close()
-					$('#fileupload').click()
-					return false
-				});
-      },
 			helpers: {
 				overlay: {
 					css: {'background' : 'rgba(7, 0, 2, 0.90)'}
 				}
 			}
+		})
+		
+		var $fileselect = $(".fancybox-inner p")
+		
+		$fileselect.one("click", function(event){
+			$('#fileupload').click()
+			$.fancybox.close()
 		})
 	},
 	
