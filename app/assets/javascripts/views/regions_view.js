@@ -11,7 +11,24 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	
 	display_region: function(event){
 		event.preventDefault();
-		alert("holy fuck!!")
+		var value = $(event.currentTarget).find(":selected").val()
+		
+		if (value === "select-region"){
+			var currentZoom = ImgurClone.RegionMap.getZoom()
+			var zoomOut = currentZoom - 2 
+			 
+			ImgurClone.RegionMap.zoomOut(zoomOut)
+			ImgurClone.RegionMap.panTo([0,0])
+			// ImgurClone.RegionMap.zoomOut(zoomOut/2)
+		} else if (value === "add-region") {
+			console.log("wait....")
+		}  else {
+			var region = ImgurClone.RegionsCollection.get(value)
+			var southWest = [ region.escape("south_bound"), region.escape("west_bound") ]
+			var northEast = [ region.escape("north_bound"), region.escape("east_bound") ]
+			ImgurClone.RegionMap.fitBounds([ southWest, northEast ])
+		}
+		
 	},
 	
 	render: function(){

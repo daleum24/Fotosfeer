@@ -1,13 +1,14 @@
 <div id='region-header'>
 	<select class="region-select">
 		
-		<option>Select A Region!</option>
+		<option value="select-region">Select A Region!</option>
 	
 		<% myRegions.forEach(function(region){ %>
-			<option class="region-option" data-id="<% region.escape('id') %>"><%= region.escape('name') %></option>
+			<option class="region-option" value="<%= region.escape('id') %>"><%= region.escape('name') %></option>
 		<% }) %>
 		
-		<option id="add-region">Add A Region!</option>
+		<option value="add-region">Add A Region!</option>
 		
 	</select>
+	
 </div>
