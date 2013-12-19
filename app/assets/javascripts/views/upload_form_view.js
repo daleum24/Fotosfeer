@@ -20,15 +20,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 							upload.save({ 
 								title: $('#initial_title').val(), 
 								description: $('#initial_description').val()
-							}, 
-							{success: function(model, response, options){
-								console.log("success")
-								console.log(model)
-							},
-							error: function(model, xhr, option){
-								console.log("error")
-								console.log(model)
-							}})
+							})
 							$.fancybox.close()
 						})
 				

@@ -1,10 +1,25 @@
+<div id="edit-form" style="display:none">
+	
+	<input type="text" id="edit-name" name="photo[name]"></input>
+	
+	<div id="edit-form-photo">
+	</div>
+	
+	<textarea name="photo[description]" id="edit-description">
+
+	</textarea>
+	
+	<input type="submit" value="Delete Photo" id="edit-delete-button"></input> 
+	
+</div>
+
 <div class="images_index">
-	<% _.each(photos.reverse(), function(obj, index){ %>
+	<% _.each(photos.models, function(obj, index){ %>
 		<% if (index === 0) { %> 
 			
 			<div class="photo_row">
 				<figure>
-					<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+					<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 				</figure>
 				
 		<% } else if (index % 4 === 0) { %>
@@ -12,13 +27,13 @@
 				</div>
 				<div class="photo_row">
 					<figure>
-						<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+						<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 					</figure>
 					
 		<% } else { %>
 			
 				<figure>
-					<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+					<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 				</figure>
 				
 		<% }  %>
