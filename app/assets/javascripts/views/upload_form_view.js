@@ -51,27 +51,6 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 		})
 	},
 	
-	events:{
-		"click #test" : "test",
-		"click #update_image" : "update_image",
-		"click #destroy_image" : "destroy_image",
-	},
-	
-	update_image: function(){
-		event.preventDefault();
-		alert("update")
-		// var upload = 
-		// upload.save({ 
-// 			title: $('#initial_title').val(), 
-// 			description: $('#initial_description').val()
-// 		})
-	},
-	
-	destroy_image: function(){
-		event.preventDefault();
-		alert("Destroy")
-	},
-	
 	template: JST["photo_upload_form"],
 	
 	render: function(){

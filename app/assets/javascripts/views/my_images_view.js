@@ -17,6 +17,7 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 	
 	showEditForm: function(event){
 		event.preventDefault();
+		
 		var photo_id = $(event.currentTarget).attr("data-id")
 		var photo = this.myImagesCollection.get(photo_id)
 		var image_tag = "<img src=" + photo.escape("image_url") + "></img>" 
@@ -24,15 +25,28 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 		$("#edit-name").val(photo.escape("title"))
 		$("#edit-description").val(photo.escape("description"))
 		
+		$("#edit-form-photo").empty()
 		$("#edit-form-photo").append(image_tag)
 		
 		$.fancybox("#edit-form",{
-			afterShow:function(){
+			afterShow: function(){
+				
 				$('#edit-delete-button').one("click", function(event){
 					photo.destroy()
 					$.fancybox.close()
 				})
 				return false
+			},
+			
+			afterClose: function(){
+				var updated = false
+				if (($("#edit-name").val() != photo.escape("title")) || ($("#edit-description").val() != photo.escape("description"))){
+					photo.save({ title: $("#edit-name").val(), description: $("#edit-description").val() });
+					var updated = true;
+				}
+				if (updated === true){
+					$.fancybox("#messages");
+				}
 			}
 		});
 		
