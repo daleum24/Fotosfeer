@@ -26,7 +26,13 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 	
 	events: {
 		"click #previous": "show_previous",
-		"click #next" : "show_next"
+		"click #next" : "show_next",
+		"click #region-button" : "show_save_form"
+	},
+	
+	show_save_form: function(event){
+		event.preventDefault();
+		alert("Button works")
 	},
 	
 	show_previous: function(event){
@@ -47,9 +53,12 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 	
 	navButtonsTemplate: JST['nav_buttons'],
 	
+	saveRegionTemplate: JST['save_region'],
+	
 	render: function(callback){
 		this.$el.append(this.navButtonsTemplate({previous: this.previous_photo, next: this.next_photo}))
 		this.$el.append($("<div id='photo-map'></div>"))
+		this.$el.append(this.saveRegionTemplate())
 		this.$el.append($("<div id='photo-directions'></div>"))
 		return this
 	}

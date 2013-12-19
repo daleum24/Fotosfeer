@@ -65,7 +65,6 @@ div, section, img, p, h2{
 }
 
 .image_show{
-	background: yellow;
 	width: 500px;
 	height: 500px;
 	padding: 0px;
@@ -103,7 +102,7 @@ div, section, img, p, h2{
 	margin-left: 5px;
 }
 
-#favorite-button, #region-button{
+#favorite-button{
 	font-size: 14px;
 	width: 80px;
 }
@@ -233,4 +232,11 @@ div, section, img, p, h2{
 	top:0; 
 	bottom:0; 
 	width:100%; 
+}
+
+// // region form
+#region-button{
+	width: 300px;
+	margin: auto;
+	margin: 20px 20px 0px 20px;
 }
