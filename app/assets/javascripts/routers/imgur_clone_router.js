@@ -43,7 +43,6 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		    }
 		}).addTo(map);
 		
-		
 	},
 	
 	favorites: function(){
@@ -51,10 +50,13 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	},
 	
 	regions: function(){
+		var lat = ImgurClone.CurrLat
+		var lng = ImgurClone.CurrLng
+		
 		var regionsView = new ImgurClone.Views.RegionsView();
 		this._swapView(regionsView)
-		var map = L.mapbox.map('region-map', 'examples.map-9ijuk24y')
-		    .setView([0, 0], 17);
+		var map = ImgurClone.RegionMap = L.mapbox.map('region-map', 'examples.map-9ijuk24y')
+		    .setView([0, 0], 2);
 	},
 	
 	_swapView: function (newView) {
