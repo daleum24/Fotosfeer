@@ -1,0 +1,10 @@
+
+	<ul id='favorite-photos-container'>
+		<% favorites.forEach(function(favorite){ %>
+			<li class="favorite-photo" >
+				<a href="#" class="favorite-preview-link" data-id="<%= favorite.escape('id') %>">
+					<img src="<%= favorite.escape('image_url') %>"></img>
+				</a>
+			</li>
+		<% }) %>
+	</ul>

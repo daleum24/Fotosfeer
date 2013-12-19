@@ -26,6 +26,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	navigate_to_favorites: function(event){
 		event.preventDefault();
+		Backbone.history.navigate("#favorites", {trigger:true})
 	},
 	
 	navigate_to_regions: function(event){

@@ -1,8 +1,3 @@
-#http://stackoverflow.com/questions/5968559/retrieve-latitude-and-longitude-of-a-draggable-pin-via-google-maps-api-v3
-# map box
-# static images api
-# xif date
-
 require 'addressable/uri'
 require 'nokogiri'
 

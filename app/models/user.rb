@@ -84,5 +84,15 @@ class User < ActiveRecord::Base
     self.save!
     AuthMailer.password_reset_email(self).deliver!
   end
+  
+  def favorited_photos
+    favorites = self.favorites
+    favorited_photos = []
+    
+    favorites.each do |favorite|
+      favorited_photos << Photo.find(favorite.photo_id)
+    end
+    
+  end
 
 end

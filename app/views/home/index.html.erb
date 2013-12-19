@@ -20,9 +20,19 @@
 	<%= User.all.to_json.html_safe %>
 </script>
 
-<script>w
+<script text="application/json" id="bootstrapped_favorite_photos">
+	<%= self.current_user.favorite_photos.to_json.html_safe %>
+</script>
+
+<script>
 	$(document).ready(function(){
-	  ImgurClone.initialize($('#bootstrapped_current_user_id').html(), $('#bootstrapped_photos').html(), $('#bootstrapped_users').html(), $('#bootstrapped_regions').html());
+	  ImgurClone.initialize(
+			$('#bootstrapped_current_user_id').html(), 
+			$('#bootstrapped_photos').html(), 
+			$('#bootstrapped_users').html(), 
+			$('#bootstrapped_regions').html(),
+			$('#bootstrapped_favorite_photos').html()
+		);
 	});
 	
 </script>
