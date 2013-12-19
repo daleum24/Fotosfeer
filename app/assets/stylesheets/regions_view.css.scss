@@ -1,19 +1,46 @@
+div, select, option{
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	font-family: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+body{
+	font-family: sans-serif;
+}
+
 .regions-container{
 	width: 1000px;
 	margin: auto;
-	height: 700px;
-	border: 1px solid red;
-	margin-top: 50px;
+	height: auto;
+	margin-top: 20px;
 }
 
 #region-header{
 	width: 190;
-	height: 700px;
-	float: left;
+	height: 40px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin-bottom: 10px;
 }
 
 #region-map{
-	width: 790px;
-	height: 700px;
-	float: right;
+	width: 1000px;
+	height: 760px;
+}
+
+.region-select{
+	height: 38px;
+	width: 500px;
+	font-size: 24px;
+	text-align: center;
+	border-radius: 0px;
+	background: transparent;
+	-webkit-appearance: none;
+}
+
+.region-select > option{
+
 }
