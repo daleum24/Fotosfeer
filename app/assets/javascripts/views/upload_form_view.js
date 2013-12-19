@@ -31,8 +31,13 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 
 			},
 			fail: function(e, data){
-				$('.image_selection').toggleClass('hide-form')
-				$('.upload_error').toggleClass('display-form')
+				$.fancybox("#upload_error", {
+					helpers: {
+						overlay: {
+							css: {'background' : 'rgba(7, 0, 2, 0.90)'}
+						}
+					}
+				})
 			}
 			});
 		})

@@ -116,10 +116,16 @@
 	border: 1px solid orange;
 }
 
-.upload_error{
-	display: none;
+#upload_error{
 	height: 400px;
 	width: 500px;
 	margin: auto;
 	background: yellow;
+}
+
+#upload_error > p{
+	width: 400px;
+	margin: auto;
+	font-size: 42px;
+	padding-top: 30px;
 }
