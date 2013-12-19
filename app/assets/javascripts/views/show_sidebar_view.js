@@ -28,11 +28,29 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 		"click #previous": "show_previous",
 		"click #next" : "show_next",
 		"click #region-button" : "show_save_form"
-	},
+	},	
 	
 	show_save_form: function(event){
 		event.preventDefault();
-		alert("Button works")
+		var bounds = ImgurClone.PhotoMap.getBounds()
+		var north = bounds._northEast.lat 
+		var east = bounds._northEast.lng
+		var south = bounds._southWest.lat 
+		var west = bounds._southWest.lng
+		
+		var name = $("#save_region_name").val()
+		
+		if (name === ""){
+			alert("Name Please!!")
+		} else {
+			ImgurClone.RegionsCollection.create(
+				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
+				url: "/users/" + ImgurClone.user_id + "/regions",
+				success: function(){
+					console.log("success")
+				}
+			})
+		}
 	},
 	
 	show_previous: function(event){

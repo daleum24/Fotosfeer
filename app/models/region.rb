@@ -1,7 +1,7 @@
 class Region < ActiveRecord::Base
-  attr_accessible :name, :user_id, :latitude, :longitude
+  attr_accessible :name, :user_id, :north_bound, :south_bound, :east_bound, :west_bound
   
-  validates :name, :user_id, :latitude, :longitude, presence: true
+  validates :name, :user_id, :north_bound, :south_bound, :east_bound, :west_bound, presence: true
   
   belongs_to(
     :user,
@@ -11,9 +11,9 @@ class Region < ActiveRecord::Base
   )
   
   def find_in_region_photos
-    lat_range = ((self.latitude - 0.003)..(self.latitude + 0.003))
-    long_range = ((self.longitude - 0.003)..(self.longitude + 0.003))
-    photos_in_range = Photo.where(latitude: lat_range).where(longitude: long_range)
+    # lat_range = ((self.latitude - 0.003)..(self.latitude + 0.003))
+    # long_range = ((self.longitude - 0.003)..(self.longitude + 0.003))
+    # photos_in_range = Photo.where(latitude: lat_range).where(longitude: long_range)
   end
   
   def markers_string

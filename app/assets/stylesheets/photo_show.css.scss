@@ -235,8 +235,14 @@ div, section, img, p, h2{
 }
 
 // // region form
-#region-button{
+#save-region-form{
+	padding-top: 20px;
 	width: 300px;
 	margin: auto;
-	margin: 20px 20px 0px 20px;
+}
+
+#save-region-form > input{
+	display: block;
+	width: 100%;
+	
 }

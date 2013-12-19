@@ -8,6 +8,10 @@
 	<%= self.current_user.id.to_json.html_safe %>
 </script>
 
+<script text="application/json" id="bootstrapped_regions">
+	<%= self.current_user.regions.to_json.html_safe %>
+</script>
+
 <script text="application/json" id="bootstrapped_photos">
 	<%= Photo.all.to_json.html_safe %>
 </script>
@@ -18,7 +22,7 @@
 
 <script>
 	$(document).ready(function(){
-	  ImgurClone.initialize($('#bootstrapped_current_user_id').html(), $('#bootstrapped_photos').html(), $('#bootstrapped_users').html());
+	  ImgurClone.initialize($('#bootstrapped_current_user_id').html(), $('#bootstrapped_photos').html(), $('#bootstrapped_users').html(), $('#bootstrapped_regions').html());
 	});
 	
 </script>

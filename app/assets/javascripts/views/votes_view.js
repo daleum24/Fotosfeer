@@ -4,8 +4,13 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		this.$el.addClass("votes-container")
 		this.photoUservotes = this.model.get("uservotes")
 		this.photoFavorites = this.model.get("favorites")
-		this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
-		this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
+		if (this.photoUservotes){
+			this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
+		}
+		
+		if (this.photoFavorites){
+			this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
+		}
 
 		this.uservotesCount = 0
 		
@@ -20,14 +25,7 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	events: {
 		"click #upvote-button": "upvote",
 		"click #downvote-button": "downvote",
-		"click #favorite-button": "favorite",
-		"click #region-button" : "region"
-	},
-	
-	region: function(event){
-		event.preventDefault()
-
-		console.log(ImgurClone.PhotoMap.getBounds())
+		"click #favorite-button": "favorite"
 	},
 	
 	favorite: function(event){
