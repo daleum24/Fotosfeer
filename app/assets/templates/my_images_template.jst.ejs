@@ -1,0 +1,26 @@
+<div class="images_index">
+	<% _.each(photos.reverse(), function(obj, index){ %>
+		<% if (index === 0) { %> 
+			
+			<div class="photo_row">
+				<figure>
+					<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
+				
+		<% } else if (index % 4 === 0) { %>
+			
+				</div>
+				<div class="photo_row">
+					<figure>
+						<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+					</figure>
+					
+		<% } else { %>
+			
+				<figure>
+					<a href="#" class="myImageEdit"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
+				
+		<% }  %>
+	<% }); %>
+</div>

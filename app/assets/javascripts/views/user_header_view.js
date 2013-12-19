@@ -9,6 +9,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	events: {
 		"click #home_link" : "home_link",
 		"click #image_upload" : "show_upload_form",
+		"click #my-images" : "navigate_to_myImages",
 		"click #my-favorites" : "navigate_to_favorites",
 		"click #my-regions" : "navigate_to_regions",
 		"click #logout" : "logout"
@@ -22,6 +23,11 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	show_upload_form: function(event){
 		event.preventDefault();
 		$(".upload-form").toggleClass("display-form");
+	},
+	
+	navigate_to_myImages: function(event){
+		event.preventDefault();
+		Backbone.history.navigate("#myImages", {trigger:true})
 	},
 	
 	navigate_to_favorites: function(event){

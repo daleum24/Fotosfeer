@@ -26,6 +26,13 @@
 
 <script>
 	$(document).ready(function(){
+		$('.fancybox').fancybox({
+			helpers: {
+				overlay: {
+					css: {'background' : 'rgba(28, 33, 87, 0.90)'}
+				}
+			}
+		});
 	  ImgurClone.initialize(
 			$('#bootstrapped_current_user_id').html(), 
 			$('#bootstrapped_photos').html(), 

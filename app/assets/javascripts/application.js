@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializeJSON.min
-//=require jquery-fileupload/basic
+//= require jquery.fancybox
+//= require jquery-fileupload/basic
 //= require mapbox.js
 //= require underscore
 //= require backbone

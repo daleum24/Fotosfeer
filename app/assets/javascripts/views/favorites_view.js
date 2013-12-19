@@ -15,7 +15,7 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 		var longitude = +photo.escape("longitude")
 		
 		ImgurClone.FavoritesMap.setZoomAround([latitude, longitude],17)
-		ImgurClone.FavoritesMap.panTo([latitude + 0.00123505, longitude])
+		ImgurClone.FavoritesMap.panTo([latitude + 0.00123505, longitude], {duration: 1})
 		$("#favorite-enlarge").empty();
 		$("#favorite-enlarge").append(this.favoritePhotoEnlarge({photo: photo}));
 		$("#favorite-enlarge").addClass("display-enlarge");
