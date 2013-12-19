@@ -16,7 +16,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new(tempfile, params[:photo])
     
     if @photo.save
-      flash[:errors] = ["Upload Successful!"]
       respond_with @photo
     else
       flash[:errors] = @photo.errors.full_messages
@@ -27,7 +26,7 @@ class PhotosController < ApplicationController
   def update
     @photo = Photo.find(params[:id])
     @photo.update_attributes(params[:photo])
-    respond_with @photo
+    render json: @photo
   end
   
   def destroy

@@ -11,6 +11,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 			done: function(e, data){
 				ImgurClone.PhotosCollection.add(data.result)
 				var upload = ImgurClone.PhotosCollection.get(data.result.id)
+				$('.new_upload_preview').empty()
 				$('.new_upload_preview').append("<img src='"+ upload.escape("image_url") +"' class='upload_img'></img>")
 
 				$.fancybox("#initial_update_form", {
@@ -19,7 +20,16 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 							upload.save({ 
 								title: $('#initial_title').val(), 
 								description: $('#initial_description').val()
-							})
+							}, 
+							{success: function(model, response, options){
+								console.log("success")
+								console.log(model)
+							},
+							error: function(model, xhr, option){
+								console.log("error")
+								console.log(model)
+							}})
+							$.fancybox.close()
 						})
 				
 						$('#destroy_image').on("click", function(event){
