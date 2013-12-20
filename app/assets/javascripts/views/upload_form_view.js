@@ -25,15 +25,17 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 								description: $('#initial_description').val()
 							})
 							$.fancybox.close()
-							Backbone.history.navigate("", {trigger:true});
 						})
-				
 						$('#destroy_image').on("click", function(event){
 							upload.destroy();
 							$.fancybox.close()
 						})
 						return false
 					},
+					afterClose:function(){
+						Backbone.history.navigate("", {trigger:true});
+					},
+					
 					helpers: {
 						overlay: {
 							css: {'background' : 'rgba(7, 0, 2, 0.90)'}
