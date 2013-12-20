@@ -35,39 +35,51 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	},
 	
 	create_markers: function(in_bound_photos){
-		var markers_array = []
+		var geoJson = []
 		
 		in_bound_photos.forEach(function(photo){
-			( [photo.get("longitude"),photo.get("latitude")] )
-			
-			markers_array.push(
-				L.mapbox.markerLayer({
-		        type: 'FeatureCollection',
-		        features: [{
-		            type: 'Feature',
-		            properties: {
-						        'marker-color': '#0fa',
-						        'marker-symbol': 'star-stroked',
-		                title: photo.get("title")
-		            },
-		            geometry: {
-		                type: 'Point',
-		                coordinates: [photo.get("longitude"), photo.get("latitude")]
-		            }
-		        }]
-		    })
+			geoJson.push(
+				{
+					type: 'Feature',
+	        "geometry": { "type": "Point", "coordinates": [photo.get("longitude"), photo.get("latitude")]},
+	        properties: {
+			        'marker-color': '#0fa',
+			        'marker-symbol': 'star-stroked',
+	            'title': photo.get("title"),
+							'image': photo.get("image_url"),
+							'id'   : photo.get("id") 
+	        }
+				}
 			)
-		})
-		return markers_array
+		});
+
+		return geoJson
 	},
 	
 	display_in_region_photos: function(southWest, northEast){
 		var bounded_photos = this.retrieve_bounded_photos(southWest, northEast)
-		var markers = this.create_markers(bounded_photos)
+		var geoJson = this.create_markers(bounded_photos)
+		var map = ImgurClone.RegionMap
 		
-		markers.forEach(function(markerLayer){
-			markerLayer.addTo(ImgurClone.RegionMap)
-		})
+		
+		map.markerLayer.on('layeradd', function(e) {
+		    var marker = e.layer,
+		        feature = marker.feature;
+
+		    var popupContent =  '<a target="_blank" class="popup" href="#" data-id="' + feature.properties.id + '">' +
+		                            '<img src="' + feature.properties.image + '">' +
+		                        '   <h2>' + feature.properties.title + '</h2>' +
+		                        '</a>';
+
+		    // http://leafletjs.com/reference.html#popup
+		    marker.bindPopup(popupContent,{
+		        closeButton: false,
+		        minWidth: 320
+		    });
+		});
+		
+		map.markerLayer.setGeoJSON(geoJson);
+		
 	},
 	
 	display_region: function(event){
