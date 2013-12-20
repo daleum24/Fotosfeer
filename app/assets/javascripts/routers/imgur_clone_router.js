@@ -10,6 +10,7 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	
 	routes: {
 		"": "home",
+		"_=_" : "home",
 		"photos/:id": "show",
 		"myImages" : "myImages",
 		"favorites": "favorites",

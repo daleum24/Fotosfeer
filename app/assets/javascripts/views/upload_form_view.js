@@ -8,7 +8,6 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 			url: "/users/" + ImgurClone.user_id + "/photos",
 			type: "POST",
 			dataType: "json",
-			// dropZone: $("#.fancybox-inner p#dropzone_p"),
 			submit: function(e, data){
 				$.fancybox("#progress_bar");
 			},

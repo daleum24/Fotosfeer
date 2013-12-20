@@ -13,14 +13,19 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		"click #my-images" : "navigate_to_myImages",
 		"click #my-favorites" : "navigate_to_favorites",
 		"click #my-regions" : "navigate_to_regions",
-		"click #logout" : "logout"
+		"click #logout" : "logout",
+		"click #test" : "test"
+	},
+	
+	test:function(event){
+		event.preventDefault()
+		$.fancybox("#initial_update_form")
 	},
 	
 	home_link: function(event){
 		event.preventDefault();
 		Backbone.history.navigate("", {trigger:true});
 	},
-	
 	
 	show_upload_form: function(event){
 		event.preventDefault();
@@ -44,17 +49,29 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 		$dropzone.on('dragover', function(e){
 			e.stopPropagation();
 			e.preventDefault();
-			$dropzone.css('background', 'yellow')
+			$dropzone.toggleClass('in_dropzone')
+			$dropzone.css({
+				'color': 'rgb(209,231,81)',
+				'border': '6px solid rgb(209,231,81)'
+			})
 		})
 		
 		$dropzone.on('dragleave', function(e){
 			e.stopPropagation();
 			e.preventDefault();
-			$dropzone.css('background', 'lightblue')
+			$dropzone.toggleClass('in_dropzone')
+			$dropzone.css({
+				'color': 'rgb(77,188,233)',
+				'border': '6px solid rgb(77,188,233)'
+			})
 		})
 		
 		$dropzone.on('drop', function(e){
-			$dropzone.css('background', 'lightblue')
+			$dropzone.toggleClass('in_dropzone')	
+			$dropzone.css({
+				'color': 'rgb(77,188,233)',
+				'border': '6px solid rgb(77,188,233)'
+			})
 		})
 	},
 	

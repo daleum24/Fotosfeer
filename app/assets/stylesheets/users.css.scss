@@ -7,34 +7,42 @@ h1, form, input, label, p{
   border: 0px;
   padding: 0px;
   font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
 }
 
 html, body{
 	height: auto;
 	margin-bottom: 50px;
+	font-size: 16px;
+	background-color: rgb(38,173,228);
+}
+
+a{
+	text-decoration: none;
 }
 
 .errors{
 	text-align: center;
 	height: auto;
-	background-color: lightblue;
+	background-color: rgb(38,173,228);
 }
 
 .portal_background{
-	height: 100%;
 	width: 100%;
+	height: 100%;
 	position: absolute;
 	background-size: cover;
 }
 
 .portal_form{
-  background: white;
+  background: rgb(209,231,81);
 	display: block;
-	width: 230px;
+	width: 250px;
 	margin: auto;
 	margin-top: 200px;
-	border: 1px solid lightgreen;
-	border-radius: 5px;
+	border: 10px solid white;
+	border-radius: 10px;
 }
 
 .portal_form *{
@@ -42,23 +50,32 @@ html, body{
 }
 
 .portal_form > h1{
-	color: green;
+	color: black;
+	font-size: 26px;
+	font-weight: bold;
 	text-align: center;
 }
 
 .portal_form input{
+	border-radius: 4px;
 	display: block;
 	width: 180px;
 	margin: auto;
 	height: 20px;
 }
 
+.portal_form input:last-of-type{
+	background: rgb(77,188,233);
+	font-weight: bold;
+};
+
 .portal_form a{
-	padding-top: 10px;
+	padding-top: 8px;
 	display: block;
-	width: 150px;
+	width: 170px;
 	margin: auto;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
+	color: black;
 }
 
 
