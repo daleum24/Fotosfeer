@@ -33,7 +33,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 						return false
 					},
 					afterClose:function(){
-						Backbone.history.navigate("", {trigger:true});
+						Backbone.history.navigate("myImages", {trigger:true});
 					},
 					
 					helpers: {

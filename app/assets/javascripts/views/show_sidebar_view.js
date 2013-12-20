@@ -47,7 +47,9 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
 				url: "/users/" + ImgurClone.user_id + "/regions",
 				success: function(){
-					console.log("success")
+					Backbone.history.navigate("regions", {trigger:true});
+					var newOption = "#region-header option:contains(" + name + ")" 
+					$(newOption).attr("selected", "selected")
 				}
 			})
 		}
