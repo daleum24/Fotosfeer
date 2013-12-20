@@ -31,7 +31,7 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 		    var marker = e.layer,
 		        feature = marker.feature;
 
-		    var popupContent =  '<a target="_blank" class="favorite-popup" href="#" data-id="' + feature.properties.id + '">' +
+		    var popupContent =  '<a class="favorite-popup" href="#photos/' + feature.properties.id + '">' +
 		                            '<img src="' + feature.properties.image + '">' +
 		                        '   <h2>' + feature.properties.title + '</h2>' +
 		                        '</a>';
@@ -45,7 +45,7 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 		ImgurClone.FavoritesMap.markerLayer.setGeoJSON(layer);
 		
 		ImgurClone.FavoritesMap.setZoomAround([latitude, longitude],17)
-		ImgurClone.FavoritesMap.panTo([latitude + 0.00123505, longitude], {duration: 1})
+		ImgurClone.FavoritesMap.panTo([latitude, longitude], {duration: 1})
 
 	},
 	
