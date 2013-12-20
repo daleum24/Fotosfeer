@@ -38,6 +38,24 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 			$('#fileupload').click()
 			$.fancybox.close()
 		})
+		
+		var $dropzone = $(".fancybox-inner p#dropzone_p")
+		
+		$dropzone.on('dragover', function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			$dropzone.css('background', 'yellow')
+		})
+		
+		$dropzone.on('dragleave', function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			$dropzone.css('background', 'lightblue')
+		})
+		
+		$dropzone.on('drop', function(e){
+			$dropzone.css('background', 'lightblue')
+		})
 	},
 	
 	navigate_to_myImages: function(event){

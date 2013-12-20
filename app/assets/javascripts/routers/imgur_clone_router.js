@@ -4,6 +4,8 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		var headerView = new ImgurClone.Views.UserHeaderView()
 		this.$rootEl.append(headerView.render().$el)
 		this.$rootEl.append($('<div class="body"></div>'))
+		
+   
 	},
 	
 	routes: {

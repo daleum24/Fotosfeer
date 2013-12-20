@@ -2,11 +2,13 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 	initialize: function(){
 		var that = this;
 		this.$el.addClass("form-container");
+		
 		$(function() { 
 			$('#fileupload').fileupload({
 			url: "/users/" + ImgurClone.user_id + "/photos",
 			type: "POST",
 			dataType: "json",
+			// dropZone: $("#.fancybox-inner p#dropzone_p"),
 			done: function(e, data){
 				ImgurClone.PhotosCollection.add(data.result)
 				var upload = ImgurClone.PhotosCollection.get(data.result.id)
@@ -50,6 +52,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 		})
 		
 	},
+	
 	
 	template: JST["photo_upload_form"],
 	

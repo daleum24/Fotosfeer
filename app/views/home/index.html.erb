@@ -25,6 +25,7 @@
 </script>
 
 <script>
+
 	$(document).ready(function(){
 		$('.fancybox').fancybox({
 			helpers: {
@@ -33,6 +34,7 @@
 				}
 			}
 		});
+		
 	  ImgurClone.initialize(
 			$('#bootstrapped_current_user_id').html(), 
 			$('#bootstrapped_photos').html(), 
@@ -40,6 +42,14 @@
 			$('#bootstrapped_regions').html(),
 			$('#bootstrapped_favorite_photos').html()
 		);
+	});
+	
+	$(document).bind('drop', function (e) {
+	    e.preventDefault();
+	});
+
+	$(document).bind('dragover', function (e) {
+	    e.preventDefault();
 	});
 	
 </script>
