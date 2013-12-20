@@ -24,14 +24,15 @@ ul, li{
 }
 
 header{
-  border-bottom: 1px solid lightblue;
-  height: 39px;
+//	background-color: rgb(255,255,255);
+	background-color: black;
+  height: 42px;
 }
 
 nav{
   width: 1000px;
   margin: auto;
-  height: 40px;
+  height: 42px;
 }
 
 #home_link{
@@ -43,14 +44,18 @@ nav{
   display: block;
   height: 100%;
   width: 100%;
+	font-size: 26px;
+	font-weight: bold;
+	color: rgb(209,231,81);
 }
 
 #home_link p{
-	margin-top: 10px;
+	margin-top: 6px;
 }
 
 #nav_buttons{
   float: right;
+	margin: 4px;
 	height: 40px;
 	width: auto;
 }
@@ -61,10 +66,22 @@ nav{
 	float: left;
 }
 
-#image_upload > a{
+#image_upload > a:link{
 	display: block;
 	height: 100%;
 	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(209,231,81);
+}
+
+#image_upload > a:visited{
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(209,231,81);
 }
 
 #username:hover + .sibling{
@@ -82,10 +99,19 @@ nav{
 	float: left;
 }
 
+#username_dropdown a{
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(209,231,81);
+}
+
 #username{
 	display: block;
 	padding: 10px;
 	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(77,188,233);
 }
 
 #username p{
@@ -95,7 +121,14 @@ nav{
 }
 
 #username_dropdown input{
-	background-color: white;
+	background-color: black;
+	font-size: 16px;
+	font-weight: bold;
+	color: rgb(209,231,81);
+}
+
+#username_dropdown input:hover{
+	cursor: pointer;
 }
 
 #portal_buttons{

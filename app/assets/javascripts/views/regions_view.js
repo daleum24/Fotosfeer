@@ -102,14 +102,14 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		    var marker = e.layer,
 		        feature = marker.feature;
 
-		    var popupContent =  '<a class="region-popup" href="#" data-id="' + feature.properties.id + '">' +
+		    var popupContent =  '<a class="region-popup" href="#photos/' + feature.properties.id + '">' +
 		                            '<img src="' + feature.properties.image + '">' +
 		                        '   <h2>' + feature.properties.title + '</h2>' +
 		                        '</a>';
 														
 		    marker.bindPopup(popupContent,{
 		        closeButton: false,
-		        minWidth: 550
+		        minWidth: 500
 		    });
 		});
 	

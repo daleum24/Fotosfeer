@@ -41,8 +41,7 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		    properties: {
 		        'marker-color': '#0fa',
 		        'marker-symbol': 'star-stroked',
-		        title: 'Example Marker',
-		        description: 'This is a single marker.'
+		        title: photo.get("title"),
 		    }
 		}).addTo(map);
 		
