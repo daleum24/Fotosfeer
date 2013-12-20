@@ -54,24 +54,10 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	favorites: function(){
 		var favoritesView = new ImgurClone.Views.FavoritesView();
 		this._swapView(favoritesView)
+		
 		var map = ImgurClone.FavoritesMap = L.mapbox.map('favorites-map', 'examples.map-9ijuk24y')
 		    .setView([0, 0], 2);
-				
-		ImgurClone.FavoritePhotosCollection.forEach(function(photo){	
-			L.mapbox.markerLayer({
-			    type: 'Feature',
-			    geometry: {
-			        type: 'Point',
-			        coordinates: [photo.escape("longitude"), photo.escape("latitude")]
-			    },
-			    properties: {
-			        'marker-color': '#0fa',
-			        'marker-symbol': 'star-stroked',
-			        title: 'Example Marker',
-			        description: 'This is a single marker.'
-			    }
-			}).addTo(map);		
-		})
+
 	},
 	
 	regions: function(){
