@@ -75,7 +75,6 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 		this.$el.append(this.navButtonsTemplate({previous: this.previous_photo, next: this.next_photo}))
 		this.$el.append($("<div id='photo-map'></div>"))
 		this.$el.append(this.saveRegionTemplate())
-		this.$el.append($("<div id='photo-directions'></div>"))
 		return this
 	}
 });

@@ -44,9 +44,6 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 					photo.save({ title: $("#edit-name").val(), description: $("#edit-description").val() });
 					var updated = true;
 				}
-				if (updated === true){
-					$.fancybox("#messages");
-				}
 			}
 		});
 		

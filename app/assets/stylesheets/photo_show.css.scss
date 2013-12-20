@@ -158,8 +158,17 @@ a{
 	width: 280px;
 	height: 48px;
 	float: left;
-	background: white;
+	background: rgb(245,169,235);
 	border-radius: 10px;
+}
+
+#upvotes-bar{
+	height: 48px;
+	width: 0%;
+	background: rgb(169,245,179);
+	border-radius: 10px;
+	border-top-right-radius: 0px !important;
+	border-bottom-right-radius: 0px !important;
 }
 
 .upvote-clicked{
@@ -172,7 +181,7 @@ a{
 
 // //favorites
 .favorite-clicked{
-	background: yellow;
+	background: rgb(191, 93, 240) !important;
 }
 
 // //comments
@@ -332,6 +341,7 @@ a{
 	border-radius: 4px;
 	width: 296px;
 	margin: auto;
+	margin-bottom: 20px;
 }
 
 #save-region-form > input{
@@ -343,3 +353,7 @@ a{
 #save-region-form > input:last-of-type{
 	background:  rgb(209,231,81);
 }
+
+//#photo_directions{
+//	display: none;
+//}

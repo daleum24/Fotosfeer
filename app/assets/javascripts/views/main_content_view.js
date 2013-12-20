@@ -9,7 +9,7 @@ ImgurClone.Views.MainContentView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.mainPhoto.render().$el)
-		this.$el.append(this.votes.render().$el)
+		this.$el.append(this.votes.render().$el)		
 		this.$el.append(this.comments.render().$el)
 		return this
 	}

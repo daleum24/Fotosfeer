@@ -138,6 +138,14 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	render: function(){
 		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite }))
 		
+		var upvotes = this.model.get("uservotes").where({value: 1})
+		var downvotes = this.model.get("uservotes").where({value: -1})
+
+		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
+		var percentage = progress+"%"
+
+		$('#upvotes-bar').css('width', percentage);
+		
 		return this
 	}
 });

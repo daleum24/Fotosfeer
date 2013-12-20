@@ -29,6 +29,14 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		
 		var photoShowView = new ImgurClone.Views.PhotoShowView({model: photo});
 		
+		var upvotes = photo.get("uservotes").where({value: 1})
+		var downvotes = photo.get("uservotes").where({value: -1})
+
+		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
+		var percentage = progress+"%"
+
+		$('#upvotes-bar').css('width', percentage);
+		
 		this._swapView(photoShowView)
 		var map = ImgurClone.PhotoMap = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
 		    .setView([latitude, longitude], 17);
