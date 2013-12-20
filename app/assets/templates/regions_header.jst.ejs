@@ -7,8 +7,9 @@
 			<option class="region-option" value="<%= region.escape('id') %>"><%= region.escape('name') %></option>
 		<% }) %>
 		
-		<option value="add-region">Add A Region!</option>
-		
 	</select>
+	
+	<input type="submit" class="new_region_form" value="Add Region!"></input>
+	<input type="text" class="new_region_form" id="new_region_name" placeholder="Name"></input>
 	
 </div>

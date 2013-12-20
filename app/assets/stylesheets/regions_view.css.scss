@@ -44,3 +44,18 @@ body{
 .region-select > option{
 
 }
+
+.new_region_form{
+	display: block;
+	background: lightgreen;
+	margin-top: 0px;
+	height: 38px;
+	width: 200px;
+	float: right;
+}
+
+.new_region_form:first-of-type{
+	length: 250px;
+}
+
+
