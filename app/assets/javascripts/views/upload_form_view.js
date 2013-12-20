@@ -7,7 +7,6 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 			url: "/users/" + ImgurClone.user_id + "/photos",
 			type: "POST",
 			dataType: "json",
-			dropZone: $("#dropzone"),
 			done: function(e, data){
 				ImgurClone.PhotosCollection.add(data.result)
 				var upload = ImgurClone.PhotosCollection.get(data.result.id)
@@ -49,6 +48,7 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 			}
 			});
 		})
+		
 	},
 	
 	template: JST["photo_upload_form"],

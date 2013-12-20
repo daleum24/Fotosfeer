@@ -10,10 +10,10 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		"click a.region-popup" : "navigate_to_photo"
 	},
 	
-	navigate_to_photo: function(event){
-		event.preventDefault();
-		alert("hooray!")
-	},
+	// navigate_to_photo: function(event){
+	// 	event.preventDefault();
+	// 	alert("hooray!")
+	// },
 	
 	is_in_bounds: function(photo, southWest, northEast){
 		var photoLat = photo.get("latitude")

@@ -32,7 +32,7 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 			}
 		})
 		
-		var $fileselect = $(".fancybox-inner p")
+		var $fileselect = $(".fancybox-inner p#fileselect_p")
 		
 		$fileselect.one("click", function(event){
 			$('#fileupload').click()

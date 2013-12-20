@@ -43,7 +43,8 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		} else {
 			that.photoFavorites.create({ favorite: { user_id: ImgurClone.user_id, photo_id: that.model.get("id") } }, {
 				url: "/photos/" + that.model.get("id") + "/favorites",
-				success: function(){
+				success: function(response){
+					// ImgurClone.FavoritePhotosCollection.add(response)
 					$("#favorite-button").toggleClass("favorite-clicked")
 					$("#favorite-button").val("Unfavorite")
 				}
