@@ -1,13 +1,43 @@
 ImgurClone.Views.RegionsView = Backbone.View.extend({
 	initialize: function(){
 		this.$el.addClass("regions-container")
+		// this.$el.append(this.regionsTemplate({myRegions: ImgurClone.RegionsCollection}))
+		this.$el.append($("<div id='region-map' class='dark' ></div>"))
 	},
 	
 	regionsTemplate: JST['regions_header'],
 	
 	events:{
 		"change .region-select": "display_region",
-		"click a.region-popup" : "navigate_to_photo"
+		"click a.region-popup" : "navigate_to_photo",
+		"click #new_region_button" : "create_region"
+	},
+	
+	create_region: function(event){
+		event.preventDefault();		
+		var that = this;
+		var bounds = ImgurClone.RegionMap.getBounds()
+		var north = bounds._northEast.lat 
+		var east = bounds._northEast.lng
+		var south = bounds._southWest.lat 
+		var west = bounds._southWest.lng
+		
+		var name = $("#new_region_name").val()
+		
+		if (name === ""){
+			alert("Name Please!!")
+		} else {
+			ImgurClone.RegionsCollection.create(
+				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
+				url: "/users/" + ImgurClone.user_id + "/regions",
+				success: function(){
+					$("#region-header").remove()
+					that.render();
+					var newOption = "#region-header option:contains(" + name + ")" 
+					$(newOption).attr("selected", "selected")
+				}
+			})
+		}
 	},
 	
 	// navigate_to_photo: function(event){
@@ -109,8 +139,8 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	},
 	
 	render: function(){
-		this.$el.append(this.regionsTemplate({myRegions: ImgurClone.RegionsCollection}))
-		this.$el.append($("<div id='region-map' class='dark' ></div>"))
+		this.$el.prepend(this.regionsTemplate({myRegions: ImgurClone.RegionsCollection}))
+		
 		return this
 	}
 })

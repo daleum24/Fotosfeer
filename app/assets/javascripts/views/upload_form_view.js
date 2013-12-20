@@ -9,6 +9,9 @@ ImgurClone.Views.UploadFormView = Backbone.View.extend({
 			type: "POST",
 			dataType: "json",
 			// dropZone: $("#.fancybox-inner p#dropzone_p"),
+			submit: function(e, data){
+				$.fancybox("#progress_bar");
+			},
 			done: function(e, data){
 				ImgurClone.PhotosCollection.add(data.result)
 				var upload = ImgurClone.PhotosCollection.get(data.result.id)

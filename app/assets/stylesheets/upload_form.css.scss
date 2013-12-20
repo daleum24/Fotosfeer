@@ -60,10 +60,11 @@
 	background: lightblue;
 }
 
-
-//#progress{
-//	display: none;
-//}
+#progress_bar{
+	width: 200px;
+	height: 200px;
+	background: url('495.gif') center center no-repeat;
+}
 
 #initial_update_form{
 	height: 600px;
