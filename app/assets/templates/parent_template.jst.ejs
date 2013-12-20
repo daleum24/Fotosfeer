@@ -11,7 +11,7 @@
 	
 	<article class="article-content">
 	
-		<p><%= ImgurClone.UsersCollection.get(top_level_comment.escape("commenter_id")).escape("username") %></p>
+		<p class="p-username"><%= ImgurClone.UsersCollection.get(top_level_comment.escape("commenter_id")).escape("username") %></p>
 		<p><%= top_level_comment.escape("body") %></p>
 	
 		<a href="#" class="reply-link" data-id="<%= top_level_comment.escape('id') %>">Reply</a>

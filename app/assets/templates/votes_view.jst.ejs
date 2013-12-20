@@ -11,17 +11,28 @@
 	<% var favorited = true %>
 <% } %>
 
+
 <% if (upvoted === true) { %>
-	<input type="submit" value="Upvote" class="upvote-clicked" id="upvote-button"></input>
+	<div class="button-wrap upvote-clicked" id="upvote-button">
+		<div id="upvote-button-png"></div>
+	</div>
 <% } else { %>
-	<input type="submit" value="Upvote" id="upvote-button"></input>
+	<div class="button-wrap" id="upvote-button">
+		<div id="upvote-button-png"></div>
+	</div>
 <% } %>
 
 <% if (downvoted === true) { %>
-	<input type="submit" value="Downvote" class="downvote-clicked" id="downvote-button"></input>
+	<div class="button-wrap downvote-clicked" id="downvote-button">
+		<div id="downvote-button-png"></div>
+	</div>
 <% } else { %>
-	<input type="submit" value="Downvote" id="downvote-button"></input>
+	<div class="button-wrap" id="downvote-button">
+		<div id="downvote-button-png"></div>
+	</div>
 <% } %>
+
+
 
 
 <div id="upvotes-bar-container">

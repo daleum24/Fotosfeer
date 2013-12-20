@@ -7,6 +7,11 @@ div, section, img, p, h2{
 	vertical-align: baseline;
 }
 
+a{
+	text-decoration: none;
+}
+
+
 .group:after {
   content: "";
   display: table;
@@ -52,6 +57,8 @@ div, section, img, p, h2{
 	width: 623px;
 	height: auto;
 	float: left;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
 }
 
 .main-photo{
@@ -67,7 +74,7 @@ div, section, img, p, h2{
 	font-size: 24px;
 	color: rgb(77,188,233);
 	color: rgb(209,231,81);
-	padding: 7px ;
+	padding: 10px 7px;
 }
 
 .image_show{
@@ -85,8 +92,6 @@ div, section, img, p, h2{
 	height: 100%;
 }
 
-
-
 .main-photo p{
 	background: black;
 	color: white;
@@ -100,24 +105,39 @@ div, section, img, p, h2{
 // //votes
 .votes-container{
 	width: 560px;
-	height: 50px;
+	height: 60px;
 	margin: auto;
 	margin-top: 10px;
-	border: 6px solid rgb(238,240,243);
+	border: 6px solid  rgb(77,188,233);
 	border-radius: 4px;
 }
 
-.votes-container input{
-	width: 580px;
-	font-size: 14px;
-	margin: 5px 2px;
-	width: 50px;
-	height: 40px;
+
+.button-wrap{
+	margin: 6px 5px ;
+	width: 48px;
+	height: 48px;
+	background: white;
 	float: left;
+	border-radius: 10px;
 }
 
-#upvote-button{
-	background: url('up_arrow.png');
+.button-wrap:first-of-type{
+	margin-left: 15px;
+}
+
+#upvote-button-png{
+	width: 48px;
+	height: 48px;
+	background: url('upvote.png');
+	cursor: pointer;
+}
+
+#downvote-button-png{
+	width: 48px;
+	height: 48px;
+	background: url('downvote.png');
+	cursor: pointer;
 }
 
 .votes-container input:first-of-type{
@@ -125,24 +145,29 @@ div, section, img, p, h2{
 }
 
 #favorite-button{
-	font-size: 14px;
-	width: 80px;
+	margin: 6px 10px;
+	height: 48px;
+	font-size: 16px;
+	width: 101px;
+	background: white;
+	border-radius: 10px;
 }
 
 #upvotes-bar-container{
-	margin: 5px 20px 5px 20px;
-	border: 1px solid purple;
-	width: 250px;
-	height: 40px;
+	margin: 6px 12px;
+	width: 280px;
+	height: 48px;
 	float: left;
+	background: white;
+	border-radius: 10px;
 }
 
 .upvote-clicked{
-	background: green;
+	background: rgb(169,245,179);
 }
 
 .downvote-clicked{
-	background: red;
+	background: rgb(245,169,235);
 }
 
 // //favorites
@@ -152,24 +177,53 @@ div, section, img, p, h2{
 
 // //comments
 .comments-container{
-	width: 580px;
+	width: 560px;
 	height: auto;
 	margin: auto;
 	margin-top: 10px;
-	border: 1px solid purple;
+	border: 6px solid  rgb(77,188,233);
+	border-radius: 4px;
+	margin-top: 20px;
+}
+
+#new-post-container{
+//	margin-top: 5px;
+//	padding: 5px;
+}
+
+#comment-input{
+	width: 500px;
+	height: 30px;
+	float:left;
+}
+
+#new-comment-submit{
+	width: 60px;
+	height: 30px;
+	background: rgb(209,231,81);
+	float:left;
 }
 
 #existing-posts-container{
 	min-height: 20px;
 }
 
+#existing-posts-container > h3{
+	color: rgb(209,231,81);
+}
+
 .comment-li{
 	min-height: 70px;
 	margin-left: 30px;
+	position: relative;
 }
 
 .nest-collapse{
-//	float: left;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	left: -20px;
+	border-radius: 4px;
 }
 
 .comment-buttons{
@@ -177,8 +231,18 @@ div, section, img, p, h2{
 }
 
 .article-content{
-	background: lightblue;
-//	float: left;
+	border: 2px solid rgb(77,188,233);
+	border-right: 0px;
+	border-radius: 4px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	margin-bottom: 10px;
+	color: white;
+	padding: 5px;
+}
+
+.p-username{
+	color: rgb(209,231,81);
 }
 
 .reply-post-form{
@@ -202,33 +266,36 @@ div, section, img, p, h2{
 // //nav buttons
 
 .navigation{
-	background: rgb(209,231,81);
-	border-radius: 10px;
+	border: 2px solid rgb(77,188,233);
+	border-radius: 4px;
 	width: 300px;
 	margin: auto;
 	margin: 20px;
+	color: black;
 }
 
 .nav_button{
-	float: right;
+	float: left;
 	height: 40px;
-	width: 149px;
+	width: 148px;
 	font-size: 16px;
-	border-left: 1px solid black;
+	border-left: 1px rgb(77,188,233);
 }
 
 .nav_button:first-of-type{
-	float: left;
 	border-left: 0px;
-	border-right: 1px solid black;
+	border-right: 1px solid rgb(77,188,233);
 };
 
 .nav_button > a{
 	display: block;
-	width: 100%;
-	height: 100%;
+	padding: 3px 40px;
+
 	font-size: 30px;
-	margin: 3px 0px 0px 48px;
+}
+
+.nav_button a:visited, a:link{
+	color: white;
 }
 
 #photo-directions{
@@ -249,6 +316,7 @@ div, section, img, p, h2{
 	width: 300px;
 	height: 300px;
 	margin: auto;
+	margin-bottom: 20px;
 }
 
 #map{ 
@@ -260,13 +328,18 @@ div, section, img, p, h2{
 
 // // region form
 #save-region-form{
-	padding-top: 20px;
-	width: 300px;
+	border: 2px solid rgb(77,188,233);
+	border-radius: 4px;
+	width: 296px;
 	margin: auto;
 }
 
 #save-region-form > input{
+	height: 30px;
 	display: block;
 	width: 100%;
-	
+}
+
+#save-region-form > input:last-of-type{
+	background:  rgb(209,231,81);
 }
