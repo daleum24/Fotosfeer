@@ -6,7 +6,13 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	regionsTemplate: JST['regions_header'],
 	
 	events:{
-		"change .region-select": "display_region"
+		"change .region-select": "display_region",
+		"click a.region-popup" : "navigate_to_photo"
+	},
+	
+	navigate_to_photo: function(event){
+		event.preventDefault();
+		alert("hooray!")
 	},
 	
 	is_in_bounds: function(photo, southWest, northEast){
@@ -66,14 +72,14 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		    var marker = e.layer,
 		        feature = marker.feature;
 
-		    var popupContent =  '<a target="_blank" class="region-popup" href="#" data-id="' + feature.properties.id + '">' +
+		    var popupContent =  '<a class="region-popup" href="#" data-id="' + feature.properties.id + '">' +
 		                            '<img src="' + feature.properties.image + '">' +
 		                        '   <h2>' + feature.properties.title + '</h2>' +
 		                        '</a>';
 														
 		    marker.bindPopup(popupContent,{
 		        closeButton: false,
-		        minWidth: 320
+		        minWidth: 550
 		    });
 		});
 	
