@@ -38,7 +38,8 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 														
 		    marker.bindPopup(popupContent,{
 		        closeButton: false,
-		        minWidth: 500
+		        minWidth: 500,
+						maxHeight: 700
 		    });
 		});
 	
@@ -51,12 +52,9 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 	
 	favoritePhotosTemplate: JST["favorites_scroll"],
 	
-	favoritePhotoEnlarge: JST["favorite_enlarge"],
-	
 	render: function(){
 		this.$el.append(this.favoritePhotosTemplate({favorites: ImgurClone.FavoritePhotosCollection}))
-		this.$el.append($("<div id='favorites-map'></div>"))
-		this.$el.append($("<div id='favorite-enlarge'></div>"))
+		this.$el.append($("<div id='favorites-map' class='dark'></div>"))
 		return this
 	}
 })

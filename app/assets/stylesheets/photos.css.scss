@@ -35,7 +35,7 @@ a{
 .white_space{
 	background-color: rgb(255,255,255);
 	width: 900px;
-	height: 800px;
+	height: 900px;
 	padding: 50px;
 	margin: 30px 0px;
 	border-radius: 20px;
@@ -63,7 +63,7 @@ a{
 	display: inline-block;
 	height: 180px;
 	width: 180px;
-	border: 8px solid rgb(220,228,238);
+	border: 8px solid rgb(238,240,243);
 	border-radius: 10px;
 	margin: 4px;
 	margin-top: 12px;
@@ -119,17 +119,7 @@ a{
   float: left;
 }
 
-.image_show{
-  width: 500px;
-  margin: auto;
-  height: 400px;
-  overflow: hidden;
-}
 
-.image_show img {
-	display: block;
-    width: 100%;
-}
 
 .browse_buttons{
   width: 300px;

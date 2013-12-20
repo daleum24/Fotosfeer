@@ -19,11 +19,12 @@ body{
 }
 
 #region-header{
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
 	width: 190;
 	height: 40px;
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 #region-map{
@@ -33,11 +34,14 @@ body{
 
 .region-select{
 	height: 38px;
-	width: 500px;
+	width: 380px;
+	padding: 0px 20px;
 	font-size: 24px;
-	text-align: center;
-	border-radius: 0px;
+//	border-bottom: 1px solid red;
+//	border-radius: 10px;
 	background: transparent;
+	background: url('downarrow.png') no-repeat right center;
+	background-size: 24px;
 	-webkit-appearance: none;
 }
 
@@ -46,8 +50,8 @@ body{
 }
 
 .new_region_form{
+	font-size: 24px;
 	display: block;
-	background: lightgreen;
 	margin-top: 0px;
 	height: 38px;
 	width: 200px;
@@ -56,6 +60,14 @@ body{
 
 .new_region_form:first-of-type{
 	length: 250px;
+//	background: ;
+	border-right: 2px solid green;
+	border-bottom: 2px solid green;
+}
+
+.new_region_form:first-of-type{
+	length: 250px;
+//	background: ;
 }
 
 .region-popup{

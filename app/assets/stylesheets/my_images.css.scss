@@ -1,3 +1,43 @@
+body, section, div, img,  a, figure, input{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+ul, li{
+  list-style: none;
+}
+
+body{
+	background-color: rgb(77,188,233);
+	font-family: sans-serif;
+	font-size: 16px;
+	height: 1400px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.my_images_header{
+	width: 802px;
+	margin: auto;
+	background: black;
+	border: 8px solid rgb(209,231,81);
+	border-radius: 5px;
+}
+
+.my_images_header p{
+	display: block;
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	margin: 6px 0px 0px 6px;
+}
+
 .my-images{
 	width: 1000px;
 	height: 800px;

@@ -21,42 +21,45 @@ div, section, img, p, h2{
 	width: 1000px;
 	height: 900px;
 	margin: auto;
+	margin-top: 30px;
 }
 
 //ADJACENT PHOTOS VIEW
-
-.adjacent-photos-view{
-	width: 100%;
-	height: 150px;
-	padding: 0px 20px;
-	background: lightblue;
-}
-
-.adjacent_photo_container{
-	width: 15%;
-	height: 130px;
-}
-
-.adjacent_photo_container img{
-	width: 100%;
-	height: 100%;
-}
+//
+//.adjacent-photos-view{
+//	width: 100%;
+//	height: 150px;
+//	padding: 0px 20px;
+//	background: lightblue;
+//}
+//
+//.adjacent_photo_container{
+//	width: 15%;
+//	height: 130px;
+//}
+//
+//.adjacent_photo_container img{
+//	width: 100%;
+//	height: 100%;
+//}
 
 // MAIN CONTENT VIEW
 // //MAIN PHOTO
 .main-photo-content{
-	border: 1px solid blue;
+	background: black;
+//	background: white;
+	border-radius: 10px;
 	width: 623px;
 	height: auto;
 	float: left;
 }
 
-.main-photo-content h2{
-	font-size: 24px;
-}
-
 .main-photo{
-	border: 1px solid purple;
+//	background: rgb(77,188,233);
+//	background: rgb(238,240,243);
+	background: black;
+//	background: white;
+//	border: 1px solid purple;
 	height: auto;
 	display: block;
 	width: 580px;
@@ -64,16 +67,27 @@ div, section, img, p, h2{
 	margin-top: 20px;
 }
 
-.image_show{
-	width: 500px;
-	height: 500px;
-	padding: 0px;
-	margin: 0px;
+.main-photo-content h2{
+	font-size: 24px;
+	color: rgb(77,188,233);
+	color: white;
+	padding: 7px ;
 }
 
 .image_show img{
+	display: block;
 	width: 100%;
 	height: 100%;
+}
+
+.image_show{
+  width: 560px;
+  margin: auto;
+	padding: 0px;
+  height: 450px;
+  overflow: hidden;
+	border: 4px solid rgb(238,240,243);
+	border-radius: 4px;
 }
 
 .main-photo p{
@@ -171,7 +185,8 @@ div, section, img, p, h2{
 //SHOW SIDEBAR VIEW
 
 .show-sidebar{
-	border: 1px solid pink;
+	background: black;
+	border-radius: 10px;
 	width: 350px;
 	height: auto;
 	float: right;
@@ -179,7 +194,8 @@ div, section, img, p, h2{
 // //nav buttons
 
 .navigation{
-	border: 1px solid green;
+	background: rgb(209,231,81);
+	border-radius: 10px;
 	width: 300px;
 	margin: auto;
 	margin: 20px;
@@ -190,13 +206,13 @@ div, section, img, p, h2{
 	height: 40px;
 	width: 149px;
 	font-size: 16px;
-	border-left: 1px solid green;
+	border-left: 1px solid black;
 }
 
 .nav_button:first-of-type{
 	float: left;
 	border-left: 0px;
-	border-right: 1px solid green;
+	border-right: 1px solid black;
 };
 
 .nav_button > a{
