@@ -5,13 +5,13 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.new(photo_id: params[:photo_id])
     @favorite.user_id = self.current_user.id
     @favorite.save
-    respond_with @favorite
+    render json: @favorite
   end
 
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy
-    respond_with {}
+    respond_with @favorite
   end
 
 end

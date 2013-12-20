@@ -11,8 +11,10 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 		event.preventDefault();
 		var photo_id = +$(event.currentTarget).attr("data-id")
 		var photo = ImgurClone.FavoritePhotosCollection.get(photo_id)
+		
 		var latitude = +photo.escape("latitude")
 		var longitude = +photo.escape("longitude")
+		
 			
 		var layer =	[{	type: 'Feature',
 					        "geometry": { "type": "Point", "coordinates": [photo.get("longitude"), photo.get("latitude")]},

@@ -32,10 +32,16 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		event.preventDefault();
 		var that = this;
 		this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
+		
 		if ( $("#favorite-button").hasClass("favorite-clicked") ){
 			that.currentUserFavorite[0].destroy({
 				url: "/favorites/"+that.currentUserFavorite[0].get("id"),
-				success: function(){
+				success: function(model, response){
+					var photo_id = that.currentUserFavorite[0].get("photo_id")
+					var photo = ImgurClone.PhotosCollection.get(photo_id)
+					
+					ImgurClone.FavoritePhotosCollection.remove(photo)
+					
 					$("#favorite-button").toggleClass("favorite-clicked")
 					$("#favorite-button").val("Favorite")
 				}
@@ -43,8 +49,12 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		} else {
 			that.photoFavorites.create({ favorite: { user_id: ImgurClone.user_id, photo_id: that.model.get("id") } }, {
 				url: "/photos/" + that.model.get("id") + "/favorites",
-				success: function(response){
-					// ImgurClone.FavoritePhotosCollection.add(response)
+				success: function(model, response){
+	
+					var photo_id = model.get("photo_id")
+					var photo = ImgurClone.PhotosCollection.get(photo_id)
+					
+					ImgurClone.FavoritePhotosCollection.add(photo)
 					$("#favorite-button").toggleClass("favorite-clicked")
 					$("#favorite-button").val("Unfavorite")
 				}
