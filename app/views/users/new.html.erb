@@ -1,5 +1,5 @@
 
-	<div class="portal_background">
+	<div class="portal_background" style="background-image: url(<%= @photo.image.url %>)">
 		<div class="portal_form">
 			<%= render "shared/portal_form", action: users_url, value: "Sign Up" %>
 		</div>
