@@ -2,13 +2,13 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 	initialize: function(){
 		var that = this;
 		this.$el.addClass("my-images")
-		this.myImages = ImgurClone.PhotosCollection.where({submitter_id: ImgurClone.user_id})
+		this.myImages = ImgurClone.PhotosCollection.where({ submitter_id: ImgurClone.user_id })
 		this.myImagesCollection = new ImgurClone.Collections.Photos(this.myImages);
 		
 	  var events = ["add", "change:title", "remove", "reset"];
-	     _(events).each(function (event) {
-	       that.listenTo(that.myImagesCollection, event, that.render);
-	     });
+	  _(events).each(function (event) {
+	    that.listenTo(that.myImagesCollection, event, that.render);
+	  });
 	},
 	
 	events:{
