@@ -1,6 +1,11 @@
+<% if flash[:errors] && !flash[:errors].empty? %>
+  <% flash[:errors].each do |error| %>
+    <p class="errors"><%= error %><p>
+  <% end %>
+<% end %>
 
-	<div class="portal_background" style="background-image: url(<%= @photo.image.url %>)">
-		<div class="portal_form">
-			<%= render "shared/portal_form", action: users_url, value: "Sign Up" %>
-		</div>
+<div class="portal_background" style="background-image: url(<%= @photo.image.url %>)">
+	<div class="portal_form">
+		<%= render "shared/portal_form", action: users_url, value: "Sign Up" %>
 	</div>
+</div>
