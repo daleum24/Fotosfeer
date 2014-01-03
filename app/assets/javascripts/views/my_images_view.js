@@ -30,23 +30,28 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 		$.fancybox("#edit-form",{
 			afterShow: function(){
 				
-				$('#edit-delete-button').one("click", function(event){
-					photo.destroy()
-					$.fancybox.close()
-				})
-				return false
-			},
-			
-			afterClose: function(){
-				if (($("#edit-name").val() != photo.escape("title")) || ($("#edit-description").val() != photo.escape("description"))){
+				$('#update-button').one("click", function(event){
 					photo.save({ title: $("#edit-name").val(), description: $("#edit-description").val() });
-					$("#notification_bar").html("Photo Updated!").fadeIn(400)
+					$.fancybox.close()
 					
+					$("#notification_bar").html("Photo Updated!").fadeIn(400)	
 					window.setTimeout(function(){ 
 						$("#notification_bar").fadeOut(600).html("")
-					}, 8000) 
-				}
-			}
+					}, 4000) 
+					
+				})
+				
+				$('#delete-button').one("click", function(event){
+					photo.destroy()
+					$.fancybox.close()
+					
+					$("#notification_bar").html("Photo Deleted").fadeIn(400)	
+					window.setTimeout(function(){ 
+						$("#notification_bar").fadeOut(600).html("")
+					}, 4000) 
+					
+				})
+			},
 		});
 		
 	},
