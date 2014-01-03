@@ -156,8 +156,11 @@ nav{
 }
 
 #notification_bar{
-	width: auto;
 	height: 40px;
+	width: 100%;
 	background: yellow;
+	text-align: center;
+	display: none;
+	position: absolute;
 }
 

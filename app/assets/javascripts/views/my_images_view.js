@@ -38,10 +38,13 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 			},
 			
 			afterClose: function(){
-				var updated = false
 				if (($("#edit-name").val() != photo.escape("title")) || ($("#edit-description").val() != photo.escape("description"))){
 					photo.save({ title: $("#edit-name").val(), description: $("#edit-description").val() });
-					var updated = true;
+					$("#notification_bar").html("Photo Updated!").fadeIn(400)
+					
+					window.setTimeout(function(){ 
+						$("#notification_bar").fadeOut(600).html("")
+					}, 8000) 
 				}
 			}
 		});
