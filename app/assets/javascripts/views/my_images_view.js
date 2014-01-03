@@ -2,12 +2,11 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 	initialize: function(){
 		var that = this;
 		this.$el.addClass("my-images")
-		this.myImages = ImgurClone.PhotosCollection.where({ submitter_id: ImgurClone.user_id })
-		this.myImagesCollection = new ImgurClone.Collections.Photos(this.myImages);
+		this.myImagesCollections = ImgurClone.myImagesCollection
 		
-	  var events = ["add", "change:title", "remove", "reset"];
+	  var events = ["add", "change:title", "remove"];
 	  _(events).each(function (event) {
-	    that.listenTo(that.myImagesCollection, event, that.render);
+	    that.listenTo(that.myImagesCollections, event, that.render);
 	  });
 	},
 	
@@ -19,7 +18,7 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 		event.preventDefault();
 		
 		var photo_id = $(event.currentTarget).attr("data-id")
-		var photo = this.myImagesCollection.get(photo_id)
+		var photo = ImgurClone.myImagesCollection.get(photo_id)
 		var image_tag = "<img src=" + photo.escape("image_url") + "></img>" 
 		
 		$("#edit-name").val(photo.escape("title"))
@@ -53,7 +52,7 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 	
 	render: function(){
 		this.$el.empty()
-		this.$el.append(this.myImagesTemplate({ photos: this.myImagesCollection }))
+		this.$el.append(this.myImagesTemplate({ photos: ImgurClone.myImagesCollection }))
 		return this;
 	}
 });
