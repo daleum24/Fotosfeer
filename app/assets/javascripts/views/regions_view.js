@@ -1,7 +1,11 @@
 ImgurClone.Views.RegionsView = Backbone.View.extend({
 	initialize: function(){
+		var that = this;
 		this.$el.addClass("regions-container")
 		this.$el.append($("<div id='region-map' class='dark' ></div>"))
+		window.setTimeout(function(){
+			that.render_world()
+		}, 100)
 	},
 	
 	regionsTemplate: JST['regions_header'],
@@ -13,36 +17,60 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		"click #region_delete_button" : "delete_region"
 	},
 	
+	set_notification: function(message){
+		$("#notification_bar").html(message).fadeIn(400)
+		
+		window.setTimeout(function(){ 
+			$("#notification_bar").fadeOut(600).html("")
+		}, 3000) 
+	},
+	
+	render_header: function(){
+		$("#region-header").remove()					
+		this.render();
+	},
+	
+	render_region: function(north, south, east, west){
+		var southWest = [ south, west ]
+		var northEast = [ north, east ]
+		ImgurClone.RegionMap.fitBounds([ southWest, northEast ])
+		this.display_in_region_photos(southWest, northEast)
+	},
+	
+	render_world: function(){
+		var north = 78.9039293885709
+		var east = 175.78125
+		var south = -78.9039293885709
+		var west = -175.78125
+		
+		this.render_region(north, south, east, west);
+		$("#region_delete_button").css("display", "none")
+	},
+	
+	get_bounds: function(){
+		var bounds = ImgurClone.RegionMap.getBounds()
+		this.north = bounds._northEast.lat 
+		this.east = bounds._northEast.lng
+		this.south = bounds._southWest.lat 
+		this.west = bounds._southWest.lng
+	},
+	
 	create_region: function(event){
 		event.preventDefault();		
 		var that = this;
-		var bounds = ImgurClone.RegionMap.getBounds()
-		var north = bounds._northEast.lat 
-		var east = bounds._northEast.lng
-		var south = bounds._southWest.lat 
-		var west = bounds._southWest.lng
-		
+		this.get_bounds();
 		var name = $("#new_region_name").val()
 		
 		if (name === ""){
-			$("#notification_bar").html("Name Please!").fadeIn(400)
-			
-			window.setTimeout(function(){ 
-				$("#notification_bar").fadeOut(600).html("")
-			}, 3000) 
+			this.set_notification("Name Please!")
 		} else {
 			ImgurClone.RegionsCollection.create(
-				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
+				{ region: { name: name, north_bound: this.north, south_bound: this.south, east_bound: this.east, west_bound: this.west }},{
 				url: "/users/" + ImgurClone.user_id + "/regions",
 				success: function(){
-					$("#notification_bar").html("Region Created!").fadeIn(400)
+					that.set_notification("Region Created!")
+					that.render_header();
 					
-					window.setTimeout(function(){ 
-						$("#notification_bar").fadeOut(600).html("")
-					}, 3000) 
-					
-					$("#region-header").remove()					
-					that.render();
 					var newOption = "#region-header option:contains(" + name + ")" 
 					$(newOption).attr("selected", "selected")
 				}
@@ -113,7 +141,10 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 														
 		    marker.bindPopup(popupContent,{
 		        closeButton: false,
-		        minWidth: 500
+						keepInView: true,
+						minWidth: 300,
+		        maxWidth: 300,
+						maxHeight: 300
 		    });
 		});
 	
@@ -124,26 +155,13 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		event.preventDefault();
 		var value = $(event.currentTarget).find(":selected").val()
 		
-		if ((value === "select-region") || (value === "add-region")) {
-			var currentZoom = ImgurClone.RegionMap.getZoom()
-			var zoomOut = currentZoom - 2 
-			 
-			ImgurClone.RegionMap.zoomOut(zoomOut)
-			ImgurClone.RegionMap.panTo([0,0])
-			$("#region_delete_button").css("display", "none")
-			
+		if (value === "select-region") {
+			this.render_world();
 		} else {
-			
 			var region = ImgurClone.RegionsCollection.get(value)
-			var southWest = [ region.escape("south_bound"), region.escape("west_bound") ]
-			var northEast = [ region.escape("north_bound"), region.escape("east_bound") ]
-			ImgurClone.RegionMap.fitBounds([ southWest, northEast ])
-
-			this.display_in_region_photos(southWest, northEast)
-			
+			this.render_region(region.escape("north_bound"), region.escape("south_bound"), region.escape("east_bound"), region.escape("west_bound"));
 			$("#region_delete_button").css("display", "block")
-		}
-		
+		}		
 	},
 	
 	delete_region: function(event){
@@ -155,22 +173,9 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		region.destroy({
 			url: "/regions/" + value,
 			success: function(){
-				$("#region-header").remove();
-				that.render();
-				
-				$("#notification_bar").html("Region Deleted").fadeIn(400)
-				
-				window.setTimeout(function(){ 
-					$("#notification_bar").fadeOut(600).html("")
-				}, 3000) 
-				
-				var currentZoom = ImgurClone.RegionMap.getZoom()
-				var zoomOut = currentZoom - 2 
-			 
-				ImgurClone.RegionMap.zoomOut(zoomOut)
-				ImgurClone.RegionMap.panTo([0,0])
-				$("#region_delete_button").css("display", "none")
-				
+				that.set_notification("Region Deleted")
+				that.render_header();
+				that.render_world();
 			}
 		})
 	},
