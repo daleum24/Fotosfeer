@@ -43,36 +43,6 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 			$('#fileupload').click()
 			$.fancybox.close()
 		})
-		
-		var $dropzone = $(".fancybox-inner p#dropzone_p")
-		
-		$dropzone.on('dragover', function(e){
-			e.stopPropagation();
-			e.preventDefault();
-			$dropzone.toggleClass('in_dropzone')
-			$dropzone.css({
-				'color': 'rgb(209,231,81)',
-				'border': '6px solid rgb(209,231,81)'
-			})
-		})
-		
-		$dropzone.on('dragleave', function(e){
-			e.stopPropagation();
-			e.preventDefault();
-			$dropzone.toggleClass('in_dropzone')
-			$dropzone.css({
-				'color': 'rgb(77,188,233)',
-				'border': '6px solid rgb(77,188,233)'
-			})
-		})
-		
-		$dropzone.on('drop', function(e){
-			$dropzone.toggleClass('in_dropzone')	
-			$dropzone.css({
-				'color': 'rgb(77,188,233)',
-				'border': '6px solid rgb(77,188,233)'
-			})
-		})
 	},
 	
 	navigate_to_myImages: function(event){

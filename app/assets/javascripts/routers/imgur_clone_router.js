@@ -3,9 +3,22 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		this.$rootEl = $(".home_page")
 		var headerView = new ImgurClone.Views.UserHeaderView()
 		this.$rootEl.append(headerView.render().$el)
+		this.$rootEl.append('<div class="upload_screen"><p>Upload Photo!</p></div>')
 		this.$rootEl.append($('<div class="body"></div>'))
 		
-   
+		$(document).on('dragenter', function(e){
+			$(".upload_screen").toggleClass('hidden')
+		})
+		
+		$(document).on('dragleave', function(e){
+			$(".upload_screen").toggleClass('hidden')
+		})
+		
+		$(document).on('drop', function(e){
+			// e.stopPropagation();
+			// e.preventDefault();
+			$(".upload_screen").toggleClass('hidden')
+		})
 	},
 	
 	routes: {

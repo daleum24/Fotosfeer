@@ -35,12 +35,29 @@ a{
 	background-size: cover;
 }
 
+#demo{
+	display: block;
+	width: 140px;
+	height: 20px;
+	margin: auto;
+	margin-top: 150px;
+	margin-bottom: 14px;
+	text-align: center;
+	font-size: 18px;
+	background: white;
+	border-radius: 10px;
+}
+
+#demo:hover{
+	cursor: pointer;
+};
+
 .portal_form{
   background: rgb(209,231,81);
 	display: block;
 	width: 250px;
 	margin: auto;
-	margin-top: 200px;
+//	margin-top: 200px;
 	border: 10px solid white;
 	border-radius: 10px;
 }
