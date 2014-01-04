@@ -45,7 +45,7 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 			
 			window.setTimeout(function(){ 
 				$("#notification_bar").fadeOut(600).html("")
-			}, 8000) 
+			}, 1000) 
 		} else {
 			ImgurClone.RegionsCollection.create(
 				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
@@ -55,7 +55,7 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 					
 					window.setTimeout(function(){ 
 						$("#notification_bar").fadeOut(600).html("")
-					}, 4000) 
+					}, 1000) 
 				}
 			})
 		}

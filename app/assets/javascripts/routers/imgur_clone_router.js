@@ -1,8 +1,10 @@
 ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	initialize: function(){
 		this.$rootEl = $(".home_page")
+		
 		var headerView = new ImgurClone.Views.UserHeaderView()
 		this.$rootEl.append(headerView.render().$el)
+		
 		this.$rootEl.append('<div class="upload_screen"><p>Upload Photo!</p></div>')
 		this.$rootEl.append($('<div class="body"></div>'))
 		
@@ -15,8 +17,6 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		})
 		
 		$(document).on('drop', function(e){
-			// e.stopPropagation();
-			// e.preventDefault();
 			$(".upload_screen").toggleClass('hidden')
 		})
 	},
@@ -40,17 +40,10 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 		var latitude = +photo.get("latitude")
 		var longitude = +photo.get("longitude")
 		
-		var photoShowView = new ImgurClone.Views.PhotoShowView({model: photo});
-		
-		var upvotes = photo.get("uservotes").where({value: 1})
-		var downvotes = photo.get("uservotes").where({value: -1})
-
-		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
-		var percentage = progress+"%"
-
-		$('#upvotes-bar').css('width', percentage);
+		var photoShowView = new ImgurClone.Views.PhotoShowView({ model: photo });
 		
 		this._swapView(photoShowView)
+		
 		var map = ImgurClone.PhotoMap = L.mapbox.map('photo-map', 'examples.map-9ijuk24y')
 		    .setView([latitude, longitude], 17);
 		

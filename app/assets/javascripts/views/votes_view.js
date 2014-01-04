@@ -1,31 +1,42 @@
 ImgurClone.Views.VotesView = Backbone.View.extend({
 	initialize: function(){
-		var that = this;
 		this.$el.addClass("votes-container")
-		this.photoUservotes = this.model.get("uservotes")
-		this.photoFavorites = this.model.get("favorites")
-		if (this.photoUservotes){
-			this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
-		}
-		
-		if (this.photoFavorites){
-			this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
-		}
-
-		this.uservotesCount = 0
-		
-		if (this.photoUservotes.length > 0){
-			this.photoUservotes.forEach(function(uservote){
-				that.uservotesCount += +(uservote.escape("value"))
-			});
-		}
-		
+		this.fetchFavorites();
+		this.fetchVotes();
 	},
 	
 	events: {
 		"click #upvote-button": "upvote",
 		"click #downvote-button": "downvote",
 		"click #favorite-button": "favorite"
+	},
+	
+	fetchFavorites: function(){
+		this.photoFavorites = this.model.get("favorites")
+		if (this.photoFavorites){
+			this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
+		}
+	},
+	
+	fetchVotes: function(){
+		this.photoUservotes = this.model.get("uservotes")
+		if (this.photoUservotes){
+			this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
+		}
+	},
+	
+	determineVotePercentage: function(){
+		var upvotes = this.model.get("uservotes").where({ value: 1 })
+		var downvotes = this.model.get("uservotes").where({ value: -1 })
+
+		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
+		var percentage = ((progress + "%") === "NaN%") ? "0%" : (progress + "%")
+		return percentage
+	},
+	
+	updateUpvotesBar: function(){
+		var percentage = this.determineVotePercentage();
+		$('#upvotes-bar').css('width', percentage);
 	},
 	
 	favorite: function(event){
@@ -62,72 +73,58 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		}
 	},
 	
+	
+	upvoteSuccess: function(){
+		$("#upvote-button").toggleClass("upvote-clicked")
+		$("#downvote-button").removeClass("downvote-clicked")
+		this.updateUpvotesBar();
+	},
+	
 	upvote: function(event){
 		event.preventDefault();
 		var that = this;
 		if ($(event.currentTarget).hasClass("upvote-clicked")){
-			$.ajax({
+			this.model.save({},{
 				url: "/photos/" + this.model.escape("id") + "/cancelvote",
 				method: "POST",
 				success: function(){
-					
-					var new_vote_count = Number($("#count").html()) - 1
-					$(event.currentTarget).toggleClass("upvote-clicked")
-					$("#downvote-button").removeClass("downvote-clicked")
-					
-					$("#count").html(new_vote_count)
-					
+					that.upvoteSuccess();
 				}
 			});				
 		} else {
-			$.ajax({
+			this.model.save({},{
 				url: "/photos/" + this.model.escape("id") + "/upvote",
 				method: "POST",
 				success: function(){
-					
-					if ($("#downvote-button").hasClass("downvote-clicked")){
-						var new_vote_count = Number($("#count").html()) + 2
-					} else {
-						var new_vote_count = Number($("#count").html()) + 1
-					}
-					
-					$(event.currentTarget).toggleClass("upvote-clicked")
-					$("#downvote-button").removeClass("downvote-clicked")
-					$("#count").html(new_vote_count)
+					that.upvoteSuccess();
 				}
 			});
 		}
+	},
+	
+	downvoteSuccess: function(){
+		$("#downvote-button").toggleClass("downvote-clicked")
+		$("#upvote-button").removeClass("upvote-clicked")
+		this.updateUpvotesBar();
 	},
 	
 	downvote: function(event){
 		event.preventDefault();
 		var that = this;
 		if ($(event.currentTarget).hasClass("downvote-clicked")){
-			$.ajax({
+			this.model.save({},{
 				url: "/photos/" + this.model.escape("id") + "/cancelvote",
 				method: "POST",
 				success: function(){
-					$(event.currentTarget).toggleClass("downvote-clicked")
-					$("#upvote-button").removeClass("upvote-clicked")
-					var new_vote_count = Number($("#count").html()) + 1
-					$("#count").html(new_vote_count)
+					that.downvoteSuccess();
 				}
 			});				
 		} else {
-			$.ajax({
+			this.model.save({},{
 				url: "/photos/" + this.model.escape("id") + "/downvote",
 				method: "POST",
 				success: function(){
-					
-					if ($("#upvote-button").hasClass("upvote-clicked")){
-						var new_vote_count = Number($("#count").html()) - 2
-					} else {
-						var new_vote_count = Number($("#count").html()) - 1
-					}
-					
-					$(event.currentTarget).toggleClass("downvote-clicked")
-					$("#upvote-button").removeClass("upvote-clicked")
-					$("#count").html(new_vote_count)
+					that.downvoteSuccess();
 				}
 			});
 		}
@@ -136,16 +133,19 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 	template: JST['votes_view'],
 	
 	render: function(){
-		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite }))
-		
-		var upvotes = this.model.get("uservotes").where({value: 1})
-		var downvotes = this.model.get("uservotes").where({value: -1})
-
-		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
-		var percentage = progress+"%"
-
-		$('#upvotes-bar').css('width', percentage);
-		
+		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite, percentage: this.determineVotePercentage() }))
 		return this
 	}
 });
+
+
+
+
+
+
+
+
+
+
+
+

@@ -140,16 +140,12 @@ a{
 	height: 48px;
 	float: left;
 	background: rgb(245,169,235);
-	border-radius: 10px;
 }
 
 #upvotes-bar{
 	height: 48px;
-	width: 0%;
+//	width: 0%;
 	background: rgb(169,245,179);
-	border-radius: 10px;
-	border-top-right-radius: 0px !important;
-	border-bottom-right-radius: 0px !important;
 }
 
 .upvote-clicked{

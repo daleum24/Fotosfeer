@@ -28,7 +28,7 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 			
 			window.setTimeout(function(){ 
 				$("#notification_bar").fadeOut(600).html("")
-			}, 8000) 
+			}, 3000) 
 		} else {
 			ImgurClone.RegionsCollection.create(
 				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
@@ -38,7 +38,7 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 					
 					window.setTimeout(function(){ 
 						$("#notification_bar").fadeOut(600).html("")
-					}, 4000) 
+					}, 3000) 
 					$("#region-header").remove()					
 					that.render();
 					var newOption = "#region-header option:contains(" + name + ")" 

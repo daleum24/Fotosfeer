@@ -23,6 +23,11 @@ class PhotosController < ApplicationController
     end
   end
 
+  def show
+    @photo = Photo.find(params[:id])
+    respond_with @photo
+  end
+
   def update
     @photo = Photo.find(params[:id])
     @photo.update_attributes(params[:photo])
@@ -42,7 +47,7 @@ class PhotosController < ApplicationController
     else
       UserVote.create(value: 1, user_id: self.current_user.id, photo_id: params[:id])
     end
-    head :ok
+    respond_with Photo.find(params[:id])
   end
 
   def downvote
@@ -52,7 +57,7 @@ class PhotosController < ApplicationController
     else
       UserVote.create(value: -1, user_id: self.current_user.id, photo_id: params[:id])
     end
-    head :ok
+    respond_with Photo.find(params[:id])
   end
   
   def cancelvote
@@ -62,7 +67,7 @@ class PhotosController < ApplicationController
     else
       UserVote.create(value: 0, user_id: self.current_user.id, photo_id: params[:id])
     end
-    head :ok
+    respond_with Photo.find(params[:id])
   end
 
 end
