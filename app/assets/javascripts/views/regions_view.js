@@ -1,7 +1,6 @@
 ImgurClone.Views.RegionsView = Backbone.View.extend({
 	initialize: function(){
 		this.$el.addClass("regions-container")
-		// this.$el.append(this.regionsTemplate({myRegions: ImgurClone.RegionsCollection}))
 		this.$el.append($("<div id='region-map' class='dark' ></div>"))
 	},
 	
@@ -25,13 +24,22 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		var name = $("#new_region_name").val()
 		
 		if (name === ""){
-			alert("Name Please!!")
+			$("#notification_bar").html("Name Please!").fadeIn(400)
+			
+			window.setTimeout(function(){ 
+				$("#notification_bar").fadeOut(600).html("")
+			}, 8000) 
 		} else {
 			ImgurClone.RegionsCollection.create(
 				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
 				url: "/users/" + ImgurClone.user_id + "/regions",
 				success: function(){
-					$("#region-header").remove()
+					$("#notification_bar").html("Region Created!").fadeIn(400)
+					
+					window.setTimeout(function(){ 
+						$("#notification_bar").fadeOut(600).html("")
+					}, 4000) 
+					$("#region-header").remove()					
 					that.render();
 					var newOption = "#region-header option:contains(" + name + ")" 
 					$(newOption).attr("selected", "selected")

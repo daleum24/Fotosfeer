@@ -10,7 +10,7 @@
 </script>
 
 <script text="application/json" id="bootstrapped_photos">
-	<%= Photo.all.to_json.html_safe %>
+	<%= Photo.all.reverse.to_json.html_safe %>
 </script>
 
 <script text="application/json" id="bootstrapped_users">
