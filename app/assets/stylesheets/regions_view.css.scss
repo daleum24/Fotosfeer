@@ -24,7 +24,7 @@ body{
 	border-radius: 10px;
 	width: 190;
 	height: 40px;
-	margin-bottom: 20px;
+	margin: 40px 0px 20px 0px;
 }
 
 #region-map{
@@ -34,19 +34,23 @@ body{
 
 .region-select{
 	height: 38px;
-	width: 380px;
+	width: 300px;
 	padding: 0px 20px;
 	font-size: 24px;
-//	border-bottom: 1px solid red;
-//	border-radius: 10px;
 	background: transparent;
 	background: url('downarrow.png') no-repeat right center;
 	background-size: 24px;
 	-webkit-appearance: none;
+	float: left;
 }
 
-.region-select > option{
-
+#region_delete_button{
+	font-size: 24px;
+	margin: 0px 0px 0px 5px;
+	height: 38px;
+	width: 200px;
+	float: left;
+	display: none;
 }
 
 .new_region_form{
@@ -58,16 +62,11 @@ body{
 	float: right;
 }
 
-.new_region_form:first-of-type{
+#new_region_button{
 	length: 250px;
 	background: rgb(209,231,81);
 	color: black;
 	border-radius: 10px;
-}
-
-.new_region_form:first-of-type{
-	length: 250px;
-//	background: ;
 }
 
 .region-popup{

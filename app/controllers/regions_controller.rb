@@ -24,7 +24,7 @@ class RegionsController < ApplicationController
     @region = Region.find(params[:id])
     @region.destroy
     
-    redirect_to user_regions_url(self.current_user)
+    respond_with @region
   end
   
 end
