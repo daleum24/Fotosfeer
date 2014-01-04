@@ -1,8 +1,9 @@
 ImgurClone.Views.VotesView = Backbone.View.extend({
 	initialize: function(){
 		this.$el.addClass("votes-container")
-		this.fetchFavorites();
-		this.fetchVotes();
+		this.fetchCurrentUserFavorite();
+		this.fetchCurrentUserVote();
+		this.fetchAllVotes();
 	},
 	
 	events: {
@@ -11,68 +12,43 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		"click #favorite-button": "favorite"
 	},
 	
-	fetchFavorites: function(){
+	fetchCurrentUserFavorite: function(){
 		this.photoFavorites = this.model.get("favorites")
 		if (this.photoFavorites){
 			this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
 		}
 	},
 	
-	fetchVotes: function(){
+	fetchCurrentUserVote: function(){
 		this.photoUservotes = this.model.get("uservotes")
 		if (this.photoUservotes){
 			this.currentUserVote = this.photoUservotes.where({user_id: ImgurClone.user_id})
 		}
 	},
 	
+	fetchAllVotes: function(){
+		this.upvotes = this.model.get("uservotes").where({ value: 1 })
+		this.downvotes = this.model.get("uservotes").where({ value: -1 })
+	},
+	
 	determineVotePercentage: function(){
-		var upvotes = this.model.get("uservotes").where({ value: 1 })
-		var downvotes = this.model.get("uservotes").where({ value: -1 })
-
-		var progress = upvotes.length/(upvotes.length + downvotes.length) * 100
+		this.fetchAllVotes();
+		var progress = this.upvotes.length/(this.upvotes.length + this.downvotes.length) * 100
 		var percentage = ((progress + "%") === "NaN%") ? "0%" : (progress + "%")
 		return percentage
 	},
 	
+	determineVoteCount: function(){
+		this.fetchAllVotes();
+		return (this.upvotes.length - this.downvotes.length);
+	},
+	
 	updateUpvotesBar: function(){
-		var percentage = this.determineVotePercentage();
-		$('#upvotes-bar').css('width', percentage);
+		// var percentage = ;
+		var that = this
+		$('#upvotes-bar').css('width', this.determineVotePercentage());
+		$('#upvotes-count').html(this.determineVoteCount() + " points" );
 	},
-	
-	favorite: function(event){
-		event.preventDefault();
-		var that = this;
-		this.currentUserFavorite = this.photoFavorites.where({user_id: ImgurClone.user_id})
-		
-		if ( $("#favorite-button").hasClass("favorite-clicked") ){
-			that.currentUserFavorite[0].destroy({
-				url: "/favorites/"+that.currentUserFavorite[0].get("id"),
-				success: function(model, response){
-					var photo_id = that.currentUserFavorite[0].get("photo_id")
-					var photo = ImgurClone.PhotosCollection.get(photo_id)
-					
-					ImgurClone.FavoritePhotosCollection.remove(photo)
-					
-					$("#favorite-button").toggleClass("favorite-clicked")
-					$("#favorite-button").val("Favorite")
-				}
-			})
-		} else {
-			that.photoFavorites.create({ favorite: { user_id: ImgurClone.user_id, photo_id: that.model.get("id") } }, {
-				url: "/photos/" + that.model.get("id") + "/favorites",
-				success: function(model, response){
-	
-					var photo_id = model.get("photo_id")
-					var photo = ImgurClone.PhotosCollection.get(photo_id)
-					
-					ImgurClone.FavoritePhotosCollection.add(photo)
-					$("#favorite-button").toggleClass("favorite-clicked")
-					$("#favorite-button").val("Unfavorite")
-				}
-			})
-		}
-	},
-	
 	
 	upvoteSuccess: function(){
 		$("#upvote-button").toggleClass("upvote-clicked")
@@ -130,10 +106,44 @@ ImgurClone.Views.VotesView = Backbone.View.extend({
 		}
 	},
 	
+	favorite: function(event){
+		event.preventDefault();
+		var that = this;
+		that.fetchCurrentUserFavorite();
+		
+		if ( $("#favorite-button").hasClass("favorite-clicked") ){
+			that.currentUserFavorite[0].destroy({
+				url: "/favorites/"+that.currentUserFavorite[0].get("id"),
+				success: function(model, response){
+					var photo_id = that.currentUserFavorite[0].get("photo_id")
+					var photo = ImgurClone.PhotosCollection.get(photo_id)
+					
+					ImgurClone.FavoritePhotosCollection.remove(photo)
+					
+					$("#favorite-button").toggleClass("favorite-clicked")
+					$("#favorite-button").val("Favorite")
+				}
+			})
+		} else {
+			that.photoFavorites.create({ favorite: { user_id: ImgurClone.user_id, photo_id: that.model.get("id") } }, {
+				url: "/photos/" + that.model.get("id") + "/favorites",
+				success: function(model, response){
+	
+					var photo_id = model.get("photo_id")
+					var photo = ImgurClone.PhotosCollection.get(photo_id)
+					
+					ImgurClone.FavoritePhotosCollection.add(photo)
+					$("#favorite-button").toggleClass("favorite-clicked")
+					$("#favorite-button").val("Unfavorite")
+				}
+			})
+		}
+	},
+	
 	template: JST['votes_view'],
 	
 	render: function(){
-		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite, percentage: this.determineVotePercentage() }))
+		this.$el.html(this.template({ count: this.uservotesCount, currentUserVote: this.currentUserVote, currentUserFavorite: this.currentUserFavorite, percentage: this.determineVotePercentage(), count: this.determineVoteCount() }))
 		return this
 	}
 });

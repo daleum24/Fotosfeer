@@ -135,16 +135,22 @@ a{
 }
 
 #upvotes-bar-container{
-	margin: 6px 12px;
-	width: 280px;
+	margin: 5px 12px;
+	width: 220px;
 	height: 48px;
 	float: left;
 	background: rgb(245,169,235);
 }
 
+#upvotes-count{
+	float: left;
+	color: white;
+	margin: 0px 5px;
+	margin-top: 20px;
+}
+
 #upvotes-bar{
 	height: 48px;
-//	width: 0%;
 	background: rgb(169,245,179);
 }
 
