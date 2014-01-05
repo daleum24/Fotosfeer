@@ -43,10 +43,10 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image
   
-  def initialize(tempfile, attribute={})
-    super(attribute)
-    check_for_geotag(tempfile)
-  end
+  # def initialize(tempfile, attribute={})
+  #   super(attribute)
+  #   check_for_geotag(tempfile)
+  # end
 
   def check_for_geotag(tempfile)
     imgfile = EXIFR::JPEG.new(tempfile)
@@ -69,6 +69,7 @@ class Photo < ActiveRecord::Base
     comments_by_parent
   end
 
+# Google Static Page API
   def static_page
     url = Addressable::URI.new(
         :scheme => "https",
@@ -82,7 +83,7 @@ class Photo < ActiveRecord::Base
           :sensor => "false"
         }).to_s
   end
-  
+# Google Directions API  
   def get_directions(lat_origin, long_origin)
     url = Addressable::URI.new(
         :scheme => "https",

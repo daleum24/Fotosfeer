@@ -13,7 +13,8 @@ class PhotosController < ApplicationController
     tempfile = params[:photo][:image].tempfile
     params[:photo][:submitter_id] = params[:user_id]
     
-    @photo = Photo.new(tempfile, params[:photo])
+    @photo = Photo.new(params[:photo])
+    @photo.check_for_geotag(tempfile)
     
     if @photo.save
       respond_with @photo

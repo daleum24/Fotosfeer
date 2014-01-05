@@ -35,14 +35,14 @@ describe User do
   
   context "with duplicate email or username" do 
     it "validates uniqueness of email" do
-      user1 = User.create!({ email: "user1@gmail.com", username: "user1", password: "password" })
-      user2 = User.new({ email: "user1@gmail.com", username: "user2", password: "password" })  
+      user1 = FactoryGirl.create(:user)
+      user2 = User.new({ email: user1.email, username: Faker::Internet.user_name, password: "password" })  
       expect(user2).not_to be_valid
     end
   
     it "validates uniqueness of username" do
-      user1 = User.create!({ email: "user1@gmail.com", username: "user1", password: "password" })
-      user2 = User.new({ email: "user2@gmail.com", username: "user1", password: "password" })
+      user1 = FactoryGirl.create(:user)
+      user2 = User.new({ email: Faker::Internet.email, username: user1.username, password: "password" })
       expect(user2).not_to be_valid
     end
   end
@@ -57,7 +57,34 @@ describe User do
     it { should have_many(:regions) }
   end
   
-  describe "favorited_photos" 
+  describe "favorited_photos" do
+    
+    user = FactoryGirl.create(:user)
+    photo1 = Photo.new({ submitter_id: user.id, 
+                                title: "Photo 1", 
+                             latitude: 40,
+                            longitude: 73 })
+    photo1.image = File.open(Rails.root.join('spec', 'fixtures', 'photo_1.JPG'))
+    photo1.save!
+  
+    photo2 = Photo.new({ submitter_id: user.id, 
+                                title: "Photo 1", 
+                             latitude: 40,
+                            longitude: 73 })
+    photo2.image = File.open(Rails.root.join('spec', 'fixtures', 'photo_1.JPG'))
+    photo2.save!
+  
+    Favorite.create({ user_id: user.id, photo_id: photo1.id })
+    
+    it "includes only favorited photos" do 
+      expect(user.favorited_photos).to include(photo1)
+    end
+    
+    it "does not include non-favorited photos" do 
+      expect(user.favorited_photos).to_not include(photo2)
+    end
+    
+  end
   
 end
 

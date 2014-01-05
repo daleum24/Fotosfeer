@@ -92,6 +92,8 @@ class User < ActiveRecord::Base
     favorites.each do |favorite|
       favorited_photos << Photo.find(favorite.photo_id)
     end 
+    
+    return favorited_photos
   end
 
 end
