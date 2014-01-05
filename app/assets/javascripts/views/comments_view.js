@@ -14,7 +14,8 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		"click #new-comment-submit" : "post_new_comment",
 		"click .nest-collapse"  : "collapse_children",
 		"click .reply-link"     : "show_reply_form",
-		"click #comment-submit" : "reply_to_comment"
+		"click #comment-submit" : "reply_to_comment",
+		"click .delete-link" : "delete_link"
 	},
 	
 	childrenTemplate: JST['children_template'],
@@ -71,6 +72,13 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 		
 	},
 	
+	// delete_link: function(event){
+// 		event.preventDefault()
+// 		var data_id = $(event.currentTarget).attr("data-id")
+// 		
+// 		
+// 	},
+	
 	post_new_comment: function(event){
 		event.preventDefault();
 		
@@ -91,7 +99,6 @@ ImgurClone.Views.CommentsView = Backbone.View.extend({
 	
 	render: function(){
 		this.$el.html(this.template({ photo: this.model, comments: this.comments, top_level_comments: this.top_level_comments }))
-		
 		return this
 	}
 	

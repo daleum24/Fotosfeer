@@ -8,15 +8,14 @@
 
 <div id="existing-posts-container">
 	<h3>Posted Comments</h3>
+	
 	<% if (comments.length === 0){ %>
 		<p>Be the first to comment!</p>
 	<% } else { %>	
-		
     <ul>
       <% top_level_comments.forEach(function(top_level_comment){  %>
         <%= JST['parent_template']({top_level_comment: top_level_comment, comments: comments}) %>
       <% }); %>	
-    </ul>
-		
+    </ul>	
 	<% } %>	
 </div>

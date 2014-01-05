@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   
   before_validation :reset_session_token!, on: :create
   
-  geocoded_by :ip_address
+  # geocoded_by :ip_address
     
-  before_save :geocode
+  # before_save :geocode
 
   has_many(
     :authorizations,
@@ -91,8 +91,7 @@ class User < ActiveRecord::Base
     
     favorites.each do |favorite|
       favorited_photos << Photo.find(favorite.photo_id)
-    end
-    
+    end 
   end
 
 end

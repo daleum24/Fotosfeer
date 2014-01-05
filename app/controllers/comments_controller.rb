@@ -19,7 +19,13 @@ class CommentsController < ApplicationController
       flash[:errors] = @comment.errors.full_messages
       respond_with @comment
     end
-
+  end
+  
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    
+    respond_with @comment
   end
 
 end
