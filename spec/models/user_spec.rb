@@ -34,15 +34,15 @@ describe User do
   end
   
   context "with duplicate email or username" do 
+    user1 = FactoryGirl.create(:user)
+    
     it "validates uniqueness of email" do
-      user1 = FactoryGirl.create(:user)
-      user2 = User.new({ email: user1.email, username: Faker::Internet.user_name, password: "password" })  
+      user2 = FactoryGirl.build(:user, email: user1.email)
       expect(user2).not_to be_valid
     end
   
     it "validates uniqueness of username" do
-      user1 = FactoryGirl.create(:user)
-      user2 = User.new({ email: Faker::Internet.email, username: user1.username, password: "password" })
+      user2 = FactoryGirl.build(:user, username: user1.username)
       expect(user2).not_to be_valid
     end
   end
@@ -58,8 +58,8 @@ describe User do
   end
   
   describe "favorited_photos" do
-    
     user = FactoryGirl.create(:user)
+    
     photo1 = Photo.new({ submitter_id: user.id, 
                                 title: "Photo 1", 
                              latitude: 40,
