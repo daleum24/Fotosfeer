@@ -34,6 +34,29 @@ describe Photo do
     it { should have_many(:favorites) }
     it { should have_many(:favoring_users) }
   end
+  
+  describe "comments_by_parent_id" do
+    user = FactoryGirl.create(:user)
+    
+    photo1 = Photo.new({ submitter_id: user.id, 
+                                title: "Photo 1", 
+                             latitude: 40,
+                            longitude: 73 })
+    photo1.image = File.open(Rails.root.join('spec', 'fixtures', 'photo_1.JPG'))
+    photo1.save!
+    
+    comment1 = FactoryGirl.create(:comment, commenter_id: user.id, photo_id: photo1.id)
+    comment2 = FactoryGirl.create(:comment, commenter_id: user.id, photo_id: photo1.id, parent_comment_id: comment1.id)
+    comment3 = FactoryGirl.create(:comment, commenter_id: user.id, photo_id: photo1.id, parent_comment_id: comment2.id)
+    
+    it "returns appropriate key-value pairings" do
+      expect(photo1.comments_by_parent_id[nil]).to eq([comment1])
+      expect(photo1.comments_by_parent_id[comment1.id]).to eq([comment2])
+      expect(photo1.comments_by_parent_id[comment2.id]).to eq([comment3])
+    end
+  
+  end
+  
 end
 
 
