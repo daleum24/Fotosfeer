@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :logged_in?, only: [:destroy]
+  # before_filter :logged_in?, only: [:destroy]
   before_filter :current_user_redirect, only: [:new]
 
   def new
@@ -45,6 +45,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
+    head :ok
   end
   
   protected

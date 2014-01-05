@@ -14,7 +14,6 @@ module SessionsHelper
     self.current_user.save
     @current_user = nil
     session[:session_token] = nil
-    redirect_to root_url
   end
 
   def logged_in?

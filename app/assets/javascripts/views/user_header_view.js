@@ -62,12 +62,11 @@ ImgurClone.Views.UserHeaderView = Backbone.View.extend({
 	
 	logout: function(event){
 		event.preventDefault();
-		
 		$.ajax({
 			url: "/session",
 			method: "DELETE",
 			success: function(){
-				
+				window.location.href = window.location.origin
 			}
 		})	
 	},
