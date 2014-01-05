@@ -70,7 +70,6 @@ ImgurClone.Routers.imgumRouter = Backbone.Router.extend({
 	favorites: function(){
 		var favoritesView = new ImgurClone.Views.FavoritesView();
 		this._swapView(favoritesView)
-		
 		var map = ImgurClone.FavoritesMap = L.mapbox.map('favorites-map', 'examples.map-9ijuk24y')
 		    .setView([0, 0], 2);
 	},

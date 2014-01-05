@@ -129,15 +129,15 @@ a{
 	margin: 6px 10px;
 	height: 48px;
 	font-size: 16px;
-	width: 101px;
+	width: 91px;
 	background: white;
 	border-radius: 10px;
 }
 
 #upvotes-bar-container{
-	margin: 5px 12px;
-	width: 220px;
-	height: 48px;
+	margin: 12px 12px;
+	width: 210px;
+	height: 36px;
 	float: left;
 	background: rgb(245,169,235);
 }
@@ -147,10 +147,12 @@ a{
 	color: white;
 	margin: 0px 5px;
 	margin-top: 20px;
+	width: 70px;
+	text-align: middle;
 }
 
 #upvotes-bar{
-	height: 48px;
+	height: 36px;
 	background: rgb(169,245,179);
 }
 
