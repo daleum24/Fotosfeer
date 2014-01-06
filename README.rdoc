@@ -1,4 +1,5 @@
 Fotosfeer Application
 =====================
+
 * Image uploading web application specifically for geotagged photographs 
-* [Live Link](http://www.fotosfeer.com/home) 
+* [Live Link] (http://www.fotosfeer.com/home) 
