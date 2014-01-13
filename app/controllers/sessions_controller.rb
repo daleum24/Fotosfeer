@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     @photo = Photo.last ? Photo.last : Photo.new
+    @photos = Photo.last(5)
   end
 
   def create

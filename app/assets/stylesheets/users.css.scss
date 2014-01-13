@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-h1, form, input, label, p{
+h1, h2, h3, form, input, label, p, header{
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -12,10 +12,14 @@ h1, form, input, label, p{
 }
 
 html, body{
-	height: auto;
+
 	margin-bottom: 50px;
 	font-size: 16px;
-	background-color: rgb(38,173,228);
+	background: none
+}
+
+html{
+	height: 100%
 }
 
 a{
@@ -28,76 +32,141 @@ a{
 	background-color: rgb(38,173,228);
 }
 
-.portal_background{
-	width: 100%;
-	height: 100%;
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header{
 	position: absolute;
-	background-size: cover;
+	background: none;
+	z-index: 999;
+	color: white;
+	width: 100%;
+}
+
+.portal{
+	width: 300px;
+	float: right;
+	margin-top: 50px;
+}
+
+.tagline{
+	position: absolute;
+	z-index: 9999;
+	color: rgb(247, 247, 247);
+	left: 31%;
+	margin-top: 18%;
+}
+
+.tagline h2{
+	font-size: 140px;
+	font-style: bold;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	letter-spacing: 4px;
+}
+
+.tagline h3{
+	font-size: 50px;
+	text-align: center;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .above_form{
-	display: block;
-	width: 140px;
-	height: 20px;
-	margin: auto;
-	margin-top: 150px;
-	margin-bottom: 14px;
-}
-
-#demo{
-	text-align: center;
-	font-size: 18px;
+	position: absolute;
+	z-index: 9999;
+	margin-left: 46% ;
+	margin-top: 40%;
+	color: none;
+	font-size: 24px;
 	background: white;
-	border-radius: 10px;
+	padding: 12px;
+	border-radius: 25px;
 }
 
-#demo:hover{
+.above_form:hover{
 	cursor: pointer;
-};
+}
 
-.portal_form{
-  background: rgb(209,231,81);
+.portal_buttons{
+	
+}
+
+.portal_buttons div{
+	float: left;
+	margin-left: 40px;
+}
+
+.portal_buttons a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	font-size: 24px;
+	color: white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.portal_buttons a:hover{
+	color: rgb(213, 213, 213);
+}
+
+.background_container{
+	width: 500%;
+	height: 100%;
+}
+
+.portal_background{
+	width: 20%;
+	height: 100%;
+	overflow: hidden;
+	background-size: cover;
+	float: left;
+}
+
+.background_container{
+	position: relative;
+}
+
+.fancybox-overlay{
+	position: absolute;
+	z-index: 99999;
+}
+
+.fancybox-skin{
+	background: black;
+	height: 500px;
+	width: 300px;
+}
+
+
+#portal_form, #sign_up_form{
+	display: none;
+	padding: 15px;
+}
+
+#portal_form input, #sign_up_form input{
+	width: 400px;
+	height: 40px;
+	margin-bottom: 10px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+#portal_form input:last-of-type, #sign_up_form input:last-of-type{
+	width: 420px;
+}
+
+#portal_form a, #sign_up_form a{
+	color: white;
 	display: block;
 	width: 250px;
 	margin: auto;
-//	margin-top: 200px;
-	border: 10px solid white;
-	border-radius: 10px;
-}
-
-.portal_form *{
-	margin: 12px 0px;
-}
-
-.portal_form > h1{
-	color: black;
-	font-size: 26px;
-	font-weight: bold;
+	margin-top: 10px;
+	font-size: 20px;
 	text-align: center;
 }
-
-.portal_form input{
-	border-radius: 4px;
-	display: block;
-	width: 180px;
-	margin: auto;
-	height: 20px;
-}
-
-.portal_form input:last-of-type{
-	background: rgb(77,188,233);
-	font-weight: bold;
-};
-
-.portal_form a{
-	padding-top: 8px;
-	display: block;
-	width: 170px;
-	margin: auto;
-	margin-bottom: 8px;
-	color: black;
-}
-
 
 
 
