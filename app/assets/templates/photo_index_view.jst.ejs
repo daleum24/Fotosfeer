@@ -1,33 +1,30 @@
-<div class="white_space">
+<header class="images_header">
+	<p>Latest Images</p>
+</header>
 
-	<header class="my_images_header">
-		<p>Latest Images</p>
-	</header>
-
-	<div class="images_index">
-		<% _.each(photos.models, function(obj, index){ %>
-			<% if (index === 0) { %> 
+<div class="images_index">
+	<% _.each(photos.models, function(obj, index){ %>
+		<% if (index === 0) { %> 
+		
+			<div class="photo_row">
+				<figure class="photo_grid_cell">
+					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
 			
+		<% } else if (index % 4 === 0) { %>
+		
+				</div>
 				<div class="photo_row">
 					<figure class="photo_grid_cell">
 						<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 					</figure>
 				
-			<% } else if (index % 4 === 0) { %>
+		<% } else { %>
+		
+				<figure class="photo_grid_cell">
+					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
 			
-					</div>
-					<div class="photo_row">
-						<figure class="photo_grid_cell">
-							<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-						</figure>
-					
-			<% } else { %>
-			
-					<figure class="photo_grid_cell">
-						<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-					</figure>
-				
-			<% }  %>
-		<% }); %>
-	</div>
+		<% }  %>
+	<% }); %>
 </div>

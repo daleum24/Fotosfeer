@@ -11,58 +11,56 @@ body, section, div, img,  a, figure, input{
   vertical-align: baseline;
 }
 
-ul, li{
-  list-style: none;
+.home_page{
+	height: 100%;
 }
 
-body{
-	background-color: rgb(77,188,233);
-	font-family: sans-serif;
-	font-size: 16px;
-	height: 1400px;
-}
-
-a{
-	text-decoration: none;
+.body{
+	float: right;
+	width: 87%;
+	height: 100%;
+	overflow: scroll;
 }
 
 .photo_index{
-  height: 880px;
-  width: 1000px;
-  margin: auto;
+  height: 100%;
+  width: 100%;
+	background: rgb(242, 242, 242);
 }
 
-.white_space{
-	background-color: rgb(255,255,255);
-	width: 900px;
-	height: 900px;
-	padding: 50px;
-	margin: 30px 0px;
-	border-radius: 20px;
+.images_header{
+	width: 90%;
+	height: 40px;
+	margin: auto;
+	padding-top: 30px;
+	text-align: center;
+	font-size: 24px;
+	color: black;
+	background: none;
 }
 
 .images_index{
-	background-color: rgb(255,255,255);
-  width: 900px;
-//  margin: auto;
-	height: 800px;
-	overflow-y: scroll;
+  width: 90%;
+	height: 100%;
+	margin: auto;
 }
-
 
 .photo_row{
 	border-bottom: 1px rgb(209,231,81);
 	height: 220px;
+	width: 1128px;
+	margin: auto;
 }
 
 .photo_row:first-of-type{
-		border-top: rgb(209,231,81);
+	border-top: rgb(209,231,81);
+	padding-top: 60px;
 }
 
 .photo_grid_cell{
 	display: inline-block;
-	height: 180px;
-	width: 180px;
+	height: 200px;
+	width: 240px;
 	border: 8px solid rgb(238,240,243);
 	border-radius: 10px;
 	margin: 4px;

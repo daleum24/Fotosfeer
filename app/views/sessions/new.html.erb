@@ -19,12 +19,13 @@
 	<div class="above_form" id="demo">Demo Login</div>
 	<div id="portal_form">
 		<%= render "shared/portal_form", action: session_url, value: "Login" %>
-		<%= link_to "Create an account!", new_user_url %>
-		<%= link_to "Forgot your password?", new_password_reset_url %>
+		<%= link_to "Forgot your password?", new_password_reset_url, class:"password_reset"%>
+		<%= link_to "Sign In With Facebook", "auth/facebook" %>
 	</div>
 	
 	<div id="sign_up_form">
 		<%= render "shared/portal_form", action: users_url, value: "Sign Up" %>
+		<%= link_to "Sign In With Facebook", "auth/facebook" %>
 	</div>
 </div>
 
@@ -53,12 +54,12 @@
 		
 		$('.login_box').click(function(event){
 			event.preventDefault();
-			$.fancybox("#portal_form")
+			$.fancybox("#portal_form");
 		})
 		
 		$('.sign_up_box').click(function(event){
 			event.preventDefault();
-			$.fancybox("#sign_up_form")
+			$.fancybox("#sign_up_form");
 		})
 		
 		setInterval(function(){

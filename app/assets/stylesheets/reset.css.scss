@@ -1,0 +1,20 @@
+html, body, header, section, input, img, nav, div, ul, li, p, a, figure{
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  font-size: 100%;
+	font-family: inherit;
+  vertical-align: baseline;
+}
+
+body{
+	font-family: sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+
+ul, li{
+  list-style: none;
+}

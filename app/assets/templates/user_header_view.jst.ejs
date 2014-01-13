@@ -1,32 +1,34 @@
-<header>
+<header class="signed_in_header">
 	<nav class="signed_in">
 	  <div id="home_link">
 	    <a href="#" id="home-link"><p>Fotosfeer</p></a>
 	  </div>
 
 	  <div id="nav_buttons">
+			<div id="username">
+	      <p><%= users.get(user_id).escape("username") %></p>
+	    </div>
+	
 	    <div id="image_upload">
 	      <a href="#"><p>Upload Image</p></a>
 	    </div>
 			
       <ul id="username_dropdown">
 				<li>
-					<a href="#" id="my-images">My Images</a></li>
+					<a href="#" id="my-images">My Images</a>
 				</li>
 				<li>
-					<a href="#" id="my-favorites">My Favorites</a></li>
+					<a href="#" id="my-favorites">My Favorites</a>
 				</li>
 				<li>
-					<a href="#" id="my-regions">My Regions</a></li>
+					<a href="#" id="my-regions">My Regions</a>
 				</li>
 				<li>
-					<input type="submit" value="Logout" id="logout"></input>
+					<a href="#" id="logout" >Logout</a>
 				</li>
       </ul>
 
-	    <div id="username">
-	      <p><%= users.get(user_id).escape("username") %></p>
-	    </div>
+	    
 	  </div>
 	</nav>
 </header>

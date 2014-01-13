@@ -2,116 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-header, nav, div, ul, li, p, a{
-  margin: 0px;
-  border: 0px;
-  padding: 0px;
-  font-size: 100%;
-	font-family: inherit;
-  vertical-align: baseline;
-}
 
-body{
-	font-family: sans-serif;
-}
-
-a{
-	text-decoration: none;
-}
-
-ul, li{
-  list-style: none;
-}
-
-header{
-//	background-color: rgb(255,255,255);
+.signed_in_header{
 	background-color: black;
-  height: 42px;
+  height: 100%;
+	width: 13%;
+	float: left;
 }
 
-nav{
-  width: 1000px;
-  margin: auto;
-  height: 42px;
+.signed_in{
+  min-width: 200px;
+	width: 13%;
+  height: 100%;
+	background: black;
+	position: relative;
+	z-index: 999999;
 }
 
 #home_link{
-  height: 40px;
-  float: left;
+	padding: 10%;
+	width: 80%;
 }
 
 #home_link > a{
   display: block;
   height: 100%;
   width: 100%;
-	font-size: 26px;
+	font-size: 36px;
 	font-weight: bold;
-	color: rgb(209,231,81);
+	color: white;
 }
 
 #home_link p{
-	margin-top: 6px;
+	text-align: center;
 }
 
 #nav_buttons{
-  float: right;
-	margin: 4px;
-	height: 40px;
-	width: auto;
+	padding: 10%;
+	width: 80%;
 }
 
 #image_upload{
+	width: 150px;
 	display: block;
-	padding: 10px;
-	float: left;
+	padding: 10px 10px 0px 10px;
+	margin: auto;
 }
 
-#image_upload > a:link{
+#image_upload:hover{
+	background: rgb(37,37,37);
+}
+
+#image_upload > a:link, #image_upload > a:visited{
 	display: block;
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
 	font-weight: bold;
-	color: rgb(209,231,81);
+	color: white;
 }
-
-#image_upload > a:visited{
-	display: block;
-	height: 100%;
-	width: 100%;
-	font-size: 16px;
-	font-weight: bold;
-	color: rgb(209,231,81);
-}
-
-#username:hover + .sibling{
-	display: block;
-};
 
 #username_dropdown{
+	width: 150px;
 	display: block;
-	float: left;
+	padding: 10px;
+	margin: auto;
 }
 
 #username_dropdown li{
+	width: 150px;
+	margin: auto;
 	display: block;
-	padding: 10px;
-	float: left;
+	padding: 10px 0px 10px 0px;
 }
 
 #username_dropdown a{
+	width: 170px;
+	height: 100%;
 	font-size: 16px;
 	font-weight: bold;
-	color: rgb(209,231,81);
+	color: white;
 }
 
 #username{
+	width: 150px;
 	display: block;
 	padding: 10px;
-	float: left;
 	font-size: 16px;
 	font-weight: bold;
 	color: rgb(77,188,233);
+	margin: auto;
 }
 
 #username p{
@@ -120,39 +100,8 @@ nav{
 	height: 100%;
 }
 
-#username_dropdown input{
-	background-color: black;
-	font-size: 16px;
-	font-weight: bold;
-	color: rgb(209,231,81);
-}
-
-#username_dropdown input:hover{
-	cursor: pointer;
-}
-
-#portal_buttons{
-  float: right;
-}
-
-#portal_buttons div{
-	padding: 0px 10px;
-  float: left;
-	height: 40px;
-}
-
-#portal_buttons a{
-	display: block;
-	height: 100%;
-	width: 100%;
-	position: relative;
-	font-size: 16px;
-	font-weight: bold;
-	color: rgb(209,231,81);
-}
-
-#portal_buttons p{
-	margin-top: 10px;
+#username_dropdown li:hover{
+	background: rgb(37,37,37);
 }
 
 #notification_bar{
