@@ -5,15 +5,16 @@
 	  </div>
 
 	  <div id="nav_buttons">
-			<div id="username">
-	      <p><%= users.get(user_id).escape("username") %></p>
-	    </div>
-	
-	    <div id="image_upload">
-	      <a href="#"><p>Upload Image</p></a>
-	    </div>
-			
+
       <ul id="username_dropdown">
+				<li>
+					<p><%= users.get(user_id).escape("username") %></p>
+				</li>
+
+				<li id="image_upload">
+					<a href="#"><p>Upload Image</p></a>
+				</li>
+
 				<li>
 					<a href="#" id="my-images">My Images</a>
 				</li>
@@ -33,6 +34,3 @@
 	</nav>
 </header>
 
-<p id="notification_bar">
-
-</p>

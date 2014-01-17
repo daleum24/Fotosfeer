@@ -1,72 +1,112 @@
-div, select, option{
-	border: 0px;
-	margin: 0px;
-	padding: 0px;
-	font-family: inherit;
-	font-size: 100%;
-	vertical-align: baseline;
-}
-
-body{
-	font-family: sans-serif;
-}
 
 .regions-container{
-	width: 1000px;
-	margin: auto;
-	height: auto;
-	margin-top: 20px;
+	width: 100%;
+	height: 100%;
 }
 
 #region-header{
-	padding: 10px;
-	background-color: white;
-	border-radius: 10px;
-	width: 190;
-	height: 40px;
-	margin: 40px 0px 20px 0px;
+	width: 100%;
+	height: auto;
+	background: black;
+	position: relative;
+}
+
+#select-container{
+	width: 100%;
+	height: 47px;
+	border-top: 4px solid white;
+	border-bottom: 4px solid white;
+	margin: auto;
 }
 
 #region-map{
-	width: 1000px;
-	height: 760px;
+	width: 100%;
+	height: 650px;
+}
+
+#select-button{
+	background: black;
+	width: 350px;
+	height: 32px;
+	margin: auto;
+	margin-top: 7px;
+	border-left: 2px solid white;
+	border-right: 2px solid white;
 }
 
 .region-select{
-	height: 38px;
-	width: 300px;
-	padding: 0px 20px;
-	font-size: 24px;
+	display: block;
+	height: 32px;
+	width: 290px;
+	margin: auto;
+	font-size: 20px;
+	text-align: center;
 	background: transparent;
-	background: url('downarrow.png') no-repeat right center;
+/*	background: url('downarrow.png') no-repeat right center;*/
 	background-size: 24px;
 	-webkit-appearance: none;
-	float: left;
+	color: white;
+}
+
+option{
+	text-align: center;
+}
+
+#region-form{
+	width: 100%;
+	height: 38px;
+	background: rgb(200,200,200);
+	border-bottom: 4px solid white;
 }
 
 #region_delete_button{
 	font-size: 24px;
-	margin: 0px 0px 0px 5px;
+	border-left: 4px solid white;
+	border-right: 4px solid white;
 	height: 38px;
 	width: 200px;
 	float: left;
 	display: none;
+	background: rgb(200,200,200);
+	color: black;
+}
+
+#region_delete_button:hover{
+	cursor: pointer;
+}
+
+#region_messages{
+	position: absolute;
+	height: 38px;
+	width: 100%;
+	color: black;
+	font-size: 24px;
+	text-align: center;
+	margin-top: 4px;
 }
 
 .new_region_form{
 	font-size: 24px;
 	display: block;
 	margin-top: 0px;
-	height: 38px;
+	height: 37px;
 	width: 200px;
 	float: right;
+	padding: 0px 10px;
+	background: rgb(200,200,200);
+	border-left: 4px solid white;
 }
 
 #new_region_button{
-	length: 250px;
 	background: rgb(209,231,81);
+	border-left: 4px solid white;
+	border-right: 4px solid white;
+	height: 38px;
 	color: black;
-	border-radius: 10px;
+}
+
+#new_region_button:hover{
+	cursor: pointer;
 }
 
 .region-popup{

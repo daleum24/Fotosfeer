@@ -1,15 +1,23 @@
+
+
 <div id='region-header'>
-	<select class="region-select">	
-		<option value="select-region">Select A Region!</option>
+	<div id="select-container">
+		<div id="select-button">
+			<select class="region-select">	
+				<option value="select-region">Click Me To See Your Regions!</option>
 	
-		<% myRegions.forEach(function(region){ %>
-			<option class="region-option" value="<%= region.escape('id') %>"><%= region.escape('name') %></option>
-		<% }) %>
-	</select>
+				<% myRegions.forEach(function(region){ %>
+					<option class="region-option" value="<%= region.escape('id') %>"><%= region.escape('name') %></option>
+				<% }) %>
+			</select>
+		</div>
+	</div>
 	
-	<input type="submit" id="region_delete_button" value="Delete Region"></input>
-	
-	<input type="submit" class="new_region_form" id="new_region_button" value="Add Region!"></input>
-	<input type="text" class="new_region_form" id="new_region_name" placeholder="Name"></input>
-	
+	<div id="region-form">
+		<div id="region_messages" style="display:none">
+		</div>
+		<input type="submit" id="region_delete_button" value="Delete Region"></input>
+		<input type="submit" class="new_region_form" id="new_region_button" value="Add Region!"></input>
+		<input type="text" class="new_region_form" id="new_region_name" placeholder="Name"></input>
+	</div>
 </div>

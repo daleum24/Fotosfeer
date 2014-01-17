@@ -6,8 +6,9 @@
 .signed_in_header{
 	background-color: black;
   height: 100%;
-	width: 13%;
-	float: left;
+	width: 200px;
+	position: absolute;
+	z-index: 999;
 }
 
 .signed_in{
@@ -15,13 +16,15 @@
 	width: 13%;
   height: 100%;
 	background: black;
-	position: relative;
-	z-index: 999999;
 }
 
 #home_link{
-	padding: 10%;
+	padding-top: 10%;
+	padding: 0px 10%;
 	width: 80%;
+	border-top: 4px solid white;
+	border-bottom: 4px solid white;
+	background: black;
 }
 
 #home_link > a{
@@ -35,31 +38,13 @@
 
 #home_link p{
 	text-align: center;
+	width: 100%;
+	padding: 3px 0px;
 }
 
 #nav_buttons{
 	padding: 10%;
 	width: 80%;
-}
-
-#image_upload{
-	width: 150px;
-	display: block;
-	padding: 10px 10px 0px 10px;
-	margin: auto;
-}
-
-#image_upload:hover{
-	background: rgb(37,37,37);
-}
-
-#image_upload > a:link, #image_upload > a:visited{
-	display: block;
-	height: 100%;
-	width: 100%;
-	font-size: 16px;
-	font-weight: bold;
-	color: white;
 }
 
 #username_dropdown{
@@ -73,7 +58,7 @@
 	width: 150px;
 	margin: auto;
 	display: block;
-	padding: 10px 0px 10px 0px;
+	padding: 10px 0px 10px 10px;
 }
 
 #username_dropdown a{
@@ -102,6 +87,14 @@
 
 #username_dropdown li:hover{
 	background: rgb(37,37,37);
+}
+
+#username_dropdown li:first-of-type{
+	color: #4dbce9;
+}
+
+#username_dropdown li:first-of-type:hover{
+	background: black;
 }
 
 #notification_bar{

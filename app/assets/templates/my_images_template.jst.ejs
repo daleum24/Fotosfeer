@@ -1,56 +1,39 @@
-<div id="edit-form" style="display:none">
-	
-	<input type="text" id="edit-name" name="photo[name]"></input>
+<div class="group" id="edit-form" style="display:none">
 	
 	<div id="edit-form-photo">
 	</div>
 	
-	<textarea name="photo[description]" id="edit-description">
-
-	</textarea>
+	<div id="edit_fields">
+		<input type="text" id="edit-name" name="photo[name]"></input>
+		<textarea name="photo[description]" id="edit-description"></textarea>
 	
-	<input type="submit" value="Update Photo" id="update-button"></input> 
-	<input type="submit" value="Delete Photo" id="delete-button"></input> 
-	
+		<input type="submit" value="Update Photo" id="update-button"></input> 
+		<input type="submit" value="Delete Photo" id="delete-button"></input> 
+	</div> 
 </div>
 
 <div id="messages" style="display:none">
-	<p>Updated!</p>
 </div>
 
+<header class="images_header">
+	<p>My Images</p>
+</header>
 
-<div class="white_space">
-
-	<header class="my_images_header">
-		<p>My Images</p>
-	</header>
-
-	<div class="images_index">
-		<% _.each(photos.models, function(obj, index){ %>
-			<% if (index === 0) { %> 
-			
-				<div class="photo_row">
-					<figure class="photo_grid_cell">
-						<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-					</figure>
-				
-			<% } else if (index % 4 === 0) { %>
-			
-					</div>
-					<div class="photo_row">
-						<figure class="photo_grid_cell">
-							<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-						</figure>
-					
-			<% } else { %>
-			
-					<figure class="photo_grid_cell">
-						<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-					</figure>
-				
-			<% }  %>
+<div class="images_index">
+	<% var first_third = photos.models.slice(0, (photos.models.length/3)) %>
+	<% var second_third = photos.models.slice((photos.models.length/3), (photos.models.length * 2/3)) %>
+	<% var last_third = photos.models.slice((photos.models.length * 2/3), photos.models.length) %>
+	
+	<% _.each([first_third, second_third, last_third], function(array){ %>	
+		<div class="photo_col">
+		<% _.each(array, function(obj, index){ %>
+				<figure class="photo_grid_cell">
+					<a href="#" class="myImageEdit" data-id="<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
+				</figure>
 		<% }); %>
-	</div>
+		</div>
+	<% }); %>
 </div>
+
 
 

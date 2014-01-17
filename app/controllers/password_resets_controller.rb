@@ -1,7 +1,7 @@
 class PasswordResetsController < ApplicationController
 
   def new
-
+    @photo = Photo.last
   end
 
   def create

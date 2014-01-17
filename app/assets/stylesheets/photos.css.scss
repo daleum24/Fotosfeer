@@ -2,75 +2,71 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body, section, div, img,  a, figure, input{
-  margin: 0px;
-  border: 0px;
-  padding: 0px;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
 
+//INDEX
 .home_page{
 	height: 100%;
+	width: auto;
+	background: rgb(200,200,200);
 }
 
 .body{
-	float: right;
+	position: absolute;
+	left: 200px;
 	width: 87%;
 	height: 100%;
-	overflow: scroll;
 }
 
 .photo_index{
   height: 100%;
   width: 100%;
-	background: rgb(242, 242, 242);
+	background: rgb(200, 200, 200);
 }
 
 .images_header{
-	width: 90%;
-	height: 40px;
-	margin: auto;
-	padding-top: 30px;
+	position: absolute;
+	width: 100%;
+	height: 44px;
 	text-align: center;
 	font-size: 24px;
-	color: black;
-	background: none;
+	color: white;
+	background: rgb(200, 200, 200);
+	z-index: 8000;
+}
+
+.images_header p{
+	display: block;
+	padding: 10px 0px 9px 0px;	
+	width: auto;
+	border-top: 4px solid white;
+	border-bottom: 4px solid white;
+	letter-spacing: 2px;
+	background: black;
 }
 
 .images_index{
   width: 90%;
 	height: 100%;
 	margin: auto;
+	overflow: scroll;
 }
 
-.photo_row{
-	border-bottom: 1px rgb(209,231,81);
-	height: 220px;
-	width: 1128px;
-	margin: auto;
-}
-
-.photo_row:first-of-type{
-	border-top: rgb(209,231,81);
-	padding-top: 60px;
+.photo_col{
+	width: 30%;
+	height: auto;
+	float: left;
+	margin-right: 3%;
+	margin-top: 7%;
+	margin-bottom: 7%;
 }
 
 .photo_grid_cell{
-	display: inline-block;
-	height: 200px;
-	width: 240px;
-	border: 8px solid rgb(238,240,243);
-	border-radius: 10px;
-	margin: 4px;
-	margin-top: 12px;
-	margin-right: 8px;
+	padding: 3%;
 	float: left;
-}
-
-.photo_grid_cell:first-of-type{
-	margin-left: 40px;
+	height: auto;
+	width: 100%;
+	background: white;
+	margin-top: 3%;
 }
 
 .images_index a{
@@ -80,96 +76,5 @@ body, section, div, img,  a, figure, input{
 
 .images_index img {
   width: 100%;
-	height: 100%;
+	height: auto;
 }
-
-.photo_index h1{
-  text-align: center;
-	text: red;
-}
-
-
-////////////////////////////////////////////////
-
-
-//SHOW
-
-.photo_object{
-  border: 1px solid blue;
-  width: 600px;
-  float: left;
-}
-
-.photo_object h1, p, .image_show_votes, .comments{
-  padding: 10px;
-}
-
-.image_show_votes, .comments{
-    border-bottom: 1px solid blue;
-}
-
-.image_show_votes{
-  height: 50px;
-}
-
-.image_show_votes div{
-  height: 40px;
-  float: left;
-}
-
-
-
-.browse_buttons{
-  width: 300px;
-  height: 50px;
-  float: right;
-}
-
-.browse_buttons p{
-	background: lightgrey;
-  width: 100px;
-  height: 30px;
-  display: inline-block;
-  float: left;
-}
-
-.favorite_buttons{
-  width: 300px;
-  height: 50px;
-  float: right;
-	color: lightgrey;
-}
-
-.favorite_buttons input{
-  width: 100px;
-  height: 30px;
-  display: block;
-  float: left;
-	color: black;
-	background-color: lightgrey;
-}
-
-.standard_map{
-  width: 300px;
-  height: 300px;
-  border: 1px solid blue;
-  float: right;
-}
-
-.standard_map img {
-    width: 100%;
-    height: auto;
-}
-
-.directions{
-  width: 300px;
-  height: auto;
-  border: 1px solid blue;
-	border-top: 0px;
-  float: right;
-}
-
-// Toggle Classes
-//.obscure-background{
-//	
-//}

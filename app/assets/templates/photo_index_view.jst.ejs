@@ -1,30 +1,27 @@
+<div id="messages" style="display:none">
+</div>
+
 <header class="images_header">
 	<p>Latest Images</p>
 </header>
 
 <div class="images_index">
-	<% _.each(photos.models, function(obj, index){ %>
-		<% if (index === 0) { %> 
-		
-			<div class="photo_row">
+	<% var first_third = photos.models.slice(0, (photos.models.length/3)) %>
+	<% var second_third = photos.models.slice((photos.models.length/3), (photos.models.length * 2/3)) %>
+	<% var last_third = photos.models.slice((photos.models.length * 2/3), photos.models.length) %>
+	
+	<% _.each([first_third, second_third, last_third], function(array){ %>	
+		<div class="photo_col">
+		<% _.each(array, function(obj, index){ %>
 				<figure class="photo_grid_cell">
 					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
 				</figure>
-			
-		<% } else if (index % 4 === 0) { %>
-		
-				</div>
-				<div class="photo_row">
-					<figure class="photo_grid_cell">
-						<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-					</figure>
-				
-		<% } else { %>
-		
-				<figure class="photo_grid_cell">
-					<a href="#photos/<%= obj.escape('id') %>"><img src="<%= obj.escape('image_url') %>"></a>
-				</figure>
-			
-		<% }  %>
+		<% }); %>
+		</div>
 	<% }); %>
 </div>
+
+
+
+
+

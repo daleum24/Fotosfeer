@@ -34,9 +34,9 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 					photo.save({ title: $("#edit-name").val(), description: $("#edit-description").val() });
 					$.fancybox.close()
 					
-					$("#notification_bar").html("Photo Updated!").fadeIn(400)	
+					$("#messages").html("Photo Updated!").fadeIn(400)	
 					window.setTimeout(function(){ 
-						$("#notification_bar").fadeOut(600).html("")
+						$("#messages").fadeOut(600).html("")
 					}, 4000) 
 					
 				})
@@ -45,9 +45,9 @@ ImgurClone.Views.myImagesView = Backbone.View.extend({
 					photo.destroy()
 					$.fancybox.close()
 					
-					$("#notification_bar").html("Photo Deleted").fadeIn(400)	
+					$("#messages").html("Photo Deleted").fadeIn(400)	
 					window.setTimeout(function(){ 
-						$("#notification_bar").fadeOut(600).html("")
+						$("#messages").fadeOut(600).html("")
 					}, 4000) 
 					
 				})

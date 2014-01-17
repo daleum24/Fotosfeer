@@ -52,12 +52,13 @@ header{
 	margin-top: 50px;
 }
 
+
 .tagline{
+	left: 25%;
+	top: 25%;
 	position: absolute;
 	z-index: 9;
 	color: rgb(247, 247, 247);
-	left: 31%;
-	margin-top: 18%;
 }
 
 .tagline h2{
@@ -74,23 +75,19 @@ header{
 }
 
 .above_form{
-	position: absolute;
-	z-index: 9999;
-	margin-left: 46% ;
-	margin-top: 40%;
-	color: none;
+	width: 180px;
+	margin: auto;
+	text-align: center;
+	border: 4px solid white;
+	color: white;
 	font-size: 24px;
-	background: white;
-	padding: 12px;
-	border-radius: 25px;
+	margin-top: 20px;
+	padding: 10px 0px;
+	border-radius: 15px;
 }
 
 .above_form:hover{
 	cursor: pointer;
-}
-
-.portal_buttons{
-	
 }
 
 .portal_buttons div{
@@ -129,18 +126,6 @@ header{
 	position: relative;
 }
 
-/*.fancybox-overlay{
-	position: absolute;
-	z-index: 99999;
-}
-
-.fancybox-skin{
-	background: black;
-	top: -140px;
-	position: absolute;
-	z-index: 999999;
-}*/
-
 
 #portal_form, #sign_up_form{
 	display: none;
@@ -153,16 +138,25 @@ header{
 	margin-bottom: 10px;
 	padding: 10px;
 	font-size: 20px;
+	border: 1px solid black;
 }
 
 #portal_form input:last-of-type, #sign_up_form input:last-of-type{
 	width: 420px;
+	background: black;
+	color: white;
 }
 
-#portal_form a:last-of-type, #sign_up_form a:last-of-type{
-	color: white;
+#facebook{
 	display: block;
-	margin-top: 10px;
+	float: left;
+	width: auto;
+}
+
+.password_reset{
+	display: block;
+	float: right;
+	width: auto;
 }
 
 

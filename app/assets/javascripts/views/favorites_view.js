@@ -55,6 +55,8 @@ ImgurClone.Views.FavoritesView = Backbone.View.extend({
 	favoritePhotosTemplate: JST["favorites_scroll"],
 	
 	render: function(){
+		var header = '<header class="images_header"><p>My Favorites!</p></header>s'
+		this.$el.append(header)
 		this.$el.append(this.favoritePhotosTemplate({favorites: ImgurClone.FavoritePhotosCollection}))
 		this.$el.append($("<div id='favorites-map' class='dark'></div>"))
 		return this

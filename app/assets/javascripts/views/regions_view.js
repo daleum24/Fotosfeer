@@ -2,7 +2,7 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	initialize: function(){
 		var that = this;
 		this.$el.addClass("regions-container")
-		this.$el.append($("<div id='region-map' class='dark' ></div>"))
+		this.$el.append($("<div id='region-map'></div>"))
 		window.setTimeout(function(){
 			that.render_world()
 		}, 100)
@@ -18,10 +18,10 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 	},
 	
 	set_notification: function(message){
-		$("#notification_bar").html(message).fadeIn(400)
+		$("#region_messages").html(message).fadeIn(400)
 		
 		window.setTimeout(function(){ 
-			$("#notification_bar").fadeOut(600).html("")
+			$("#region_messages").fadeOut(600).html("")
 		}, 3000) 
 	},
 	
@@ -68,8 +68,8 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 				{ region: { name: name, north_bound: this.north, south_bound: this.south, east_bound: this.east, west_bound: this.west }},{
 				url: "/users/" + ImgurClone.user_id + "/regions",
 				success: function(){
-					that.set_notification("Region Created!")
 					that.render_header();
+					that.set_notification("Region Created!")
 					
 					var newOption = "#region-header option:contains(" + name + ")" 
 					$(newOption).attr("selected", "selected")
@@ -173,8 +173,8 @@ ImgurClone.Views.RegionsView = Backbone.View.extend({
 		region.destroy({
 			url: "/regions/" + value,
 			success: function(){
-				that.set_notification("Region Deleted")
 				that.render_header();
+				that.set_notification("Region Deleted")
 				that.render_world();
 			}
 		})

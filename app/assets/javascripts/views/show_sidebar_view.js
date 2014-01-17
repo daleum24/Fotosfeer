@@ -41,20 +41,20 @@ ImgurClone.Views.ShowSideBarView = Backbone.View.extend({
 		var name = $("#save_region_name").val()
 		
 		if (name === ""){
-			$("#notification_bar").html("Name Please!").fadeIn(400)
+			$("#messages").html("Name Please!").fadeIn(400)
 			
 			window.setTimeout(function(){ 
-				$("#notification_bar").fadeOut(600).html("")
+				$("#messages").fadeOut(600).html("")
 			}, 1000) 
 		} else {
 			ImgurClone.RegionsCollection.create(
 				{region: {name: name, north_bound: north, south_bound: south, east_bound: east, west_bound: west}},{
 				url: "/users/" + ImgurClone.user_id + "/regions",
 				success: function(){
-					$("#notification_bar").html("Region Created!").fadeIn(400)
+					$("#messages").html("Region Created!").fadeIn(400)
 					
 					window.setTimeout(function(){ 
-						$("#notification_bar").fadeOut(600).html("")
+						$("#messages").fadeOut(600).html("")
 					}, 1000) 
 				}
 			})

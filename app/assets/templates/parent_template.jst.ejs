@@ -9,7 +9,7 @@
 	<% } %>
 
 	
-	<article class="article-content">
+	<article class="article-content group">
 	
 		<p class="p-username"><%= ImgurClone.UsersCollection.get(top_level_comment.escape("commenter_id")).escape("username") %></p>
 		<p><%= top_level_comment.escape("body") %></p>
@@ -19,7 +19,7 @@
 		
 		<form class="reply-post-form" id="reply-<%= top_level_comment.escape('id') %>">
 			<input type="text" id="comment-input-<%= top_level_comment.escape('id') %>" placeholder="Reply to this comment" name="comment[body]"></input>
-			<input id="comment-submit" type="submit" value="Save" data-id="<%= top_level_comment.escape('id') %>"></input>
+			<input class ="group" id="comment-submit" type="submit" value="Save" data-id="<%= top_level_comment.escape('id') %>"></input>
 		</form>
 		
 	</article>

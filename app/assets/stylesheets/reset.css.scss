@@ -1,4 +1,4 @@
-html, body, header, section, input, img, nav, div, ul, li, p, a, figure{
+html, h1, h2, body, header, section, input, img, nav, div, select, option ul, li, p, a, figure{
   margin: 0px;
   border: 0px;
   padding: 0px;
@@ -9,6 +9,7 @@ html, body, header, section, input, img, nav, div, ul, li, p, a, figure{
 
 body{
 	font-family: sans-serif;
+	height: 100%;
 }
 
 a{
