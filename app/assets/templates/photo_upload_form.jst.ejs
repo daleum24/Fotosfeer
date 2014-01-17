@@ -17,17 +17,24 @@
 	</div>
 	
 	<div id="initial_update_form" style="display:none">
-		<input type="text" id="initial_title" name="photo[title]" placeholder="Title"></input>
-		
+	
 		<div class="new_upload_preview"></div>
-		
-		<textarea name="photo[description]" id="initial_description" placeholder="Description"></textarea>
-		
-		<div id="initial_update_buttons_wrap">
+	
+		<div id="edit_fields">
+			<input type="text" id="initial_title" name="photo[title]" placeholder="Title"></input>
+			<textarea name="photo[description]" id="initial_description" placeholder="Description"></textarea>
+
 			<input type="submit" class="update_destroy_buttons" value="Add Photo" id="update_image"></input>
 			<input type="submit" class="update_destroy_buttons" value="Cancel" id="destroy_image"></input>
+
 		</div>
+	
+		
 	</div>
+
+
+
+
 
 	<div id="upload_error" style="display:none">
 		<p>Sorry! We cannot upload your image if it does not contain a location! <p>
