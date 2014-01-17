@@ -25,6 +25,10 @@ a{
 	text-decoration: none;
 }
 
+body{
+	overflow: hidden;
+}
+
 .errors{
 	text-align: center;
 	height: auto;
@@ -111,6 +115,7 @@ header{
 .background_container{
 	width: 500%;
 	height: 100%;
+	overflow: hidden;
 }
 
 .portal_background{
@@ -153,7 +158,7 @@ header{
 }
 
 .password_reset{
-	display: block;
+	display: block; 
 	float: right;
 	width: auto;
 }
