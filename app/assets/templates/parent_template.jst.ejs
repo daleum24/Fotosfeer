@@ -15,7 +15,6 @@
 		<p><%= top_level_comment.escape("body") %></p>
 	
 		<a href="#" class="reply-link" data-id="<%= top_level_comment.escape('id') %>">Reply</a>
-		<a href="#" class="delete-link" data-id="<%= top_level_comment.escape('id') %>">Delete</a>
 		
 		<form class="reply-post-form" id="reply-<%= top_level_comment.escape('id') %>">
 			<input type="text" id="comment-input-<%= top_level_comment.escape('id') %>" placeholder="Reply to this comment" name="comment[body]"></input>
